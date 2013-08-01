@@ -1,0 +1,249 @@
+/***
+Theme Name: bemygirl
+Version: 1.0
+Author: @cova_kid for Hacemos Código
+Author URI: http://hacemoscodigo.com
+***/
+
+@charset 'utf-8';
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif}table{font-size:inherit;font:100%}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}
+
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+h1{font-size:138.5%}h2{font-size:123.1%}h3{font-size:108%}h1,h2,h3{margin:1em 0}h1,h2,h3,h4,h5,h6,strong{font-weight:bold}abbr,acronym{border-bottom:1px dotted #000;cursor:help}em{font-style:italic}blockquote,ul,ol,dl{margin:1em}ol,ul,dl{margin-left:2em}ol{list-style:decimal outside}ul{list-style:disc outside}dl dd{margin-left:1em}th,td{border:1px solid #000;padding:.5em}th{font-weight:bold;text-align:center}caption{margin-bottom:.5em;text-align:center}p,fieldset,table,pre{margin-bottom:1em}input[type=text],input[type=password],textarea{width:12.25em;*width:11.9em}
+/*HTML5 element display*/
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section{display:block;}
+/*Figures*/
+figure {margin: 0;}
+
+/* Utilities */
+.lst_reset, .lst_reset li { margin: 0; padding: 0; list-style: none; }
+.clear { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
+
+/* clearfix for modern browsers */
+.cf:before,
+.cf:after { content:""; display:table; }
+.cf:after { clear:both; }
+/* For IE 6/7 (trigger hasLayout) */
+.cf { zoom:1; }
+
+/* --- @FONT FACE --- */
+
+@font-face {
+	font-family: 'lucida';
+	src: url('fonts/lhandw-webfont.eot');
+	src: local('☺'),
+		url('fonts/lhandw-webfont.woff') format('woff'),
+		url('fonts/lhandw-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* --- GENERAL --- */
+
+html, body{ background: #000; color: #000; font-weight: 500;}
+
+#wrapper{ width: 1100px; margin: 0 auto 20px auto; padding: 10px; background: #fff; }
+
+.left{ float: left !important; }
+.right{ float: right !important; }
+
+/* --- HEADER --- */
+
+#header{ position: relative; overflow: hidden; margin-bottom: 20px; padding-top: 20px; }
+
+#header_top{ width: 100%; position: relative; overflow: hidden; letter-spacing: 0.2em;}
+
+#bottom_nav{ width: 90%; margin: -18px 0 0 0; padding: 0 0 13px 0; position: relative; overflow: hidden;  list-style: none; letter-spacing: 0.2em;}
+#bottom_nav li{ float: left; text-transform: uppercase; margin: 0 10px; padding: 0 10px; }
+#bottom_nav li:first-child{ margin-left: 0; padding-left: 0; }
+#bottom_nav li a{ color: #000; text-decoration: none; padding: 0 0 6px 0; position: relative; z-index: 2; }
+#bottom_nav li a.active{ color: #ff92cf; text-decoration: none; border-bottom: 5px solid #ff92cf; }
+
+.dashed{ border: 0; margin: 0 0 5px 0; border-bottom: 1px dashed #000; top: -5px; position: relative; }
+
+#header_bottom{ margin: 0; list-style: none; position: relative; overflow: hidden; float: right; }
+#header_bottom li{ float: left; text-transform: uppercase; font-size: 9px; margin: 0 3px;}
+#header_bottom li a{ color: #000; text-decoration: none; }
+
+h1{ width: 270px; float: left; margin: 0; }
+h1 a{}
+h1 a img{}
+
+#top_menu{ margin-top: 10px; float: right; }
+
+#options { margin: 0 0 10px 0; list-style: none; position: relative; overflow: hidden; }
+#options li{ float: left; text-transform: uppercase; margin: 0 5px; }
+#options li:first-child span{ width: 14px; height: 15px; display: block; background: url('images/sprite.png') no-repeat; float: left; }
+#options li:first-child p{ margin: 0 0 0 10px; float: left; }
+#options li a{ color: #000; text-decoration: none;}
+
+#lang{ margin: 0 0 10px 0; list-style: none; position: relative; overflow: hidden; float: right; }
+#lang li{ float: left; margin: 0 5px; }
+#lang li a{ color: #000; text-decoration: none; }
+
+#displays{ width: 100%; margin: 0; list-style: none; position: relative; overflow: hidden; float: right; }
+#displays li{ width: 18px; height: 18px; margin: 0 5px; text-transform: uppercase; background: url('images/sprite.png') no-repeat; float: right; cursor: pointer;}
+#displays li#refresh { background-position: -15px 2px; }
+#displays li#big { background-position: -33px 2px; }
+#displays li#small { background-position: -50px 2px; }
+#displays li a{}
+
+/* --- SIDEBAR --- */
+
+#filters{ width: 12%; float: left; font-size: 13px; letter-spacing: 0.2em;}
+#filters h3{ margin: 0 0 30px 0; text-transform: uppercase; font-weight: 500; font-size: 13px; }
+
+#ul_filters{ margin: 0 0 40px 0; list-style: none; }
+#ul_filters li{ color: #686868; margin-bottom: 20px; cursor: pointer; }
+#ul_filters li span { width: 8px; height: 8px; display: inline-block; background: url('images/sprite.png') no-repeat; background-position:-9px -18px; }
+#ul_filters li ul{ margin: 0 0 0 20px; list-style: none; }
+#ul_filters li ul li{ margin-bottom: 5px; }
+#ul_filters li ul li a{}
+
+.boton_negro{ margin: 0 0 20px 0; padding: 2px 0; background: #000; color: #fff; text-transform: uppercase; text-indent: 10px; cursor: pointer; }
+.boton_negro span{ width: 5px; height: 10px; display: inline-block; margin-top: 3px; background: url('images/sprite.png') no-repeat; background-position:-2px -18px; }
+.boton_negro p { display: inline-block; margin: 0; }
+
+.back_to_top{ width: 26px; height: 26px; background: url('images/sprite.png') no-repeat -47px -16px #000; position: absolute; bottom: 0; cursor: pointer; }
+
+/* --- FOOTER --- */
+
+#footer_100{ width: 100%; position: relative; overflow: hidden; background: #000; }
+#footer{ width: 1100px; margin: 0 auto 20px auto; color: #fff; position: relative; overflow: hidden; }
+#footer .un_cuarto{ width: 28%; margin: 0 2.5%; float: left; position: relative; }
+#footer .un_cuarto span{ width: 25px; height: 25px; display: inline-block; background: url('images/sprite.png') no-repeat; position: absolute; left: 0; top: 0;  }
+#footer .un_cuarto span#costumer{ background-position: -73px -27px; }
+#footer .un_cuarto span#latest{ background-position: -75px -56px; }
+#footer .un_cuarto span#contact{ background-position: -74px -2px; }
+#footer .un_cuarto h3{ margin:0 0 20px 0; font-size: 18px; text-indent: 30px; }
+#footer .un_cuarto h3#links{ text-indent: 0; }
+
+#footer #contact_cuarto { width: 12%; }
+#footer #links_cuarto{ width: 12%; }
+
+#footer .un_cuarto p{ font-family: Arial; font-size: 12px; }
+#footer .un_cuarto p a{ color: #fff; text-decoration: none;}
+
+#footer .hr_footer{ width: 98%; margin:0 auto 10px auto; border: 0; border-bottom: 1px dotted #919191; float: none;}
+
+#footer .copy{ width: 98%; margin: auto; font-family: Arial; font-size: 11px; color: #7c7c7c; }
+
+#forma_support{ width: 100%; }
+#forma_support input{ width: 98%; margin-bottom: 10px; padding: 1%; border: 1px solid #919191; background: #000; color: #fff; font-style: italic;}
+#forma_support input[type='text']{}
+#forma_support input[type='email']{}
+#forma_support input[type='submit']{ width: 20%; float: right; font-style: normal; }
+#forma_support textarea{ width: 98%; margin-bottom: 10px; padding: 1%;  border: 1px solid #919191; background: #000; color: #fff; font-style: italic;}
+
+.tweet{}
+
+/* --- HOME --- */
+
+#main{ position: relative; overflow: hidden; }
+
+.girls_grid{ width: 85%; float: right; position: relative; overflow: hidden; }
+
+@-moz-document url-prefix() {
+    .girl{ width: 31.6%!important;}
+    #girl_sidebar .girl_mosaic{ width: 49%!important;  }
+    #girl_sidebar .girl{ width: 98.5%!important; margin: 0 auto 1px auto !important; box-sizing: border-box !important; position: relative!important; overflow: hidden!important; float: none!important; }
+    .girls_grid.small .girl{ width: 18.4%!important; }
+
+}
+.girl{ width: 33%; padding: 10px 0.5%; margin: 1px 0.15%; float: left; border: 1px solid #7c7c7c; box-sizing: border-box; position: relative; }
+.girl a{ display: inline-block; }
+.girl a img{ width: 96%; height: auto; margin: 0 auto 10px auto; display: block; }
+.girl h4{ font-size: 12px; font-family: 'lucida'; float: left; margin: 0 0 5px 2%; font-weight: normal; }
+.girl h4 a{ color: #000; text-decoration: none; }
+.girl span{ margin: 3px 2% 0 0; text-align: right; font-size: 9px; text-transform: uppercase; float: right; }
+.girl span a{ color: #000; text-decoration: none; }
+.girl .back_soon{ width: 35%; position: absolute; top: 0; left: 0; }
+
+.girls_grid.small{}
+
+.girls_grid.small .girl{ width: 19.7%; }
+.girls_grid.small .girl span{ display: none; }
+
+.girls_grid.small .girl .back_soon{ width: 45%; }
+
+.load_more{ width: 99.5%; height: 50px; margin-right: 0.2%; background: #000; cursor: pointer; float: right; }
+.load_more p{ color: #fff; text-transform: uppercase; text-align: center; font-size: 26px; margin: 0; line-height: 50px;}
+/* --- SINGLE --- */
+
+#girl_sidebar{ width: 30%; float: left;  }
+
+#girl_sidebar .girl{ width: 100%; margin: 0 auto 1px auto; box-sizing: border-box; position: relative; overflow: hidden; float: none; }
+#girl_sidebar .girl a{ display: block; }
+#girl_sidebar .girl img{ width: 95%; margin: 0 auto 10px auto; display: block; }
+#girl_sidebar .girl span a{ display: inline-block; }
+
+
+#girl_sidebar .girl_mosaic{ width: 49.7%; margin: 0 0 1px 1px; border: 1px solid #7c7c7c; box-sizing: border-box; }
+#girl_sidebar .girl_mosaic img{ width: 90%; height: auto; margin: 10px auto 25px auto; display: block; }
+
+#girl_main{ width: 65%; float: right; position: relative; overflow: hidden; }
+
+#girl_main #bio{ margin-bottom: 50px; padding: 0 0 20px 0; position: relative; overflow: hidden; border: 1px solid #000; }
+
+#bio_header{ margin-bottom: 20px; padding: 8px 8px 8px 8px; background: #000; color: #fff; position: relative; overflow: hidden; }
+#bio_header span{ width: 50%; padding: 6px; box-sizing: border-box; }
+#bio_header span#name{ font-size: 18px; text-transform: uppercase; float: left; }
+#bio_header span#tel{ font-size: 18px; text-transform: uppercase; text-align: right; float: right; }
+#bio_header span#area{ float: left; }
+#bio_header span#email{ text-align: right; float: right; }
+
+#mas table, .content_tabs table, #girl_main #bio table{ width: 40%; margin: 0 1.5% 0 0; float: left; font-family: Arial;}
+#girl_main #bio table{ margin: 0 1.1%; }
+.content_tabs table tr, #girl_main #bio table tr{ }
+#mas table tr th, .content_tabs table tr th, #girl_main #bio table tr th{ font-size: 14px; font-weight: bold; text-align: left; border: none; }
+#mas table tr td, .content_tabs table tr td, #girl_main #bio table tr td{ font-size: 12px; border: none; vertical-align: top; }
+#mas table tr td.bold, .content_tabs table tr td.bold, #girl_main #bio table tr td.bold{ font-weight: bold; }
+#girl_main #bio table tr td .heart{ width: 10px; height: 10px; background: url('images/sprite.png') no-repeat; background-position: -2px -29px; display: block; float: left; margin-right: 2px; }
+#girl_main #bio table tr td .heart.half{ background-position: -14px -29px;  }
+.content_tabs table tr td p{ margin: 0 5px 0 0; float: left; }
+.content_tabs table tr td .star{ width: 10px; height: 10px; background: url('images/sprite.png') no-repeat; background-position: -24px -29px; display: block; float: left; margin-right: 2px; }
+.content_tabs table tr td .rate, #girl_main #bio table tr td .rate{ width: 50px; height: 40px; background: url('images/sprite.png') no-repeat; background-position: 0px -38px; display: block; float: right; }
+
+#tabs{ }
+#tabs #nav_tabs{ margin: 0 0; padding: 0 0 5px 0; list-style: none; text-transform: uppercase; position: relative; overflow: hidden; z-index: 1; }
+#tabs #nav_tabs li{ margin: 0 4%; float: left; text-align: center; }
+#tabs #nav_tabs li:first-child{ margin-left: 0; }
+#tabs #nav_tabs li:last-child{ margin-right: 0; }
+#tabs #nav_tabs li a{ color: #000; text-decoration: none;}
+#tabs #nav_tabs li a.active{ color: #ff92cf; text-decoration: none; border-bottom: 5px solid #ff92cf; }
+
+.dotted{ border: 0; margin: 0; border-bottom: 1px dotted #000; top: -5px; position: relative; }
+
+.tabs_father { margin: -3px 0 1px 0; padding: 10px 10px 10px 7px; border-color: #fff #000 #000 #000; border-style: solid; border-width: 1px;  }
+
+.content_tabs{ position: relative; overflow: hidden; }
+.content_tabs.hidden{ height: 0px; }
+
+#message{ padding: 20px 14px 10px 14px; margin: 0 0 1px 0; border: 1px solid #000; }
+#message p{ font-family: Arial; font-size: 11px; line-height: 24px; }
+
+#mas{ padding: 20px 10px 10px 7px; border: 1px solid #000; position: relative; overflow: hidden; }
+#mas table{}

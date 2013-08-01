@@ -1,0 +1,372 @@
+/*
+Theme Name: ChildFund México
+Theme URI: http://losmaquiladores.com/
+Description: Tema hecho exclusivamente para ChildFund México por Los Maquiladores
+Author: Los Maquiladores (Jorge Noricumbo)
+Version: 1
+Text Domain: ChildFund México por Los Maquiladores
+*/
+
+/*
+@import url("css/yui_cssreset-min.css");
+@import url("css/yui_cssbase-min.css");
+@import url("css/yui_cssfonts-min.css");
+*/
+
+@charset 'utf-8';
+
+/*
+YUI 3.7.3 (build 5687)
+Copyright 2012 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+
+/*
+YUI 3.7.3 (build 5687)
+Copyright 2012 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+h1{font-size:138.5%}h2{font-size:123.1%}h3{font-size:108%}h1,h2,h3{margin:1em 0}h1,h2,h3,h4,h5,h6,strong{font-weight:bold}abbr,acronym{border-bottom:1px dotted #000;cursor:help}em{font-style:italic}blockquote,ul,ol,dl{margin:1em}ol,ul,dl{margin-left:2em}ol{list-style:decimal outside}ul{list-style:disc outside}dl dd{margin-left:1em}th,td{border:1px solid #000;padding:.5em}th{font-weight:bold;text-align:center}caption{margin-bottom:.5em;text-align:center}p,fieldset,table,pre{margin-bottom:1em}input[type=text],input[type=password],textarea{width:12.25em;*width:11.9em}#yui3-css-stamp.cssbase{display:none}
+
+
+/*
+YUI 3.7.3 (build 5687)
+Copyright 2012 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif}table{font-size:inherit;font:100%}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}#yui3-css-stamp.cssfonts{display:none}
+
+
+@font-face{font-family:'hermesregular'; src:url('fonts/hermes-bold-webfont.eot'); src:url('fonts/hermes-bold-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/hermes-bold-webfont.woff') format('woff'), url('fonts/hermes-bold-webfont.ttf') format('truetype'), url('fonts/hermes-bold-webfont.svg#hermesregular') format('svg'); font-weight:normal; font-style:normal; }
+
+body { color: #6D6E70; }
+a { color: #FD9000; }
+
+.boton { background-color: #fd9000; color: white; margin: 15px 0; text-transform: uppercase; font-weight: normal; display: inline-block; clear: both; padding: 5px 10px; font-family: 'hermesregular'; cursor: pointer; border: none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; transition: box-shadow 0.3s ease; -moz-transition: box-shadow 0.3s ease; -webkit-transition: box-shadow 0.3s ease; -o-transition: box-shadow 0.3s ease; }
+.boton a { color: white; text-decoration: none; }
+.boton:hover {box-shadow: 1px 1px 3px white;}
+.boton.grande { font-size: 167%; }
+.boton.pequeno { font-size: 85%; }
+.boton.verde { background-color: #007944; }
+
+.logout { position: absolute; top: 50px; right: 0; }
+
+.centered{ width: 255px; text-align: center; }
+
+/* -------------------- Contenedor general --------------------- */
+
+div#wrapper { width: 960px; margin: 0 auto; position: relative; }
+
+/* -------------------- Header y menús --------------------- */
+
+ul#menu-menu-superior { background-color: #0097D2; margin: 0; height: 46px; color: white; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+ul#menu-menu-superior li { list-style: none; float:left; margin: 0; }
+ul#menu-menu-superior li a { color: white; text-decoration: none;  padding: 15px 35px; display: block; border-right: 1px solid #BBBDBF; transition:background-color 0.5s ease; -moz-transition:background-color 0.5s ease; -webkit-transition:background-color 0.5s ease; -o-transition:background-color 0.5s ease; }
+ul#menu-menu-superior li.current-menu-item { background-color: black; }
+ul#menu-menu-superior li a:hover { background-color: black; }
+ul#menu-menu-superior li:first-child a, ul#menu-menu-superior li:first-child a:hover, ul#menu-menu-superior li:first-child.current-menu-item { -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomleft: 10px; border-bottom-left-radius: 10px; }
+
+ul#menu-menu-sociales { background-color: #BABCBE; margin: 0; height: 46px; color: white; -webkit-border-bottom-right-radius: 5px; -moz-border-radius-bottomright: 5px; border-bottom-right-radius: 5px; position: absolute; top: 0; right: 0; padding: 0 20px; }
+ul#menu-menu-sociales li { list-style: none; float: left; margin: 0; text-transform: uppercase; }
+ul#menu-menu-sociales li#menu-item-siguenos { padding: 15px 5px; }
+ul#menu-menu-sociales li img { margin: 11px 5px; }
+
+.fb_iframe_widget iframe{ width: 275px !important; }
+
+
+h1.logo { background: url("/wp-content/uploads/2013/01/logo_childfund_40anios_2_292x129.png") top center no-repeat transparent; height: 129px; width: 287px; text-indent: -9999px; overflow: hidden; margin: 10px 0; }
+h1.logo a { display: block; height: 129px; width: 225px; }
+
+nav.menu-menu-principal-container {  border-bottom: 1px solid #CCC; margin-bottom: 15px; }
+ul#menu-menu-principal { font-family: 'hermesregular'; background-color: #8EC63F; margin: 0 0 15px 0; height: 51px;  }
+ul#menu-menu-principal li { color: white; list-style: none; text-transform: uppercase; font-size: 131%; float:left;   }
+ul#menu-menu-principal li a { color: white; text-decoration: none; display: block; padding: 15px 30px; transition:background-color 0.5s ease; -moz-transition:background-color 0.5s ease; -webkit-transition:background-color 0.5s ease; -o-transition:background-color 0.5s ease; }
+ul#menu-menu-principal li.current-menu-item { background-color: #FC9000; }
+ul#menu-menu-principal li a:hover { background-color: #FC9000; }
+
+/* -------------------- Contenedor principal --------------------- */
+
+div.botones_home { margin: 0 0 25px 0; padding: 15px 0 25px 0; /*border-top: 1px solid #CCC;*/ border-bottom: 1px solid #CCC; }
+div.botones_home img { margin-right: 13px; }
+div.botones_home img.last { margin: 0; }
+
+div.noticias { width: 630px; float: left; margin: 15px 0; border-right: 1px solid #CCC; padding-right: 25px; }
+div.noticias h2 { font-family: 'hermesregular'; color: #777; text-transform: uppercase; font-weight: normal; font-size: 167%; margin: 0; }
+div.noticias h2 a { color: #777; text-decoration: none; display: block; }
+
+div.nota { background-color: #F2F1F0; margin: 15px 0 0; padding: 20px; }
+div.nota img { float: left; margin: 0 15px 15px 0; }
+div.nota h3 { color: #8DC63F; margin: 0 0 10px 0; font-size: 161.6%; }
+div.nota h3 a { color: #8DC63F; text-decoration: none; }
+
+div.nota p.fecha { color: #CCC; }
+
+p.leer-mas { color: #FD9000; text-align: right; cursor: pointer; }
+p.leer-mas.regresar { text-align: left; }
+p.leer-mas a { color: #FD9000; text-decoration: none; display: block; }
+p.leer-mas span.flechita { background-color: #FD9000; color: white; padding: 1px 3px; font-weight: bold; -webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px; }
+
+p.paginado { color: #FD9000; text-align: center; cursor: pointer; margin-top: 25px; }
+p.paginado a { color: #FD9000; text-align: center; cursor: pointer; }
+
+/* -------------------- Contenedor genérico --------------------- */
+
+div.contenedor_generico h2 { color: #8DC63F; margin-top: 0; font-size: 138.5%; }
+
+
+/* -------------------- Centros --------------------- */
+
+div.centros_cont { width: 630px; float: left; margin: 15px 0; border-right: 1px solid #CCC; padding-right: 25px; }
+div.centros_cont h2 { font-family: 'hermesregular'; color: #777; text-transform: uppercase; font-weight: normal; font-size: 167%; margin: 0; padding-bottom: 15px; }
+div.centros_cont img {max-width: 620px;}
+/* -------------------- Acerca --------------------- */
+
+div.acerca ul.acerca-menu { background-color: #FEB836; width: 300px; float: left; margin: 25px 25px 25px 0 ; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+div.acerca ul.acerca-menu li { list-style: none; color: #D64E00; font-size: 138.5%; font-weight: bold; transition:background-color 0.5s ease, color 0.5s ease; -moz-transition:background-color 0.5s ease, color 0.5s ease; -webkit-transition:background-color 0.5s ease, color 0.5s ease; -o-transition:background-color 0.5s ease, color 0.5s ease; }
+div.acerca ul.acerca-menu li a { color: #D64E00; text-decoration: none; display: block; padding: 10px; }
+div.acerca ul.acerca-menu li a:hover { color: white; }
+div.acerca ul.acerca-menu li:hover { background-color: #F97A31; }
+div.acerca ul.acerca-menu li:first-child,
+div.acerca ul.acerca-menu li:first-child:hover,
+div.acerca ul.acerca-menu li:first-child a { -webkit-border-radius: 10px 10px 0 0; -moz-border-radius: 10px 10px 0 0; border-radius: 10px 10px 0 0; }
+div.acerca ul.acerca-menu li:last-child,
+div.acerca ul.acerca-menu li:last-child:hover,
+div.acerca ul.acerca-menu li:last-child a { -webkit-border-radius: 0 0 10px 10px; -moz-border-radius: 0 0 10px 10px; border-radius: 0 0 10px 10px; }
+
+div.acerca ul.acerca-menu li.active,
+div.acerca ul.acerca-menu li.active a { color: white; background-color: #F97A31; }
+
+div.acerca div.contenido { width: 610px; float: right; margin: 25px 0; }
+div.acerca div.contenido h2 { color: #8DC63F; margin-top: 0; font-size: 138.5%; }
+
+div.contacto h2 { color: #8DC63F; margin-top: 0; font-size: 138.5%; }
+
+/* -------------------- Centros --------------------- */
+
+div.ninos_cont { width: 630px; float: left; margin: 15px 0; border-right: 1px solid #CCC; padding-right: 25px; }
+div.ninos_cont h2 { color: #7AB800; font-size: 182%; margin-top: 0; }
+div.ninos_cont div.nino { float: left; padding: 3px; background-color: #7AB800; margin-left: 18px; margin-top: 15px; width: 100px; height: 167px; text-align: center; color: white; font-size: 85%; }
+div.ninos_cont div.nino a { color:white; text-decoration: none; }
+
+div.ninos_ind h2 { color: #7AB800; font-size: 182%; margin-top: 0; }
+div.ninos_ind div.ficha { background-color: #018752; margin-bottom: 20px; width: 657px; height: 260px; color: white; float: left; }
+div.ninos_ind div.ficha img { float: left; border: 5px solid #7AB800; margin: 15px; }
+div.ninos_ind div.ficha h3 { color: #CCDC00; font-size: 167%; margin-top: 0; display: inline-block; width: 400px; }
+div.ninos_ind div.ficha h3.hola { color: white; font-size: 153.9%; font-weight: bold; margin: 15px 0; }
+div.ninos_ind div.ficha p { display: inline-block; width: 400px; }
+
+div.ninos_ind div.datos { float: right; width: 273px; height: 230px; color: white; background-color: #7AB800;  padding: 15px; }
+div.ninos_ind div.datos h3 { margin-top: 0; font-size: 153.9%; }
+div.ninos_ind div.datos ul.post-meta { list-style: none; margin: 0; }
+div.ninos_ind div.datos ul.post-meta li span { font-weight: bold; }
+
+form#datos_padrino { margin: 25px 0; width: 510px; text-align: right; }
+form#datos_padrino label { display: block; margin-bottom: 15px; }
+
+/* -------------------- Informe --------------------- */
+
+div#informe_anual { text-align: right; }
+div#informe_anual h2 { margin: 0; color: #005E00; font-size: 153.9%; }
+
+/* -------------------- Escucha --------------------- */
+
+div#escucha_cont h2 { color: #005E9E; font-size: 182%; }
+div#escucha_cont div.audio { border-bottom: 1px dashed #CECECE; margin-bottom: 25px; padding-bottom: 10px;}
+div#escucha_cont div.audio h3 { font-weight: normal; }
+
+/* -------------------- Acceso a padrinos --------------------- */
+
+form#loginform_custom table { margin: 0 auto; }
+form#loginform_custom table td  { border: none; }
+#login_error{ margin: 0 auto !important; width: 33% !important;}
+
+div.lista_ahijados { background-color: #C6E597; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; padding: 25px; width: 600px; }
+div.lista_ahijados h3 { color: #008752; font-weight: normal; margin-bottom: 15px; font-size: 124.5%; font-family: 'hermesregular'; text-transform: uppercase; }
+div.lista_ahijados img { float: left; margin: 0 10px 10px 0; }
+div.ahijado-data p { color: #303030; font-size: 14px; line-height: 20px; }
+div.ahijado-data { color: #303030; font-size: 14px; line-height: 20px; }
+div.ahijado-data{ margin-bottom: 10px; padding-bottom: 5px;  border-bottom: 1px dotted #999; min-height: 145px; }
+div.ahijado-data:last-child{ border-bottom: none; margin-bottom: 0px }
+div.texto_bienvenida { float:left; width: 250px; }
+a.send-msg{ font-size: 16px; font-family: 'hermesregular'; }
+.boton.tienda { float: right; }
+
+
+/* -------------------- Contenido padrinos / sidebar padrinos --------------------- */
+
+.contenido-padrino { width: 630px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; float: left; }
+
+div#sidebar.tienda_padrinos { padding-top: 20px; }
+
+div#padrino-data{ margin-top:20px; background-color: #008752; color: white; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; cursor: pointer; }
+div#padrino-data a { padding: 15px; display: block; color: white; text-decoration: none; }
+div#padrino-data p.regresar_ahijados { color: #C6E597; margin: 10px 0 0 0; text-align: center; text-transform: uppercase; font-weight: bold; }
+
+div#carrito-padrino{ margin:20px 0 20px 0; position: relative; }
+div#carrito-padrino h1 { background-color: #7AB800; padding: 5px; text-align: center; color:white; font-family: 'hermesregular'; font-weight: normal; margin: 0; font-size: 150%;}
+
+div#carrito-padrino li { height: 100px; list-style: none; padding: 10px 10px 0 10px; border-bottom: 0px solid #F7F7F7; border: #CCCCCC solid 1px; position: relative; }
+div#carrito-padrino li:hover { background-color: #F7F7F7; }
+div#carrito-padrino h3 { margin: 0; font-size: 12px !important; font-weight: bold;}
+div#carrito-padrino p { margin: 0 auto;}
+div#carrito-padrino p.num_producto { color: #E1E1E1; position: absolute; bottom: -3px; right: 3px; font-size: 350%; font-family:'hermesregular'; }
+div#carrito-padrino p.importante { margin: 25px 0; padding: 0 10px; }
+
+.check_out{ display: block; width: 265px; margin: 0 auto; background-color: #fd9000; color: white; margin: 0 auto; text-transform: uppercase; font-weight: normal;  font-family: 'hermesregular'; border: none;  transition: box-shadow 0.3s ease; -moz-transition: box-shadow 0.3s ease; -webkit-transition: box-shadow 0.3s ease; -o-transition: box-shadow 0.3s ease; padding: 5px; cursor: pointer; -webkit-border-radius: 0 0 10px 10px; -moz-border-radius: 0 0 10px 10px; border-radius: 0 0 10px 10px; text-align: center; text-decoration: none; font-size: 150%; }
+.check_out:hover{ box-shadow: 1px 1px 3px grey;  }
+.cart-delete{ background-color: inherit; color: #b1b1b1; padding: 0px; margin: 0 0 0 140px; }
+
+div#carrito-padrino img{ float:left; margin-right: 10px; }
+.left{ float: left; }
+
+
+div.ahijados_sidebar { background-color: #C6E597; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; padding: 25px; width: 225px; }
+div.ahijados_sidebar h4 { color: #008752; font-weight: normal; margin-bottom: 15px; font-size: 124.5%; font-family: 'hermesregular'; text-transform: uppercase; }
+div.ahijados_sidebar p { margin-bottom: 10px !important; }
+
+ul#filterOptions { list-style: none; margin: 15px 0; background-color: #FFDBAE; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; padding: 15px; }
+ul#filterOptions h3 { color: #FD9000; font-weight: normal; margin: 0 0 10px 0; font-size: 124.5%; font-family: 'hermesregular'; text-transform: uppercase; }
+ul#filterOptions li a { text-decoration: none; color: #A67C52; font-family: 'hermesregular';  }
+ul#filterOptions li.active a { color: #FD9000; }
+
+/* -------------------- Contenido tienda padrinos --------------------- */
+
+div.cart-element{ width: 200px; min-height: 350px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; float: left; margin: 0 0 20px 10px; border: gray solid 1px; overflow: hidden; position: relative; }
+.cart-element img{ margin-bottom: 10px; }
+.cart-element h2{ text-align: center; font-size: 12px !important; font-weight: bold; text-transform: uppercase; }
+.cart-element p{  margin: 0 0 0 10px; font-weight: normal !important; }
+.cart-element .contents{ height: 90px; }
+.add_to_cart { background-color: #0097D2; margin: 0 5px 5px 0; position: absolute; bottom: 3px; right: 3px; }
+.add_to_cart:hover { box-shadow: 1px 1px 3px grey; }
+.contenido-carrito{ width: 142px;}
+.input-mini { width: 2.25em !important; }
+
+.sinopsis { position: absolute; top: 0; left: 0; background-color: #D5EDF2; color: #6D6E70; padding: 10px; height: 180px; width: 180px; overflow: auto;  }
+
+div.shopping-cart table { width: 80%; margin: 0 auto 25px auto; text-align: center; border-spacing: 0; }
+div.shopping-cart table thead tr:first-child th:first-child { -webkit-border-radius: 10px 0 0 0; -moz-border-radius: 10px 0 0 0; border-radius: 10px 0 0 0; }
+div.shopping-cart table thead tr:first-child th:last-child { -webkit-border-radius: 0 10px 0 0; -moz-border-radius: 0 10px 0 0; border-radius: 0 10px 0 0; }
+
+div.shopping-cart table td { border: none; padding: 15px 0; }
+div.shopping-cart table th { border: none; background-color: #7AB800; color: white; padding: 15px 0; font-family: 'hermesregular'; font-size: 150%; font-weight: normal;  }
+
+div.shopping-cart table tbody tr td { background-color: #EBEBEB; }
+div.shopping-cart table tbody tr:last-child td { background-color: #FFDBAE; color: white; font-size: 150%; color: #FD9000; font-family: 'hermesregular'; }
+
+div.shopping-cart table tr:last-child td:first-child { -webkit-border-radius: 0 0 0 10px; -moz-border-radius: 0 0 0 10px; border-radius: 0 0 0 10px; }
+div.shopping-cart table tr:last-child td:last-child { -webkit-border-radius: 0 0 10px 0; -moz-border-radius: 0 0 10px 0; border-radius: 0 0 10px 0; }
+
+.empty_cart { margin: 25px 0; text-align: center; }
+
+
+/* -------------------- Sidebar --------------------- */
+
+div#sidebar { padding-left: 25px; width: 275px; float: right;}
+div.fb-like-box { margin-top: 25px; }
+
+/* -------------------- Footer --------------------- */
+
+div#footer { background-color: black; color: white; text-align: center; height: 35px; line-height: 35px; margin: 15px 0; }
+div#footer a { color: white; }
+
+div.clear { clear: both; }
+
+
+#contact {
+	background: #fff;
+	border: 1px solid #323232;
+	position: relative;
+	position: absolute;
+	top: 0;
+	width: inherit;
+	display: none;
+	z-index: 9999;44
+}
+
+#form-buttons{
+	background: #e3e3e3;
+	padding: 0.3em 0.3em;
+}
+
+
+/* Close button on form */
+.close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-weight: bold;
+	font-family: sans-serif;
+	cursor: pointer;
+}
+
+/* Form inputs */
+#contact textarea { width: 81%; line-height: 2em; border: 1px solid #C6E597;}
+#contact textarea:focus { outline: none; border-color: #8ec63f; }
+#contact-img { margin-left: -16px; }
+
+#contact button {
+	margin-top: 20px;
+	background: #008752;
+	color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#contact input[type=submit]{
+	margin: 0;
+	background-color: #8EC63F;
+}
+
+.contact-pointer{
+	position: relative;
+	top: -56px;
+	left: 90px;
+}
+
+
+div.facturas table { width: 90%; margin: 0 auto 25px auto; text-align: center; border-spacing: 0; }
+div.facturas table thead tr:first-child th:first-child { -webkit-border-radius: 10px 0 0 0; -moz-border-radius: 10px 0 0 0; border-radius: 10px 0 0 0; }
+div.facturas table thead tr:first-child th:last-child { -webkit-border-radius: 0 10px 0 0; -moz-border-radius: 0 10px 0 0; border-radius: 0 10px 0 0; }
+
+div.facturas table td { border: none; padding: 15px 0; }
+div.facturas table th { border: none; background-color: #7AB800; color: white; padding: 15px 0; font-family: 'hermesregular'; font-size: 150%; font-weight: normal;  }
+
+div.facturas table tbody tr td { background-color: #EBEBEB; font-size: 14px;}
+div.facturas table tbody tr:last-child td { background-color: #FFDBAE; color: white; font-size: 150%; color: #FD9000; font-family: 'hermesregular'; }
+
+div.facturas table tr:last-child td:first-child { -webkit-border-radius: 0 0 0 10px; -moz-border-radius: 0 0 0 10px; border-radius: 0 0 0 10px; }
+div.facturas table tr:last-child td:last-child { -webkit-border-radius: 0 0 10px 0; -moz-border-radius: 0 0 10px 0; border-radius: 0 0 10px 0; }
+
+#aviso-container{ background: url(images/bg_negro.png) repeat; width: 100%; height: 110%; position: absolute; display: none; z-index: 9999; }
+#aviso-container .cerrar{ width: 20px; height: 20px; margin: -10px -30px 0 0; float: right; cursor: pointer; }
+#aviso-container .content-aviso-privacidad{ background: white; padding: 20px 40px 20px 30px; text-align: justify; width: 600px; height: 500px; position: absolute; left: 50%; margin-left: -300px; top: 50%; margin-top: -400px; overflow: scroll; -webkit-border-radius: 5px; border-radius: 5px;}
+#aviso-container .content-aviso-privacidad p { font-size: 15px; color: #303030; }
+#aviso-container .content-aviso-privacidad h1 { font-size: 20px; color: #303030; }
+
+.hidden{ display: none; }
+
+/*mapa*/
+div.cont_map { width: 630px; height: auto; float: left; margin: 15px 0;  padding-right: 0px; border-right: 1px solid #CCC; overflow: hidden; position: relative;  }
+div.cont_map span{ font-size: 20px;text-transform: uppercase; font-weight:bold; } 
+div.cont_map h2{ font-size: 16px; color: #f2af32;   }
+div.cont_map p{ font-size: 13px;  }
+div.cont_map .centros_cont_map { width: 605px; height: 450px; float: left; margin: 15px 0;  padding-right: 0px; overflow: hidden; position: relative;  }
+div.cont_map .centros_cont_map #mapa_mx{ position:absolute; z-index:300;  }
+div.cont_map .centros_cont_map area {z-index: 5 }
+div.cont_map .centros_cont_map #ver{z-index: 4;}
+div.cont_map .centros_cont_map #e_ver{position: absolute; width: 16.5%; z-index: 100;  top: 57.1%; left: 59.2%; display:none;}
+div.cont_map .centros_cont_map #e_pue{position: absolute; width: 7.3%; z-index: 100;  top: 64.6%; left: 58%; display:none;}
+div.cont_map .centros_cont_map #e_mich{position: absolute; width: 11.8%; z-index: 100;  top: 61.7%; left: 43%; display:none;}
+div.cont_map .centros_cont_map #e_edo{position: absolute; width: 6.3%; z-index: 100;  top: 66.3%; left: 53%; display:none;}
+div.cont_map .centros_cont_map #e_hid{position: absolute; width: 5.6%; z-index: 100;  top: 59.6%; left: 55.4%; display:none;}
+div.cont_map .centros_cont_map #e_chi{position: absolute; width: 11.8%; z-index: 100;  top: 69.2%; left: 73.9%; display:none;}
+div.cont_map .centros_cont_map #e_oax{position: absolute; width: 15.4%; z-index: 100;  top: 71.6%; left: 59.7%; display:none;}

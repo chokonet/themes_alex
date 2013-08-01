@@ -1,0 +1,567 @@
+/*
+Theme Name: dr-york
+Author: @zolitariuz for @losmaquiladores / prisci.la
+Author URI: http://losmaquiladores.com/
+*/
+
+@import url("yui_reset.css");
+@import url("yui_fonts.css");
+@import url("yui_base.css");
+
+@font-face {
+    font-family: 'Conv_MuseoSans_700';
+    src: url('fonts/clarendonltstd-bold-webfont.eot');
+    src: url('fonts/clarendonltstd-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/clarendonltstd-bold-webfont.woff') format('woff'),
+         url('fonts/clarendonltstd-bold-webfont.ttf') format('truetype'),
+         url('fonts/clarendonltstd-bold-webfont.svg#Conv_MuseoSans_700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_MuseoSans_700';
+	src: url('fonts/ClarendonLTStd-Light.eot');
+	src: local('☺'),
+		url('fonts/ClarendonLTStd-Light.ttf') format('truetype'),
+		url('fonts/ClarendonLTStd-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_MuseoSans_700';
+	src: url('fonts/MuseoSans_700.eot');
+	src: local('☺'),
+		url('fonts/MuseoSans_700.ttf') format('truetype'),
+		url('fonts/MuseoSans_700.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_MuseoSans_900';
+	src: url('fonts/MuseoSans_900.eot');
+	src: local('☺'),
+		url('fonts/MuseoSans_900.woff') format('woff'),
+		url('fonts/MuseoSans_900.ttf') format('truetype'),
+		url('fonts/MuseoSans_900.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.deleteable { display: none; }
+
+html{ }
+body{ color: #FFFFFF; min-width: 1040px; }
+
+#video{
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+#video #negro{
+	height: 100%;
+	width: 100%;
+	background: url(images/negro_trans.png);
+}
+
+#video iframe{ width: 853px; position: absolute; top: 60%; left: 50%; margin-top: -240px; margin-left: -426px; z-index: 9990; }
+
+#video #cerrar_video{width: 20px; height: 20px; top: 59%; left: 51%; margin-left: 415px; margin-top: -249px; position: absolute; text-indent: -9999em;  background-image: url("images/cerrar.png"); z-index: 99999; cursor: pointer; }
+
+.video_escondido{
+	visibility: hidden;
+	display: none;
+}
+
+.clear { clear: both; }
+
+#container{ min-width:1260px; display: none; }
+
+#container #header{	padding: 15px 0; text-align: center;  margin-bottom:35px; }
+#container #header div.logo {width: 80px; text-align:center; display:inline-block;}
+#container #header ul#social{ height: 27px;	width: 130px; margin: 0px; list-style: none; position:absolute; top: 75px; left: 29px; }
+#container #header ul#social li{ float: left; }
+#container #header ul#social li.twitter{ height: 27px; width: 28px; }
+#container #header ul#social li.facebook{ height: 27px; width: 13px; margin-left: 25px;}
+#container #header ul#social li.instagram{ height: 27px; width: 28px; margin-left: 25px;}
+
+#container #aside{ width: 12%; font-family: 'Conv_MuseoSans_700', Helvetica, Verdana, Arial, sans-serif; font-size: 20px; position:fixed; top: 155px; left: 30px; text-transform:lowercase;}
+
+#container #aside #nav{ width: 100%; height: 360px; }
+#container #aside #nav ul{ width: 70%; list-style: none; margin: 0; }
+#container #aside #nav ul li{ text-shadow: black 0.1em 0.1em 0.2em; }
+#container #aside #nav ul li a{ color: #FFF; text-decoration: none; }
+
+#container #ver_video{ font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif; font-size: 13px; position: absolute; top: 88px; right: 2%; }
+#container #ver_video p{ color: #FFF; cursor: pointer; }
+#container #ver_video ul{ list-style: none; margin: 10px 0 0 0;}
+#container #ver_video ul li{margin-bottom: 5px; font-size: 14px;}
+#container #ver_video ul li.active a:after{ content: '*';  }
+#container #ver_video ul li a{ color: #FFF; text-decoration: none; }
+
+/* CAJOTA */
+
+#container #cajota{ width: 870px; position: relative; margin: 0 auto; }
+#container #cajota img{ width: 870px; height: 470px; }
+
+#container #pager{ width: 927px; height: 104px; margin: 0px; }
+#container #pager img{ border: none; display: block;}
+#container #pager li { width: 104px; height: 104px; float: left; margin-right: 5px; list-style: none; }
+
+#pager li p.nombre_chiquito{ position: absolute; color: #fff; top: 50%; font-family: 'Conv_MuseoSans_700',Georgia,"Times New Roman",Times,serif; width: 104px; text-align: center;}
+#pager a { text-decoration: none; height: 104px; width: 104px; display: block; }
+/* CAJOTA */
+
+/* CAJITA */
+
+#container .cajita{ width: 100%; height: 470px; margin: 0px; }
+#container .cajita .minicaja img{ height: 470px; width: 870px; }
+
+.bio{ width: 98%; margin: 10px auto; padding: 10px 1% 3px 1%; display: block; position: relative; background: url(images/negro50.png); }
+.bio p{ font-size: 16px;  font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif; }
+
+/* CAJITA */
+
+/* MINICAJA */
+
+#container #gente #slidergente #cajota .cajita .minicaja{ width: 870px; height: 470px; }
+
+div#container div#cajota div.cajita p{
+	border-top: 3px solid #FFFFFF;
+	font-family: 'Conv_MuseoSans_700',Georgia,"Times New Roman",Times,serif;
+	font-size: 36px;
+	left: 287px;
+	line-height: 33px;
+	margin: 0 auto;
+	padding-top: 10px;
+	position: absolute;
+	text-align: center;
+	top: 400px;
+	width: 310px;
+}
+
+/* MINICAJA */
+
+#container .nav{ height: 22px; position: absolute; top: 400px; left: 40px; width: 834px; z-index: 100; }
+#container .nav .prev{ width: 16px; height: 22px; }
+#container .nav .next{ width: 16px; height: 22px; float: right; }
+
+/* GENTE */
+
+#container #gente{ width: 930px; margin: 0 auto; }
+
+#container #gente #slidergente{ width: 930px; margin: 0 auto; position: relative; }
+
+#container #gente #subtitulo{ width: 100%; height: auto; margin: 10px auto; padding: 0px 0% 0px 0%; display: block; position: relative;   background: url(images/negro50.png); overflow: hidden; }
+#container #gente #subtitulo #cont{ width: 98%; height: 104px; margin: 1%; display: block; position: relative;  overflow: scroll; }
+#container #gente #subtitulo #cont p{ width: 100%; height: auto; margin: 0px auto; padding: 0px 0% 0px 0%; display: block; position: relative;  font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif; font-size: 16px;  }
+
+#container #gente #ver_descripcion{ font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif; font-size: 13px; width: 850px; margin: 10px auto 35px auto; text-align: center; }
+
+#container #gente #texto_se_trata_de_la_gente #cerrar_texto{ background-image: url("images/cerrar.png"); height: 20px; margin-left: 847px; margin-top: -19px; text-indent: -9999em; width: 20px; z-index: 99999; cursor: pointer; }
+
+#container #gente #texto_se_trata_de_la_gente{ font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif; font-size: 16px; width: 850px; margin: 10px auto; padding: 10px 10px 3px 10px; background: url(images/negro50.png); }
+#container #gente #texto_se_trata_de_la_gente p{ margin-bottom: 10px; }
+
+#container #gente h3{
+	margin: 0 auto 10px auto;
+	font-size: 20px;
+	text-align: center;
+
+	text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#container #gente #grid{
+	list-style: none;
+	width: 872px;
+	margin: 0 auto;
+}
+#gente #grid.masonry a{
+	float: left;
+	height: 104px;
+	width: 104px;
+	margin: 0px 5px 5px 0!important;
+}
+
+#container #gente #grid .persona{
+	float: left;
+	height: 104px;
+	width: 104px;
+	margin: 0px 5px 5px 0!important;
+	display: block;
+	position: relative
+}
+
+#grid .persona .img_wrapper img.small{
+	width: 104px;
+	height: 104px;
+}
+
+#gente #grid .persona div.persona_large{
+	width: 431px;
+	height: 431px;
+}
+
+#gente #grid .persona .persona_large img.large{
+	width: 431px;
+	height: 431px;
+}
+#gente #grid .persona .persona_large h4{
+	font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif;
+	font-size: 5px;
+	color: #FFF;
+	font-weight: normal;
+	position: relative;
+	top: -60px;
+	width: 431px;
+	text-align: center;
+}
+
+.abierto{
+	height: 431px !important;
+	width: 431px !important;
+}
+
+#container #gente div#grid div.persona div.img_wrapper{
+	display: block !important;
+	width: 0px !important;
+	height: 0px !important;
+}
+
+/* PRENSA */
+
+#container #prensa #grid{
+	list-style: none;
+	width: 100%;
+	float: left;
+}
+
+#container #prensa #grid .prensafancybox{
+	float: left;
+	height: 104px;
+	width: 104px;
+	margin: 0px 5px 5px 0!important;
+}
+#grid .iframe .img_wrapper img.small{
+	width: 104px;
+	height: 104px;
+}
+
+#container #prensa div#grid a.iframe div.img_wrapper{
+	display: block !important;
+	width: 0px !important;
+	height: 0px !important;
+}
+
+/* QUIENES */
+
+#container #quienes{
+	width: 930px;
+	margin: 0 auto;
+}
+
+#container #quienes #quienessomos{
+	width: 896px;
+	margin: 0 auto;
+}
+
+#container #quienes #imagen_izquierda{
+	width: 428px;
+	height: 642px;
+	margin-right: 20px;
+	float: left;
+}
+
+#container #quienes #texto_derecha{
+	width: 408px;
+
+	padding: 10px;
+	float: left;
+	background: url(images/negro50.png);
+}
+
+#container #quienes #texto_derecha p{
+	font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+}
+
+/* QUIENES */
+
+/* CONTACTO */
+
+#container #contacto{ width: 930px; margin: 0 auto; }
+#container #contacto p{ width: 400px; font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif;  padding: 10px; margin: 0 auto; text-align: center; background: url(images/negro50.png); }
+#container #contacto p#grande{ font-size: 36px; margin-bottom: 13px; }
+#container #contacto p#chico{ font-size: 13px; }
+#container #contacto p#chico a{ color: #fff; text-decoration: none; }
+
+#container #contacto #map{ width: 420px; height: 300px; margin: 20px auto 0 auto; display: block; }
+
+/* CONTACTO */
+
+
+/* BLOG */
+#container .entrada{
+	width: 930px;
+	margin: 0 auto;
+}
+
+#container .entrada .dentro{
+	width: 876px;
+	margin: 0 auto 40px auto;
+	overflow: hidden;
+	position: relative;
+}
+
+
+#container .entrada .imagen_entrada{
+	width: 428px;
+	height: 270px;
+	float: left;
+	margin-right: 20px;
+}
+
+#container .entrada .texto_entrada{
+	width: 408px;
+	height: 250px;
+	float: left;
+	background: url(images/negro50.png);
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#container .entrada .texto_entrada h3{
+	font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif;
+
+	font-weight: normal;
+	margin: 0 0 4px 0;
+}
+
+#container .entrada .texto_entrada p{
+	font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif;
+	font-size: 13px;
+
+}
+
+#container .entrada .texto_entrada a {color: #fff; text-decoration: underline;}
+
+/* BLOG */
+
+/* PRENSA */
+
+#container #prensa{
+	width: 930px;
+	margin: 0 auto;
+}
+
+#container #prensa h3{
+	margin: 70px auto;
+	font-size: 20px;
+	width: 70px;
+}
+
+#container #prensa #grid{
+	list-style: none;
+	width: 100%;
+	margin: 0px;
+}
+
+#container #prensa #grid .persona{
+	position: relative!important;
+	overflow: hidden;
+	float: left;
+	margin: 0px 5px 5px 0!important;
+}
+
+/* PRENSA */
+
+/* GLOBALES */
+
+.escondido{
+	display: none;
+	width: 1px;
+	height: 1px;
+}
+
+.visible{
+	visibility: visible;
+	display: block;
+}
+
+/* TINY CAOURSEL */
+
+/* Tiny Carousel */
+#sliderpager {
+	height: 104px;
+	width: 926px;
+	margin: 5px auto 0 auto;
+	overflow:hidden;
+	position: relative;
+}
+
+#sliderpager .viewport {
+	float: left;
+	margin-left: 28px;
+	width: 870px;
+	height: 104px;
+	overflow: hidden;
+	position: relative;
+}
+
+#sliderpager .buttons {
+	height: 27px;
+	width: 23px;
+	display: block;
+	text-indent: -999em;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1000;
+}
+
+#sliderpager .left{
+	background:url("images/prev.png") no-repeat scroll 0 0 transparent;
+	margin-right: 5px;
+	margin-top: 38px;
+}
+
+#sliderpager .right {
+	background:url("images/next.png") no-repeat scroll 0 0 transparent;
+	margin-left: 910px;
+	margin-top: 38px;
+}
+
+/*
+#sliderpager .disable {
+	visibility: hidden;
+}
+*/
+
+#sliderpager .overview {
+	list-style: none;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 240px;
+	left: 0;
+	top: 0;
+}
+
+/* TINY CAOURSEL */
+
+
+/***COVA***/
+
+.seleccionado {
+
+	background-color: #FFF;
+}
+
+/* PLAYER */
+
+.player {
+	display: block;
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	top: 15px;
+	left: 804px;
+	z-index: 3000;
+	cursor: default;
+}
+
+.player2 {
+	cursor: default;
+	display: block;
+	height: 30px;
+	left: 780px;
+	position: absolute;
+	top: 12px;
+	width: 80px;
+	z-index: 500;
+}
+
+.playtoggle {
+	position: absolute;
+	top: -7px;
+	left: 25px;
+	width: 30px;
+	height: 30px;
+	background: url(images/player.png) no-repeat -30px 0;
+	cursor: pointer;
+}
+
+.playtoggle.playing {
+	background-position: 1px 0;
+}
+
+.playtoggle:active {
+	top: -6px;
+}
+
+.cajita-con-audio img.play_large{
+	width: 200px !important;
+	height: 200px !important;
+	left: 330px;
+	position: absolute;
+	top: 110px;
+	width: 200px !important;
+	z-index: 99;
+}
+
+#audioplayer_1{
+	z-index: 2000;
+	position: absolute;
+}
+
+/* PLAYER */
+
+
+/***featured***/
+
+.featured {
+	margin: 0 auto;
+	text-align: center;
+
+	min-height: 620px;
+}
+
+.featured h2{
+	margin: 40px auto;
+	font-size: 20px;
+	text-align: center;
+
+}
+
+.featured #persona_featured h4 {
+	font-family: 'Conv_MuseoSans_700', Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	color: #FFF;
+	font-weight: normal;
+	position: relative;
+	width: 431px;
+	text-align: center;
+
+	margin: 0 auto 15px auto;
+	text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#persona_featured #loader{
+	margin-top: 200px;
+	width: 50px;
+	height: 50px;
+}
+
+/* Estilo para el loader de gente */
+    a#inifiniteLoader{
+        position: fixed;
+        bottom: 15px;
+        left: 45%;
+        display:none;
+    }

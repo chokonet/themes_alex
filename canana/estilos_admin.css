@@ -1,0 +1,26 @@
+/*
+Theme Name: Canana
+Author: los maquiladores
+Author URI: http://losmaquiladores.com/
+*/
+
+.ficm_not_featured{
+	width: 80%;
+	margin-top: 30px;
+}
+.ficm_not_featured_msj{
+	float: left;
+	width: 95%;
+}
+.ficm_slider_img_id{
+	float: 	left;
+}
+.imgMeta{
+	width:95%;
+	display: block;
+}
+.ficm_not_featured img{
+	clear: both;
+	display: block;
+	max-width: 100%;
+}

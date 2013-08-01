@@ -1,0 +1,284 @@
+/*¬
+Theme Name: gamemaster
+Theme URI: http://gamemaster.com.mx
+Description: Foro de videojuegos y consolas
+Autor: Alejandro Cervantes
+versiion: 1.0
+*/
+/*
+    Theme Name: Game Master
+    Author: alejandro cervantes para gm
+    
+*/
+@font-face {
+    font-family: 'dinlight';
+    src: url('font/font-webfont.eot');
+    src: url('font/font-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/font-webfont.woff') format('woff'),
+         url('font/font-webfont.ttf') format('truetype'),
+         url('font/font-webfont.svg#dinlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'dinbold';
+    src: url('font/din_b/din_bold-webfont.eot');
+    src: url('font/din_b/din_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/din_b/din_bold-webfont.woff') format('woff'),
+         url('font/din_b/din_bold-webfont.ttf') format('truetype'),
+         url('font/din_b/din_bold-webfont.svg#dinbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'din_italic';
+    src: url('font/din_ita/ff_din_regular_italic_alternate-webfont.eot');
+    src: url('font/din_ita/ff_din_regular_italic_alternate-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/din_ita/ff_din_regular_italic_alternate-webfont.woff') format('woff'),
+         url('font/din_ita/ff_din_regular_italic_alternate-webfont.ttf') format('truetype'),
+         url('font/din_ita/ff_din_regular_italic_alternate-webfont.svg#din-regularitalicaltitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'dinboldita';
+    src: url('font/din_bol_it/ff_din_bold_italic-webfont.eot');
+    src: url('font/din_bol_it/ff_din_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/din_bol_it/ff_din_bold_italic-webfont.woff') format('woff'),
+         url('font/din_bol_it/ff_din_bold_italic-webfont.ttf') format('truetype'),
+         url('font/din_bol_it/ff_din_bold_italic-webfont.svg#din-bolditalicbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html, body{margin: 0px; padding: 0px;}
+body{
+	width: 100%;
+	height: auto;
+	background: #4D4D4D;
+	background: url(images/fondo_negro.jpg) repeat;
+
+}
+
+#contenido{background-color: #EAEAEA; width: 980px; padding: 0px; margin: 0 auto; position: relative; overflow: hidden; background: url(images/fondo_gris.jpg) repeat;} 
+
+/*header*/
+
+#header{clear : both; height: 160px; padding: 0px 0px 0px 0px; margin-top: 0; position: relative; overflow: hidden; background-image: url(images/header.png); background-repeat: no-repeat; background-position: center; }
+#logo_game{overflow: hidden; width: 253px;height: 62px;  float: left; margin: 25px 0px 28px 51px;}
+#h_registrarse{overflow: hidden; width: 101px;height: 37px;  float: left; margin: 9px 0px 0px 61px;}
+#h_sesion{overflow: hidden; width: 101px;height: 37px;  float: left; margin: 9px 0px 0px 2px;}
+#h_cface{overflow: hidden; width: 179px;height: 37px;  float: left; margin: 9px 0px 0px 2px;}
+#h_buscador{overflow: hidden; width: 201px;height: 34px;  float: left; margin: 9px 0px 0px 2px; background-image: url(images/buscador.png);}
+#h_facebook{position: absolute; overflow: hidden; width: 34px; height:34px; top:117px; left:822px;}
+#h_twitter{position: absolute; overflow: hidden; width: 34px; height:34px; top:117px; left:866px;}
+#h_youtube{position: absolute; overflow: hidden; width: 34px; height:34px; top:117px; left:909px;}
+
+/*header menu*/
+
+#header_mnu{position: absolute; overflow: hidden;  font-family: 'dinlight'; font-weight: light; height: 50px; left: 0px; top:104px;}
+#header_mnu ul{margin: 0px; list-style: none; height: 50px; position: relative; overflow: hidden;}
+#header_mnu ul li{float: left; line-height: 50px; font-size: 13.8px; height: 50px;}
+#header_mnu ul li.current-menu-item{background: url(images/over_mnu.png) repeat-x;}
+#header_mnu ul li.current-menu-item a{color: #fff;}
+#header_mnu ul li:hover{background: url(images/over_mnu.png) repeat-x;}
+#header_mnu ul li:hover a{color: #fff;}
+#header_mnu ul li a{color: #666666; text-decoration: none; text-transform: uppercase; height: 50px; display: block; padding: 0 0px 0px 13px;}
+#header_mnu ul li a:after{content: url(images/bg_separador_menu.jpg); width: 1px; float: right; width: 1px; margin-left: 20px; margin-left: 13px;}
+#header_mnu ul li a.selected{}
+
+/*buscador*/
+
+#search input[type="text"] {margin-left: 15px; width: 115px; color: #575757; font-size: 11px; font-weight: light; font-family: 'dinlight'; background: none; border: none;}
+form {display: block;margin-top: 0em;}
+#search input[type="submit"] {margin: 0px 0px 0px 1.5px; background: url(images/bg_search_submit.png) no-repeat -5px -2px; width: 65px; height: 35px; text-indent: -99999em; border: none; }
+
+/* -otro menu pero menos convincente- #header_mnu{position: absolute; overflow: hidden; width: 733px; height:54px; top:101px; left:46px; font-family: 'dinlight';}
+#header_mnu ul{list-style:none; margin:0px; padding:20px 0 0 0; font-family: 'dinlight'; }
+#header_mnu ul li {float:left; padding-left:11px;padding-right:10px; font-family: 'dinlight';}
+#header_mnu ul li a{text-decoration:none; color:#656565; }
+#header_mnu ul li a:hover{color:#FFFFFF; background-image: url(../images/over_mnu.png);}*/
+
+/*iniciar sesion*/
+#in_sesion{display: none; position: absolute; overflow: hidden; width: 183px; height: 114px;  margin: 52px 0px 0px 471.5px; background-image: url(images/f_insesion.png); z-index: 20; padding-top: 12px;}
+#ses_campo1{overflow: hidden; width: 150px; height: 25px; float: left; margin: 0px 0px 7px 15px; background-image: url(images/campo_ses.png); z-index: 22; font-family: 'dinbold'; font-size: 12px; color: #ccc;}
+#ses_campo1 input[type="text"] {margin-left: 8px; margin-top: 4px; width: 130px; font-family: 'dinbold'; font-size: 12px; color: #ccc; background: none; border: none;}
+#ses_bt{overflow: hidden; width: 99px; height: 34px; float: left; margin: 9px 0px 0px 41px; background-image: url(images/entrar_ses.png); z-index: 22; font-family: 'dinbold'; font-size: 12px; color: #ccc;}
+#ses_bt input[type="submit"] {margin: 0px 0px 0px 0px;  width: 99px; height: 34px; background-image: url(images/entrar_ses.png); text-indent: -99999em; border: none; }
+
+/*conectar con face*/
+#con_face{display: none; position: absolute; overflow: hidden; width: 147px; height: 117px;  margin: 6px 0px 0px 624px; background-image: url(images/fondo_faceses.png); z-index: 20; }
+#con_face_foto{overflow: hidden; width: 34px; height: 32px; float: left; margin: 5px 0px 0px 6px;  z-index: 22; font-family: 'dinbold'; font-size: 12px; color: #ccc;}
+#con_face_bt1{overflow: hidden; width: 135px; height: 19px; float: left; margin: 19px 0px 0px 0px;  z-index: 22; font-family: 'dinbold'; font-size: 14px; color: #fff; padding-left: 12px; padding-top: 2px;}
+#con_face_bt1 a{color: #fff; text-decoration: none;  display: block; }
+#con_face_bt1:hover{background: url(images/over_face.png) repeat-x;}
+
+/*banner*/
+#banner_game{clear : both; height: 107px; padding: 0px 0px 0px 110px; margin-top: 10px; position: relative; overflow: hidden;}
+
+/*contenidos*/
+
+#contenidos{clear : both; height: auto; width: 980px; padding: 0px 0px 0px 0px; margin-top: 10px; position: relative; overflow: hidden;}
+
+/*columna izquierda*/
+
+#columna_izq{overflow: hidden; width: 630px; float: left; margin: 0px 0px 0px 0px; padding: 0 0 0 17px;}
+#izq_barra{position: relative; overflow: hidden; width: 622; height: 113px; clear: both; margin: 0 0 0 0;  background-image: url(images/barra_tit.png); background-repeat: no-repeat;}
+#izq_barra_txt1{overflow: hidden; width: 320px; height: auto;  float: left; margin: 19px 0px 0px 31px; font-family: 'dinbold'; font-size: 28px; color: #fff; }
+#izq_barra_txt2{overflow: hidden; width: 561px; height: auto;  float: left; margin: 0px 0px 0px 31px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #fff; }
+#izq_barra_megusta{overflow: hidden; width: 77px; height: 22px;  float: left; margin: 0px 0px 0px 418px; }
+#izq_barra_tweet{overflow: hidden; width: 56px; height: 22px;  float: left; margin: 0px 0px 0px 4px; }
+#izq_barra_gmas{overflow: hidden; width: 32px; height: 22px;  float: left; margin: 0px 0px 0px 4px; }
+
+#izq_subtit{overflow: hidden; width: 253px; height: 31px;  float: left; margin: 15px 0px 0px 40px; font-family: 'dinbold';  font-size: 28px; color: #595959;letter-spacing: -0.05em;}
+#izq_buscador{overflow: hidden; width: 201px;height: 34px;  float: left; margin: 31px 0px 0px 98px; background-image: url(images/buscador.png);}
+#izq_creartema{position: absolute; overflow: hidden; width: 253px; height:27px; top:167px; left:59px;}
+#izq_line{overflow: hidden; width: 622px; height: 4px; float: left; margin: 20px 0 0 0; background-image: url(images/line_foter.png);}
+
+/*crear tema*/
+#crear_tema{position: absolute; overflow: hidden; width: 554px; height: 442px;  margin: 87px 0px 0px 43px; background-image: url(images/f_n_tema.png); z-index: 20; }
+#ct_izq{overflow: hidden; width: 376.44px; height: auto;  float: left; margin: 0px 0px 0px 0px;}
+#ct_tem{overflow: hidden; width: 344.44px; height: auto;  float: left; margin: 31.6px 0px 0px 32px;font-family: 'dinboldita'; font-size: 18px; color: #595959;}
+#ct_tit{overflow: hidden; width: 344.44px; height: auto;  float: left; margin: 5px 0px 0px 32px;font-family: 'dinboldita'; font-size: 12px; color: #3065FF;}
+
+/*modulos categorias*/
+#izq_c_categoria{overflow: hidden; width: 622px; height: auto; float: left; margin: 0 0 0 0; color: #000;}
+#izq_c_bt_txt{overflow: hidden; width: 200px; height: auto;  float: left; margin: 39px 0px 0px 29px; font-family: 'dinbold';  font-size: 18px; color: #fff; }
+#izq_c_bt{overflow: hidden; width: 420px; height: 107px;  float: left; margin: 15px 0px 0px 63.5px; background-image: url(images/img_categoria.png); background-repeat: no-repeat; }
+#izq_c_img{overflow: hidden; width: 107px; height: 107px;  float: left; margin: 0px 0px 0px 0px; }
+#izq_c_txt{overflow: hidden; width: 320px; height: auto;  float: left; margin: 0px 0px 0px 160.5px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #4d4d4d; }
+#izq_c_categoria a{color: #ff0000; text-decoration: none;  display: block; }
+
+#izq_banners{overflow: hidden; width: 208px; height: 167px; float: left; margin: 40px 0 0 0; }
+#izq_banners_img{position: absolute; overflow: hidden; width: 208px; height: 176px;  float: left; margin: 0px 0px 0px 0px; z-index: 1; }
+#izq_banners_txt{position: absolute; overflow: hidden; width: 155px; height: auto;  float: left; margin: 65.5px 0px 0px 16.9px; font-family: 'dinbold'; font-size: 21px; color: #fff; z-index: 5;}
+#izq_banners_txt2{position: absolute; overflow: hidden; width: 155px; height: auto;  float: left; margin: 119px 0px 0px 16.9px; font-family: 'din_italic'; font-size: 11.4px; color: #fff; z-index: 5;}
+
+/*columa_derecha*/
+
+#columna_der{overflow: hidden; width: 300px; float: left; margin: 0px 0px 0px 0px; padding: 0 15px 0 11px; }
+#der_barra{position: relative; overflow: hidden; width: 300; height: 63px; clear: both; margin: 0 0 0 0;  background-image: url(images/barra_tit_der.png); background-repeat: no-repeat; }
+#der_barra_tit{position: relative; overflow: hidden; width: 300; height: auto; clear: both; margin: 18px 0 0 0; font-family: 'dinbold'; font-size: 22px; color: #FFF; text-align: center; }
+
+/*destacados derecha*/
+#der_c_des{overflow: hidden; width: 300px; height: auto; float: left; margin: 9.8px 0 0 0;  }
+#der_c_des_c1{overflow: hidden; width: 300px; height: 14px;  float: left; margin: 0px 0px 10px 0px; }
+#der_c_des_c2{overflow: hidden; width: 300px; height: auto;  float: left; margin: 0px 0px 5px 0px; }
+#der_c_des_c1_a{overflow: hidden; width: 131px; height: 14px;  float: left; margin: 0px 5px 0px 0px; font-family: 'dinbold'; font-size: 11px; color: #A8A8A8;}
+#der_c_des_c1_b{overflow: hidden; width: 98px; height: 14px;  float: left; margin: 0px 5px 0px 0px; font-family: 'dinbold'; font-size: 11px; color: #A8A8A8;}
+
+/*destacados derecha arrojados*/
+#der_c_des_c1_c{overflow: hidden; width: 42px; height: 14px;  float: left; margin: 0px 0px 0px 0px; font-family: 'dinbold'; font-size: 11px; color: #A8A8A8;}
+#der_c_des_c1_a1{overflow: hidden; width: 131px; height: auto;  float: left; margin: 0px 5px 0px 0px;  font-family: 'dinboldita'; font-size: 13px; color: #0062CD;}
+#der_c_des_c1_b1{overflow: hidden; width: 98px; height: 14px;  float: left; margin: 0px 5px 0px 0px;  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #D40005; }
+#der_c_des_c1_c1{overflow: hidden; width: 42px; height: 14px;  float: left; margin: 0px 0px 0px 0px; font-family:  Arial, Helvetica, sans-serif; font-size: 8px; color: #666666;}
+#der_c_des_c1_a1 a{color: #0062CD; text-decoration: none;  display: block; }
+
+#der_banner{overflow: hidden; width: 300px; height: 249px; float: left; margin: 20px 0 20px 0;  }
+
+/*usuarios mas likes*/
+#der_maslikes{overflow: hidden; width: 300px; height: auto; float: left; margin: 0px 0 0 0;  }
+#der_usuarioslikes{overflow: hidden; width: 71px; height: 71px; float: left; margin: 10px 4px 0px 0;}
+#der_line{overflow: hidden; width: 300px; height: 4px; float: left; margin: 0px 0 0 0; background-image: url(img/line_foter.png);}
+
+/*top 10*/
+#der_top10{overflow: hidden; width: 300px; height: auto; float: left; margin: 16px 0 0 0;  }
+#der_tit_top10{overflow: hidden; width: 300px; height: auto;  float: left; margin: 0px 0px 16px 0px; font-family: 'dinbold';  font-size: 17px; color: #000;}
+#der_c_top10{overflow: hidden; width: 300px; height: 102px;  float: left; margin: 0px 0px 10px 0px;}
+#der_img_top10{overflow: hidden; width: 69px; height: 95px;  float: left; margin: 0px 0px 0px 0px;}
+#der_txt_top10{overflow: hidden; width: 102px; height: 102px;  float: left; margin: 0px 0px 0px 10px;}
+#der_txt_top10a{overflow: hidden; width: 102px; height: auto;  float: left; margin: 0px 0px 0px 0px; font-family: 'dinboldita'; font-size: 14px; color: #666666;}
+#der_txt_top10b{overflow: hidden; width: 102px; height: auto;  float: left; margin: 10px 0px 0px 0px; font-family: 'dinboldita'; font-size: 18px; color: #00ABFF;}
+#der_gm_top10{overflow: hidden; width: 42px; height: 102px;  float: left; margin: 0px 0px 0px 10px;}
+#der_gm_top10a{overflow: hidden; width: 42px; height: auto;  float: left; margin: 0px 0px 0px 0px; font-family: 'dinboldita'; font-size: 14px; color: #D40000; text-align: center;}
+#der_gm_top10b{overflow: hidden; width: 42px; height: 34px;  float: left; margin: 10px 0px 0px 0px; font-family: 'dinboldita'; font-size: 19px; color: #FFF; background-image: url(images/f1_top.png); text-align: center; padding-top: 7px;}
+#der_master_top10{overflow: hidden; width: 50px; height: 102px;  float: left; margin: 0px 0px 0px 10px;}
+#der_master_top10a{overflow: hidden; width: 50px; height: auto;  float: left; margin: 0px 0px 0px 0px; font-family: 'dinboldita'; font-size: 14px; color: #3065FF; text-align: center;}
+#der_master_top10b{overflow: hidden; width: 42px; height: 34px;  float: left; margin: 10px 0px 0px 4px; font-family: 'dinboldita'; font-size: 19px; color: #FFF; background-image: url(images/f2_top.png); text-align: center; padding-top: 7px;}
+#der_vmas_top10{overflow: hidden; width: 300px; height: auto;  float: left; margin: 0px 0px 0px 0px; font-family: 'dinbold'; font-size: 16px; color: #FF0000; text-decoration: none;}
+#der_vmas_top10 a{color: #ff0000; text-decoration: none;  display: block; }
+#der_banner2{overflow: hidden; width: 300px; height: 249px; float: left; margin: 16px 0 16px 0;  }
+#der_facebook{overflow: hidden; width: 300px; height: 300px; float: left; margin: 0px 0 16px 0; background-color: #FFF; }
+
+/*listado de temas*/
+
+#izq_c_logo{overflow: hidden; width: 42px; height: 42px; float: left; margin: 16px 0 0 0; }
+#izq_c_ncat{overflow: hidden; width: 530px; height: 30px; float: left; margin: 20px 0 0 10px; font-family: 'dinbold';  font-size: 29px; color: #595959; }
+#izq_c_ncat a{color: #595959; text-decoration: none;  display: block; }
+#izq_c_atu{overflow: hidden; width: 622px; height: 14px; float: left; margin: 10px 0 0 0; font-family: 'dinlight'; font-size: 13px; color: #595959;}
+#izq_c_atua{overflow: hidden; width: 200px; height: 14px; float: left; margin: 0px 0 0 52.2px; }
+#izq_c_atub{overflow: hidden; width: 117px; height: 14px; float: left; margin: 0px 0 0 33px; }
+#izq_c_atuc{overflow: hidden; width: 210px; height: 14px; float: left; margin: 0px 0 0 6px; }
+#izq_c_lpost{overflow: hidden; width: 539px; height: auto; float: left; margin: 10px 0 0 0; padding-bottom: 10.9px; background-image: url(images/f_list_post.png);}
+#izq_c_lpost_fot{overflow: hidden; width: 50px; height: 50px; float: left; margin: 6.2px 0 0 10.5px;}
+#izq_c_lpost_txt1{overflow: hidden; width: 110px; height: auto; float: left; margin: 6.2px 0 0 4px; }
+#izq_c_lpost_txt1a{overflow: hidden; width: 110px; height: auto; float: left; margin: 0px 0 0 0px; font-family: Helvetica, Arial, sans-serif; font-size: 12pt; color: #D40005;}
+#izq_c_lpost_txt1b{overflow: hidden; width: 110px; height: auto; float: left; margin: 0px 0 0 0px; font-family: Helvetica, Arial, sans-serif; font-size: 9pt; color: #666666;}
+#izq_c_lpost_tma{overflow: hidden; width: 272px; height: auto; float: left; margin: 6.2px 0 0 4px; }
+#izq_c_lpost_tma_con{overflow: hidden; width: 20px; height: auto; float: left; margin: 3px 0 0 8px; font-family: 'dinboldita'; font-size: 10px; color: #0062CD; }
+#izq_c_lpost_tma_tit{overflow: hidden; width: 221px; height: auto; float: left; margin: 0px 0 0 8px; font-family: 'dinboldita'; font-size: 13px; color: #0062CD; }
+#izq_c_lpost_tma_tit a{color: #0062CD;  text-decoration: none;  display: block; }
+#izq_c_lpost_tma_log{overflow: hidden; width: 15px; height: 15px; float: left; margin: 10.88px 0 0 8px; }
+#izq_c_lpost_tma_msj{overflow: hidden; width: 17px; height: 12.2px; float: left; margin: 10.88px 0 0 19.3px; }
+#izq_c_lpost_tma_msjn{overflow: hidden; width: auto; height: 16px; float: left; margin: 8px 0 0 7.7px; font-family: Helvetica, Arial, sans-serif; font-size: 10pt; color: #666666;}
+#izq_c_lpost_tma_msjn a{color: #666666;  text-decoration: none;  display: block; }
+#izq_c_lpost_tma_vew{overflow: hidden; width: 20px; height: 10px; float: left; margin: 10.88px 0 0 19.3px; }
+#izq_c_lpost_tma_newn{overflow: hidden; width: auto; height: 16px; float: left; margin: 8px 0 0 7.7px; font-family: Helvetica, Arial, sans-serif; font-size: 10pt; color: #666666;}
+#izq_c_u_coment{overflow: hidden; width: auto; height: auto; float: left; margin: 20px 0 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 9.3px; color: #666666; }
+
+/*posts*/
+#breadcrumb_a{overflow: hidden; width: 630px; height: auto; float: left; margin: 10px 0 0 0; font-family: 'din_italic'; font-size: 13px; color: #656565;}
+#breadcrumb{overflow: hidden; width: auto; height: auto; float: left; margin: 10px 0 0 0; font-family: 'din_italic'; font-size: 13px; color: #656565;}
+#breadcrumb a{font-family: 'din_italic'; font-size: 13px; color: #656565; text-decoration: none;  display: block; }
+
+#izq_post{overflow: hidden; width: 630px; height: auto; float: left; margin: 10px 0 0 0; padding-bottom: 10.9px; background-image: url(images/f_list_post.png);}
+#izq_posta{overflow: hidden; width: 120px; height: auto; float: left; margin: 0px 0 0 0px;}
+#izq_post_fot{overflow: hidden; width: 75px; height: 75px; float: left; margin: 9.66px 0 0 9.34px;}
+#izq_post_autor{overflow: hidden; width: 110px; height: auto; float: left; margin: 4px 0 0 9.34px; font-family: Helvetica, Arial, sans-serif; font-size: 11pt; color: #D40005;}
+#izq_post_nivelt{overflow: hidden; width: 31px; height: auto; float: left; margin: 6px 0 0 9.34px; font-family: 'dinbold';  font-size: 11px; color: #0062CD;}
+#izq_post_nivele{overflow: hidden; width: 57px; height: auto; float: left; margin: 4px 0 0 3px; }
+#izq_post_bandera{overflow: hidden; width: 18px; height: 13px; float: left; margin: 4px 90px 0 9.34px; }
+#izq_post_gma{overflow: hidden; width: 36px; height: auto; float: left; margin: 4px 0px 0 9.34px; font-family: 'dinbold'; font-size: 11px; color: #0062CD;}
+#izq_post_gmb{overflow: hidden; width: 18px; height: auto; float: left; margin: 6px 0px 0 5px; font-family: 'dinboldita'; font-size: 9.31px; color: #8CC03F;}
+#izq_post_gmc{overflow: hidden; width: 17px; height: auto; float: left; margin: 6px 0px 0 5px; font-family: 'dinboldita'; font-size: 9.31px; color: #3065FF;}
+#izq_post_gmd{overflow: hidden; width: 17px; height: auto; float: left; margin: 6px 0px 0 5px; font-family: 'dinboldita'; font-size: 9.31px; color: #3FB6FF;}
+#izq_post_bot{overflow: hidden; width: 15px; height: 14px; float: left; margin: 5px 0px 0 9.34px; font-family: 'dinbold'; font-size: 11px; color: #0062CD;}
+#izq_post_botex{overflow: hidden; width: 86px; height: 14px; float: left; margin: 5px 0px 0 6px; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #666666;}
+#izq_post_view{overflow: hidden; width: 20px; height: 10px; float: left; margin: 7px 0px 0 9.34px; font-family: 'dinbold'; font-size: 11px; color: #0062CD;}
+#izq_post_viewtx{overflow: hidden; width: 83px; height: 14px; float: left; margin: 5px 0px 0 6px; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #666666;}
+#izq_postbcd{overflow: hidden; width: 499px; height: auto; float: left; margin: 0px 0px 0 0px; }
+#izq_postb{overflow: hidden; width: 459px; height: auto; float: left; margin: 18px 20px 0 20px; }
+#izq_postb_log{overflow: hidden; width: 15px; height: 15px; float: left; margin: 0px 0 0 0px;}
+#izq_postb_gmb{overflow: hidden; width: 17px; height: auto; float: left; margin: 3px 0px 0 13px; font-family: 'dinboldita'; font-size: 9.31px; color: #8CC03F;}
+#izq_postb_gmc{overflow: hidden; width: 17px; height: auto; float: left; margin: 3px 0px 0 3px; font-family: 'dinboldita'; font-size: 9.31px; color: #3065FF;}
+#izq_postb_gmd{overflow: hidden; width: 17px; height: auto; float: left; margin: 3px 0px 0 3px; font-family: 'dinboldita'; font-size: 9.31px; color: #3FB6FF;}
+#izq_postb_tit{overflow: hidden; width: 360px; height: auto; float: left; margin: -2px 0px 0 13px; font-family: 'dinboldita'; font-size: 16px; color: #0062CD;}
+#izq_postb_fecha{overflow: hidden; width: 360px; height: auto; float: left; margin: 7px 0px 0 0px; font-family: Helvetica, Arial, sans-serif; font-size: 9.3px; color: #666666;}
+#izq_postc{overflow: hidden; width: 459px; height: auto; float: left; margin: 13.6px 20px 0 20px; background-image: url(images/fo_pos.jpg); border-radius: 10px; }
+#izq_postc_tx{overflow: hidden; width: 441px; height: auto; float: left; margin: 0px 0px 0 9.2px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: #666666; text-align: justify;}
+#izq_postc_skin{overflow: hidden; width: 422px; height: 50px; float: left; margin: 42px 0px 15px 17px;}
+#izq_postd{overflow: hidden; width: 459px; height: auto; float: left; margin: 16px 20px 0 20px; }
+#izq_postd_tag{overflow: hidden; width: 360px; height: auto; float: left; margin: 5px 0px 0 0px; font-family: 'dinbold'; font-size: 10px; color: #A0020E;}
+#izq_postd_tag a{color: #A0020E;  text-decoration: none;  display: block; font-family: 'dinbold'; font-size: 10px;  }
+#tags {overflow: hidden;  float: left; font-family: 'dinbold'; font-size: 10px; color: #A0020E;}
+#izq_postd_res{overflow: hidden; width: 84px; height: 22px; float: left; margin: 0px 0px 0 5px; }
+
+/*coments*/
+#izq_coment{overflow: hidden; width: 630px; height: auto; float: left; margin: 10px 0 0 0; padding-bottom: 10.9px; background-image: url(images/f_list_post.png); }
+#comen{overflow: hidden; width: 630px; height: auto; float: left; margin: 0px 0 0 0; padding-bottom: 10.9px; background-image: url(images/f_list_post.png); }
+
+#reply-title{display: none;}
+    
+/*footer*/
+
+#footer{ clear : both; height: auto; padding: 0px 0px 0px 0px; margin-top: 10px; position: relative; overflow: hidden;}
+#linea_gris{overflow: hidden; width: 980px; height: 4px;  float: left; margin: 0px 0px 0px 5px; padding-bottom: 10px; }
+#f_terminos{position: relative; overflow: hidden; width: 300px; height:auto; top:36px; left:32.5px;  font-family: arial,helvetica,clean,sans-serif; font-size: 11pt; float: left; color: #808080;}
+#f_gm{position: relative; overflow: hidden; width: 132px; height:30; top:55px; left:317px;  font-family: arial,helvetica,clean,sans-serif; font-size: 11pt; float: left; color: #808080;}
+#f_comscore{position: relative; overflow: hidden; width: 132px; height:30; top:55px; left:325px; float: left; }
+#f_aib{position: relative; overflow: hidden; width: 53px; height:64; top:36px; left:325px; float: left; }
+#f_anunciate{clear : both; position: relative; overflow: hidden; width: 300px; height:auto; top:25px; left:32.5px; padding-bottom: 60px;  font-family:arial,helvetica,clean,sans-serif; font-size: 12pt; color: #FF0000; font-weight:bold;}
