@@ -1,23 +1,28 @@
-<p class="footer">El contenido publicado expresa la opinión del autor y no necesariamente la de Pfizer Nutrición.<br />
-Antes de seguir cualquier recomendación sobre la salud y nutrición de su bebé, consulte a su médico.
-</p>
+			</div><!-- main -->
 
-		<div class="footer">
+			<p class="footer">
+				El contenido publicado expresa la opinión del autor y no necesariamente la de Pfizer Nutrición.
+				<br />
+				Antes de seguir cualquier recomendación sobre la salud y nutrición de su bebé, consulte a su médico.
+			</p>
 
-			<img class="leon" src="<?php bloginfo('template_url'); ?>/images/leon.png" />
+			<div class="footer">
 
-			<div class="barra_footer">
+				<img class="leon" src="<?php echo THEMEPATH ?>/images/leon.png" />
 
-				<p> <a href="#">Política de privacidad</a></p>
-				<p> <a href="#">Ayuda</a></p>
-				<p> <a href="#">Términos y condiciones</a></p>
+				<div class="barra_footer">
+					<div id="cont_politicas">
+						<p> <a href="#">Política de privacidad</a></p>
+						<p class="terms"> <a href="#">Términos y condiciones</a></p>
+					</div>
+				</div><!-- barra_footer -->
 
-			</div><!-- barra_footer -->
+			</div><!-- footer -->
 
-		</div><!-- footer -->
+		</div><!-- container -->
 
-	</div><!-- container -->
-	
-<?php wp_footer(); ?>
-</body>
+	<?php wp_footer(); ?>
+
+	</body>
+
 </html>
