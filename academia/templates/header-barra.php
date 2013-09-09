@@ -13,7 +13,7 @@
 		<div class="boton_barra rosa compartir"></div>
 
 		<div class="boton_barra rosa buscar">
-			<form class="forma_buscar" method="GET" action="">
+			<form class="forma_buscar" method="GET" action="<?php echo site_url('/') ?>">
 				<input type="text" name="s" value="buscar" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
 				<input type="submit" value="">
 			</form>

@@ -4,9 +4,9 @@
 		<h2>¿En qué etapa están?</h2>
 
 		<ul class="nav_main">
-			<li class="descubriendo">
+			<li class="embarazo">
 				<a href="<?php echo site_url('/category/mi-embarazo/') ?>"><p>Mi embarazo</p></a>
-				<h3 class="descubriendo_texto" ><a href="<?php echo site_url('/category/mi-embarazo/') ?>">El Inicio<br /> de Todo</a></h3>
+				<h3 class="embarazo_texto" ><a href="<?php echo site_url('/category/mi-embarazo/') ?>">El Inicio<br /> de Todo</a></h3>
 			</li>
 
 			<li class="primeros">

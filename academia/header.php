@@ -9,8 +9,7 @@
 		<title><?php bloginfo('name'); ?></title>
 		<?php wp_head(); ?>
 	</head>
-
-	<body <?php body_class(); ?>>
+	<body <?php body_class() ?>>
 
 		<div id="fb-root">
 			<!-- Place holder for the Facebook javascript API script to attach elements to the DOM -->

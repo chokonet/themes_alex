@@ -65,13 +65,15 @@
 
 	$(function(){
 
+
 		window.AcademiaFB = {
 			Settings: {
 				appId: '672465082763688',
 				channelUrl: template_url + '/js/FacebookSDK/channel.php',
 				oauth : true
 			},
-			Scope: { scope: 'email,publish_stream' }
+			Scope: { scope: 'email,publish_stream' },
+			Friends: {}
 		};
 
 
@@ -91,11 +93,10 @@
 
 
 		AcademiaFB.loginCallback = function (response) {
-
 			if (response.status === 'connected') {
-				console.log('el usuario ya autorizo la APP!!!');
+				$('body').removeClass('no-facebook');
 			}else if (response.status == 'not_authorized'){
-				alert('necitas acceptar para usar el sitio');
+				$('body').addClass('no-facebook');
 			}
 		};
 
@@ -105,18 +106,70 @@
 		};
 
 
+		AcademiaFB.getUserProfilePicture = function (friend) {
+			FB.api("/"+friend.facebook_id+"/picture?width=180&height=180",  function (response) {
+				$('<img />',{
+					src: response.data.url,
+					class: 'user'
+				}).appendTo('.usuarios');
+
+				$('.loading').hide();
+			});
+		};
+
+
+		AcademiaFB.showFiendsWhoReadThisPost = function (friends, post_id) {
+			$.get(ajax_url, {
+				friends: friends,
+				post_id: post_id,
+				action: 'get_friends_posts'
+			}, 'json')
+			.done(function (data) {
+
+
+				var friends = JSON.parse(data);
+
+				if( friends.length > 0){
+					$('.loading').show();
+				}else{
+					$('.loading').hide();
+				}
+
+
+				$.each(friends, function (index, friend){
+					AcademiaFB.getUserProfilePicture( friend );
+				});
+			});
+		};
+
+
+		AcademiaFB.getUserFriends = function(){
+			FB.api('/me/friends',function(response) {
+				if( ! response.data) {
+					return false;
+				}
+
+				AcademiaFB.Friends = $.map(response.data, function (friend, index) {
+					return friend.id;
+				});
+				AcademiaFB.showFiendsWhoReadThisPost(
+					AcademiaFB.Friends,
+					$('.titulo_single').data('post_id')
+				);
+			});
+		};
+
+
 		AcademiaFB.getLoginStatusCallback = function (response){
-			if (response.status === 'connected') {
-				console.log('el usuario esta conectado y ya autorizo');
-				// mostrar contenido exclusivo para usuarios que autorizaron
+			if (response.status === 'connected') { // mostrar contenido exclusivo para usuarios que autorizaron
 
+				// mostrarcontenidos del single
+				if ( is_single === '1'){
+					AcademiaFB.getUserFriends();
+				}
 
-			} else if (response.status === 'not_authorized') {
-				//el usuario SI esta conectado a Facebook falta autorizar la APP
-				AcademiaFB.loginFacebookUser();
-				$('body').addClass('no-facebook');
+				$('body').removeClass('no-facebook');
 			} else {
-				//el usuario NO esta conectado a Facebook
 				AcademiaFB.loginFacebookUser();
 				$('body').addClass('no-facebook');
 			}
@@ -131,6 +184,11 @@
 				FB.getLoginStatus( AcademiaFB.getLoginStatusCallback );
 			});
 		};
+
+
+		$(document).ready(function(){
+			AcademiaFB.init();
+		});
 
 
 

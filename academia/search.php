@@ -43,9 +43,7 @@
 
 		<?php endwhile;?>
 
-		<ul class="dicc_pager link_azul2">
-			<?php posts_nav_link( ' | ', '< Anterior', 'Siguiente >' ); ?>
-		</ul>
+
 
 	<?php else : ?>
 

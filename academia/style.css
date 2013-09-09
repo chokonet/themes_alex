@@ -85,7 +85,8 @@ h1{width:809px;text-align:center;position:relative;z-index:1000;margin:20px auto
 .main .titulo_seccion{width:90%;margin:10px 0 30px 5%;position:relative;overflow:hidden}.main .titulo_seccion h2{width:63%;margin:0;padding-left:7%;font-size:40px;color:#7fadd3;font-weight:normal;font-family:'Conv_GothamRnd-Medium';float:left}.main .titulo_seccion h2.favoritos{background:url('images/favoritos.png') no-repeat left 4px}
 .main .titulo_seccion h2.busqueda{background:url('images/busqueda.png') no-repeat left 4px}
 .main .titulo_seccion h2.actividad{background:url('images/actividad.png') no-repeat left 4px}
-.main .titulo_seccion .regresar{width:30%;color:#fff;cursor:pointer;text-transform:uppercase;border:none;margin:8px 0 0 0;padding:10px 10px 10px 40px;font-family:'Conv_GothamRnd-Medium';font-size:12px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;background:url('images/regresar.png') no-repeat 10px center #d289a6;float:left}
+.main .titulo_seccion .regresar{width:30%;color:#fff;cursor:pointer;text-transform:uppercase;border:none;margin:8px 0 0 0;padding:10px 10px 10px 40px;font-family:'Conv_GothamRnd-Medium';font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:url('images/regresar.png') no-repeat 10px center #d289a6;float:left}
+.main .titulo_seccion .regresar:active{ -webkit-box-shadow: inset 1px 2px 4px 2px #BB6898; box-shadow: inset 1px 2px 4px 2px #BB6898;}
 .main .titulo_seccion .regresar a {color: #fff; text-decoration: none;}
 .main .seccion_full{width:90%;height:350px;margin:0 auto 20px auto;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;-moz-box-shadow:-3px 8px 15px 0 rgba(0,0,0,0.2);-webkit-box-shadow:-3px 8px 15px 0 rgba(0,0,0,0.2);box-shadow:-3px 8px 15px 0 rgba(0,0,0,0.2)}.main .seccion_full .seccion_imagen{height:50%;position:relative}.main .seccion_full .seccion_imagen img{width:100%;height:100%;position:absolute;left:0;top:0;-moz-border-radius-topleft:10px;-moz-border-radius-topright:10px;-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px}
 .main .seccion_full .seccion_imagen .tag{padding:5px;text-transform:uppercase;color:#fff;font-size:10px;letter-spacing:.1em;position:absolute;right:10px;top:10px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
@@ -109,17 +110,26 @@ p.footer{width:100%;color:#fff;text-align:center;margin:29px 0 15px 0;position:r
 .footer .barra_footer p{line-height:50px;margin:0 100px;text-transform:uppercase;font-size:11px;font-weight:bold;display:inline-block}.footer .barra_footer p a{color:#fff}
 .footer .barra_footer #cont_politicas{width:760px;height:50px;background:#2956a1;position:relative;margin:0 auto;z-index:1}
 .leyeron{width:90%;margin-left:5%;position:relative;overflow:hidden}.leyeron p{width:70%;margin:10px 0 0 0;color:#7fadd3;text-transform:uppercase;font-size:12px;float:left}
-.leyeron .usuarios{width:30%;float:right}.leyeron .usuarios .user{width:30px;height:30px}
+.leyeron .usuarios{width:30%;float:right; height: 35px;}.leyeron .usuarios .user{width:30px;height:30px}
 .titulo_single{width:60%;margin:10px 0 15px 5%;position:relative;overflow:hidden}.titulo_single h2{margin:0;font-size:24px;color:#e59b3f;font-weight:normal;font-family:'Conv_GothamRnd-Medium'}.titulo_single h2.favoritos{background:url('images/favoritos.png') no-repeat left 4px}
 .titulo_single h2.busqueda{background:url('images/busqueda.png') no-repeat left 4px}
 .titulo_single h2.actividad{background:url('images/actividad.png') no-repeat left 4px}
 .titulo_single p{color:#bfbfbf;text-transform:uppercase;font-family:'Conv_GothamRnd-Medium';font-size:12px}
 .barra_social{width:90%;margin:0 0 15px 5%;position:relative;overflow:hidden}.barra_social .share_buttons{width:50%;float:left}.barra_social .share_buttons .twitter{margin:0 20px 0 0}
 .barra_social .share_buttons .facebook{margin:0 0 0 0}
+.barra_social .share_buttons .facebook:active{ -webkit-box-shadow: inset 1px 2px 4px 2px #2B416F; box-shadow: inset 1px 2px 4px 2px #2B416F; }
 .barra_social .agregar_fav{width:22%;padding:10px 10px 10px 30px;float:right;background:url('images/favoritos.png') no-repeat 8px center #d289a6;background-size:10px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;cursor:pointer}.barra_social .agregar_fav p{margin:0;color:#fff;font-size:10px;text-transform:uppercase;font-family:'Conv_GothamRnd-Medium'}
 .hero{width:90%;margin:0 0 15px 5%}
-.texto{width:344px;margin-left:5%;float:left;font-family:"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif}.texto p{color:#bfbfbf}
+body.favorito .agregar_fav{background: url('images/favoritos.png') no-repeat 8px center #bfbfbf!important; background-size: 10px!important;}
+body.favorito .agregar_fav:active{-webkit-box-shadow: inset 1px 2px 4px 2px #999999; box-shadow: inset 1px 2px 4px 2px #999999;}
+.barra_social .agregar_fav:active{ -webkit-box-shadow: inset 1px 2px 4px 2px #BB6898; box-shadow: inset 1px 2px 4px 2px #BB6898; }
+.barra_social .agregar_fav.selected_fav:active{ -webkit-box-shadow: inset 1px 2px 4px 2px #999999; box-shadow: inset 1px 2px 4px 2px #999999; }
+.texto{width:344px;margin-left:5%;float:left;font-family:"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif; color: #bfbfbf;}.texto p{color:#bfbfbf}
 .side{width:36%;float:left;padding-left:2%;margin-left:2%;border-left:1px solid #7fadd3}.side h4{margin:0 0 10px 0;color:#2956a1;text-transform:uppercase;font-family:'Conv_GothamRnd-Medium'}
 .side .seccion_mitad{width:100%;height:200px;margin:0 0 10px 0;float:none}.side .seccion_mitad .info_seccion .date{font-size:10px}
 .side .seccion_mitad .info_seccion h3{font-size:12px}
 .side .seccion_mitad .info_seccion p{color:#bfbfbf;font-size:12px}
+body.no-facebook .leyeron{ display: none;}
+body.no-facebook .agregar_fav{ display: none;}
+.barra_social .selected_fav {background: url('images/favoritos.png') no-repeat 8px center #bfbfbf!important; background-size: 10px!important;}
+.loading{width: 140px; margin-top: 10px; margin-bottom: 8px;}

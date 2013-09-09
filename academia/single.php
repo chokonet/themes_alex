@@ -3,14 +3,12 @@
 	<div class="leyeron">
 		<p>Ellas también leyeron este artículo:</p>
 		<div class="usuarios">
-			<img class="user" src="<?php echo THEMEPATH ?>images/bebe_wide.jpg" />
-			<img class="user" src="<?php echo THEMEPATH ?>images/bebe_wide.jpg" />
-			<img class="user" src="<?php echo THEMEPATH ?>images/bebe_wide.jpg" />
+			<img class="loading" src="<?php echo THEMEPATH ?>images/loading.gif"/>
 		</div><!-- usuarios -->
 	</div><!-- leyeron -->
 
 
-	<div class="titulo_single">
+	<div class="titulo_single" data-post_id="<?php the_ID() ?>">
 		<h2><?php the_title(); ?></h2>
 		<p>Subido el <?php the_date('d \d\e F'); ?>	</p>
 	</div>
@@ -71,7 +69,7 @@
 						<?php the_post_thumbnail( 'seccion_imagen_chica' ); ?>
 					</a>
 					<span class="tag <?php get_category_back($category); ?>">
-						<?php echo is_admin($category[0]) ? $category[0]->cat_name : ''; ?>
+						<?php echo isset($category[0]) ? $category[0]->cat_name : ''; ?>
 					</span>
 				</div><!-- seccion_imagen -->
 
@@ -88,7 +86,5 @@
 		<?php endwhile; endif; wp_reset_query(); ?>
 
 	</div><!-- side -->
-
-
 
 <?php get_footer(); ?>

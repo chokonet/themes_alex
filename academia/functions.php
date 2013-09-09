@@ -30,6 +30,7 @@
 
 		//localize
 		wp_localize_script('plugins', 'template_url',  get_bloginfo('template_url'));
+		wp_localize_script('plugins', 'is_single',  (string)is_single() );
 		wp_localize_script('functions', 'ajax_url',  get_bloginfo('wpurl').'/wp-admin/admin-ajax.php');
 
 	});
@@ -75,16 +76,14 @@
 	add_action('pre_get_posts', function($query){
 
 		if ( !is_admin() AND $query->is_main_query() ) :
-
 			if ( $query->get( 'category_name' ) ){
-				$query->set('posts_per_page', 4);
+				$query->set('posts_per_page', -1);
 				$query->set('post_type', array('post','productos'));
 			}
 
 			if ( is_search() ) {
 				$query->set('post_status', 'publish');
 			}
-
 		endif;
 
 		return $query;
@@ -110,6 +109,7 @@
 // FACEBOOK PHP API INTEGRATION //////////////////////////////////////////////////////
 
 
+
 	require_once 'inc/facebook-php-sdk/src/facebook.php';
 
 	$facebook = new Facebook(array(
@@ -122,19 +122,18 @@
 	$loginUrl = $facebook->getLoginUrl( array('scope'=>'email') );
 
 	if ( ! $fbUser) {
-	    echo "<script type='text/javascript'>top.location.href = '$loginUrl';</script>";
-	    exit;
+		echo "<script type='text/javascript'>top.location.href = '$loginUrl';</script>";
+		exit;
 	}
 	if (isset($_GET['code'])){
-	    header("Location: " . site_url() );
-	    exit;
+		header("Location: " . site_url() );
+		exit;
 	}
 
 
-	function get_facebook_user(){
-		global $fbUser;
-		return $fbUser;
-	}
+
+// AGREGAR ACTIVIDAD A LA BASE DE DATOS //////////////////////////////////////////////
+
 
 
 	add_action('wp_footer', function() use (&$post){
@@ -149,32 +148,32 @@
 
 
 
+// AGREGAR ACTIVIDAD A LA BASE DE DATOS //////////////////////////////////////////////
+
+
+
 	/**
 	 * Crea campos en la tabla wp_actividades, si ya existe el campo solo se actualiza.
+	 * Ademas se puede especificar si el post debe marcarse como favorito.
+	 *
 	 * @param $_POST['post_id']
-	 * @param $_POST['favorito']
+	 * @param $_POST['favorito'] Si el post es favorito o no
 	 */
 	function administrar_favoritos(){
 
-		$post_id  = isset($_POST['post_id']) ? $_POST['post_id'] : false;
-		$favorito = isset($_POST['favorito']) ? $_POST['favorito'] : false;
-
-
+		$post_id       = isset($_POST['post_id'])  ? $_POST['post_id']  : false;
+		$favorito      = isset($_POST['favorito']) ? $_POST['favorito'] : false;
 		$facebook_user = get_facebook_user();
-
-
 
 		if ( ! $facebook_user AND ! $post_id ) return;
 
 		$existe = check_if_actividad_exists($facebook_user, $post_id);
-
 
 		if ($existe){
 			$result = update_actividad($facebook_user, $post_id, $favorito);
 		} else {
 			$result = create_new_actividad($facebook_user, $post_id, $favorito);
 		}
-
 		echo json_encode($result);
 		exit;
 	}
@@ -183,12 +182,40 @@
 
 
 
+// AGREGAR CLASE FAVORITO AL SINGLE //////////////////////////////////////////////////
+
+
+
+	add_filter('body_class', function($classes) use (&$post) {
+		if( is_post_favorito($post->ID) ){
+			array_push($classes, 'favorito');
+		}else{
+			array_push($classes, 'no-favorito');
+		}
+		return $classes;
+	});
+
+
+
 // MAQUILADORES HELPER FUNCTIONS /////////////////////////////////////////////////////
 
 
 
 	/**
+	 * Regresa el id del usuario de facebook
+	 * @return String
+	 */
+	function get_facebook_user(){
+		global $fbUser;
+		return $fbUser;
+	}
+
+
+
+	/**
 	 * Regresa la fecha con el formato correcto
+	 * @param  Timestamp $fecha
+	 * @return String
 	 */
 	function parsepostDate($fecha){
 
@@ -205,6 +232,14 @@
 
 
 
+
+	/**
+	 * Actualiza un campo en la tabla wp_actividad
+	 * @param  String  $facebook_user
+	 * @param  Integer  $post_id
+	 * @param  Integer $favorito
+	 * @return Boolean
+	 */
 	function update_actividad($facebook_user, $post_id, $favorito = 0){
 		global $wpdb;
 		$result = $wpdb->query(
@@ -214,6 +249,15 @@
 		return ($result !== false) ? 1 : 0;
 	}
 
+
+
+	/**
+	 * Crea una nueva entrada en la tabla wp_actividad
+	 * @param  String  $facebook_user
+	 * @param  Integer  $post_id
+	 * @param  Integer $favorito
+	 * @return Boolean
+	 */
 	function create_new_actividad ($facebook_user, $post_id, $favorito = 0) {
 		global $wpdb;
 		$result = $wpdb->query( $wpdb->prepare(
@@ -224,6 +268,13 @@
 	}
 
 
+
+	/**
+	 * Revisa si un existe el campo en la tabla wp_actividad
+	 * @param  String $facebook_user
+	 * @param  String $post_id
+	 * @return Boolean
+	 */
 	function check_if_actividad_exists ($facebook_user, $post_id) {
 		global $wpdb;
 		return $wpdb->get_var( $wpdb->prepare(
@@ -233,6 +284,11 @@
 	}
 
 
+
+	/**
+	 * Regresa todos los posts leeidos por el usuario
+	 * @return Array
+	 */
 	function get_user_activity(){
 		global $wpdb;
 		$facebook_user = get_facebook_user();
@@ -246,6 +302,11 @@
 	}
 
 
+
+	/**
+	 * Regresa todos los posts favoritos del usuario
+	 * @return Array
+	 */
 	function get_user_favorites(){
 		global $wpdb;
 		$facebook_user = get_facebook_user();
@@ -260,6 +321,12 @@
 	}
 
 
+
+	/**
+	 * Regresa la clase 'style' segun la categoria
+	 * @param  String $category
+	 * @return String
+	 */
 	function get_category_style($category){
 		switch ($category[0]->cat_name) {
 			case 'Mi Embarazo' : echo 'embarazo_pleca'; break;
@@ -270,6 +337,12 @@
 	}
 
 
+
+	/**
+	 * Regresa la clase 'back' segun la categoria
+	 * @param  String $category
+	 * @return String
+	 */
 	function get_category_back($category){
 		switch ($category[0]->cat_name) {
 			case 'Mi Embarazo' : echo 'embarazo_back'; break;
@@ -277,8 +350,15 @@
 			case '6-12 Meses'  : echo 'sorpresas_back'; break;
 			case '1-3 Años'    : echo 'descubriendo_back'; break;
 		}
-	 }
+	}
 
+
+
+	/**
+	 * Regresa la clase 'back' segun la categoria
+	 * @param  String $category
+	 * @return String
+	 */
 	function get_category_text($category){
 		switch ($category[0]->cat_name) {
 			case 'Mi Embarazo' : echo 'embarazo_texto'; break;
@@ -286,4 +366,56 @@
 			case '6-12 Meses'  : echo 'sorpresas_texto'; break;
 			case '1-3 Años'    : echo 'descubriendo_texto'; break;
 		}
+	}
+
+
+
+	/**
+	 * Regresa un los ID's de los amigos que tambien leyeron el post
+	 * @param String $_GET['friends'] Array con los ID's de los amigos
+	 * @param String $_GET['post_id'] the post ID
+	 * @return Array
+	 */
+	function get_friends_posts(){
+
+		if ( ! isset($_GET['friends']) ){
+			echo json_encode(false); exit;
+		}
+
+		global $wpdb;
+		$friends = implode( ' OR facebook_id = ', array_values($_GET['friends']) );
+		$post_id = isset($_GET['post_id']) ? $_GET['post_id'] : 0;
+
+		$results = $wpdb->get_results(
+			"SELECT DISTINCT facebook_id FROM wp_actividad
+				WHERE post_id = $post_id AND ( facebook_id = $friends ) LIMIT 5;", OBJECT
+		);
+
+		echo json_encode($results);
+		exit;
+	}
+	add_action('wp_ajax_get_friends_posts', 'get_friends_posts');
+	add_action('wp_ajax_nopriv_get_friends_posts', 'get_friends_posts');
+
+
+
+
+	/**
+	 * Regresa si el posts esta marcado como favorito en la tabla wp_actividad
+	 * @param  Integer  $post_id
+	 * @return Boolean
+	 */
+	function is_post_favorito($post_id){
+		global $wpdb;
+
+		$facebook_id = get_facebook_user();
+
+		$result = $wpdb->get_var(
+			"SELECT COUNT(actividad_id) AS favorito FROM wp_actividad
+				WHERE facebook_id = $facebook_id
+					AND post_id   = $post_id
+					AND favorito  = 1;"
+		);
+
+		return (boolean)$result;
 	}

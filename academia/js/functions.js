@@ -25,43 +25,8 @@
 
 
 
-	// ANIMACIÓN DEL BOTON AGREGAR A FAVORITOS ///////////////////////////////////////////
-
-
-
-		$('.agregar_fav, .regresar')
-			.on('mousedown', function(){
-				$(this).css({
-					'-webkit-box-shadow': 'inset 1px 2px 4px 2px #BB6898',
-					'box-shadow': 'inset 1px 2px 4px 2px #BB6898'
-				});
-			})
-			.on('mouseup, mouseleave', function(){
-				$(this).css({
-					'-webkit-box-shadow': 'inset 0px 0px 0px 0px #000',
-					'box-shadow': 'inset 0px 0px 0px 0px #000'
-				});
-			});
-
-
-
-		$('.facebook')
-			.on('mousedown', function(){
-				$(this).css({
-					'-webkit-box-shadow': 'inset 1px 2px 4px 2px #2B416F',
-					'box-shadow': 'inset 1px 2px 4px 2px #2B416F'
-				});
-			})
-			.on('mouseup, mouseleave', function(){
-				$(this).css({
-					'-webkit-box-shadow': 'inset 0px 0px 0px 0px #000',
-					'box-shadow': 'inset 0px 0px 0px 0px #000'
-				});
-			});
-
-
-
 	// AGREGAR O ELEMINIAR DE LOS FAVORITOS //////////////////////////////////////////////
+
 
 
 		function ajax_favoritos(post_id, favorito) {
@@ -72,22 +37,25 @@
 			}, 'json');
 		}
 
+
 		// Agregar a favoritos
-		$('.agregar_fav').on('click', function () {
+		$('body.no-favorito .agregar_fav').live('click', function () {
 			var boton = $(this);
 			ajax_favoritos( $(this).data('post_id'), 1 )
 			.done(function (data){
-				console.log('entro al done la siguiente lina le pone la clase');
 				boton.addClass('selected_fav');
+				$('body').removeClass('no-favorito').addClass('favorito');
 			});
 		});
 
+
 		// Quitar a favoritos
-		$('.selected_fav').live('click', function () {
+		$('body.favorito .agregar_fav').live('click', function () {
 			var boton = $(this);
 			ajax_favoritos( $(this).data('post_id'), 0 )
 			.done(function (data){
 				boton.removeClass('selected_fav');
+				$('body').addClass('no-favorito').removeClass('favorito');
 			});
 		});
 
