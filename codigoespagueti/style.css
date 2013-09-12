@@ -1,6 +1,6 @@
 /***
-Theme Name: codigoespagueti
-Version: 1.0
+Theme Name: Código Espagueti 2
+Version: 1.5
 Author: @cova_kid for Hacemos Código
 Author URI: http://hacemoscodigo.com
 ***/
@@ -78,8 +78,10 @@ figure {margin: 0;}
 
 /*** GENERAL ***/
 
-body{background: #fff; margin: 0 auto;}
+body{background: #fff; margin: 0 auto; font-family: 'Georgia'; color: #808080;}
 #wrapper {background: #fff; width: 980px; margin: 0 auto;}
+h1, h2, h3, h4, h5, h6 {color: #000;}
+
 
 /*** NOTICIERO ***/
 
@@ -117,13 +119,13 @@ header #header #busqueda #bus { float: right; overflow: hidden;  position:relati
 header #header #busqueda #bus #form_busqueda  { position: absolute; overflow: visible; right: -500px; margin-left: 4px; top: 0px; z-index: 1; }
 header #header #busqueda #bus #form_busqueda input { border: none;margin-left: 4px; }
 header #header #busqueda #bus #form_busqueda input[type='text'] {width: 200px; margin-left: 4px!important; height: 30px; float: right; font-size: 13px; color: #fff;  background-color: #000; }
-header #header #busqueda #bus #form_busqueda input[type='submit'] {width: 0%; background: url(images/sprite_ana.png); background-position: -180px -6px; float: left;}
+header #header #busqueda #bus #form_busqueda input[type='submit'] {display: none}
 header #header #busqueda #bus #form_busqueda input[type='text']:focus {outline: none; padding-left: 5px;}
 header #header nav #nav {width: 100%; height: 30px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF;}
 header #header nav #nav ul {list-style: none; margin:0px; padding: 0px;}
-header #header nav #nav ul li {float: left; margin-right: 65px; padding-top: 7px; }
+header #header nav #nav ul li {float: left; margin-right: 63px; padding-top: 7px; }
 header #header nav #nav ul li:last-child {margin-right:0px!important;}
-header #header nav #nav ul li a {color: #000; text-decoration: none; font-family: 'Mono-Bold'; font-size: 12px;}
+header #header nav #nav ul li a {color: #000; text-decoration: none; font-family: 'Mono'; font-size: 12px;}
 header #header nav #nav ul li a:hover {border-bottom: 3px solid #00a6ce; padding-bottom: 9px;}
 header #header nav #nav ul li a.select {border-bottom: 3px solid #00a6ce; padding-bottom: 9px;}
 
@@ -132,14 +134,14 @@ header #header nav #nav ul li a.select {border-bottom: 3px solid #00a6ce; paddin
 header #header #tweet-ticker {width: 98%;height:25px;  margin: 20px 0; }
 header #header #tweet-ticker #pajarito {display:block; height: 30px; float: left; margin-right: 1%; width:3%; background: #fff; z-index: 9999; position: relative;}
 header #header #tweet-ticker ul {margin:8px 0 0 0; padding: 0px; list-style: none; float: left; width:96%; position: absolute;}
-header #header #tweet-ticker ul li {display: inline; margin-right: 15px; z-index: -1000;}
+header #header #tweet-ticker ul li {display: inline; margin-right: 15px; margin-left: 40px; z-index: -1000;}
 header #header #tweet-ticker ul li span {display: inline; margin-right: 5px; font-family: 'Mono'; color: #00A6CE; font-size: 12px;}
 header #header #tweet-ticker ul li p {display: inline; font-family: 'Georgia'; font-size: 12px;}
 header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px; color:#00A6CE; text-decoration: none;}
 
 /*** CONTAINER ***/
 
-#container {width: 100%; position: relative;overflow: hidden; margin-top: 20px;}
+#container {width: 100%; position: relative;overflow: hidden; margin-top: 20px; margin-bottom: 15px;}
 
 /*** SLIDER ***/
 #slider {width: 100%; height:360px; border-bottom: 1px solid #bfbfbf; padding-bottom: 20px;}
@@ -148,39 +150,71 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .slide-info {width:300px; height: 320px; padding:20px; position: absolute; right:0; z-index: 1000; background: url('images/bg-slide.png') repeat; }
 .slide-info span {color:#00A6CE; font-family: 'Mono';}
 .slide-info span a {color:#00A6CE; text-decoration: none;}
-.slide-info h2 {font-family: 'Georgia'; color:#fff; font-weight: normal;  font-size: 24px; line-height: 28px;}
+.slide-info h2 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; color:#fff; font-weight: bold;  font-size: 24px; line-height: 28px;}
 .slide-info h2 a {color:#fff; text-decoration: none; }
-.slide-info p {font-family: 'georgia'; font-size: 18px; color:#fff; font-weight: normal;}
-.slide-info ul {list-style: none; margin:0px; padding: 0px; position: absolute; bottom: 20px;}
-.slide-info ul li {color: #fff; margin-bottom: 10px;}
+.slide-info p {font-family: "Georgia", sans-serif; font-size: 18px; color:#fff; font-weight: lighter;}
+.slide-info ul {list-style: none; margin:0px; padding: 0px; position: absolute; bottom: 10px;}
+.slide-info ul li {color: #fff; margin-bottom: 10px; float: left; margin-right: 5px}
 
 /*** SIDEBAR ***/
 
-#sidebar {width: 300px; float: left; height: 1000px; margin-right: 40px;}
+#sidebar {width: 300px; float: left; height: auto; margin-right: 40px;}
 #sidebar h5 {display: block; border-bottom: 1px solid #BFBFBF; margin: 5px 0px 20px 0px; padding: 5px 0px; font-family: 'Mono-Bold'; font-size: 14px; }
-.post-side {width: 100%;  margin-bottom: 30px; min-height: 80px;}
+.post-side {width: 100%;  margin-bottom: 30px; min-height: 80px; position: relative;}
 .post-side img {width:80px; height:80px; float: left; margin-right: 10px;}
-.post-side h6 {font-family: 'Georgia'; font-size: 12px; font-weight: bold; line-height: 18px; margin-bottom: 10px;}
+.post-side h6 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight:bold; font-size: 12px; font-weight: bold; line-height: 18px; margin-bottom: 10px;}
 .post-side h6 a {text-decoration: none; color: #000;}
 .post-side span {font-family: 'Mono'; font-size: 12px; display: block; margin-bottom: 10px;}
 .post-side span a {color: #00A6CE; text-decoration: none;}
 .post-side p {font-family: 'Georgia'; font-size: 12px; color: #808080; line-height: 17px;}
+.post-side.opinion img {border: 1px solid #ffdd00;}
+.post-side.opinion .opinion-img {position: absolute; top: 60px; left: 60px;}
+.post-side.opinion .opinion-img img {width:20px; height: 20px;}
 
 .side-general {width: 300px; float: right; margin-top: 20px;}
+.side-general .caja_side{width: 100%; height: auto; margin-bottom: 40px; background-color: #e0f3f9;  font-family: 'Mono'; color: #00a6ce;	}
+.side-general .caja_side ul.favoritos{width: 100%; height: 30px; list-style: none; background: #fff; margin: 0;}
+.side-general .caja_side ul.favoritos li{width: 74px; height: 30px; float: left; background: #e6e6e6; margin-right: 1px; cursor: pointer; }
+.side-general .caja_side ul.favoritos li.select{ background: #e0f3f9; }
+.side-general .caja_side ul.favoritos li:nth-last-child(0) {background: url(images/ico_sopitas.png) center no-repeat #e6e6e6;}
+.side-general .caja_side ul.favoritos li.select:nth-last-child(0) {background: url(images/ico_sopitas_activo.png) center no-repeat #e0f3f9;}
+.side-general .caja_side ul.favoritos li:nth-last-child(1) {background: url(images/ico_comentado.png) center no-repeat #e6e6e6;}
+.side-general .caja_side ul.favoritos li.select:nth-last-child(1) {background: url(images/ico_comentado_activo.png) center no-repeat #e0f3f9;}
+.side-general .caja_side ul.favoritos li:nth-last-child(2) {background: url(images/ico_gustado.png) center no-repeat #e6e6e6;}
+.side-general .caja_side ul.favoritos li.select:nth-last-child(2) {background: url(images/ico_gustado_activo.png) center no-repeat #e0f3f9;}
+.side-general .caja_side ul.favoritos li:nth-last-child(3) {background: url(images/ico_noticias.png) center no-repeat #e6e6e6;}
+.side-general .caja_side ul.favoritos li.select:nth-last-child(3) {background: url(images/ico_noticias_activo.png) center no-repeat #e0f3f9;}
+.side-general .caja_side .side_noticias, .side-general .caja_side .side_masgustado, .side-general .caja_side .side_comentado, .side-general .caja_side .side_sopitas{ width: 300px; height: auto; position: relative; overflow: hidden; background: #e0f3f9;  margin: 0 0 0 0; }
+.side-general .caja_side .side_masgustado, .side-general .caja_side .side_comentado, .side-general .caja_side .side_sopitas{ display: none; }
+.side-general .caja_side h2{ width: 94%;position: relative; margin: 0px 3%; padding: 8px 0; color: #00a6ce; font-size: 14px; border-bottom: 1px solid #bfbfbf;  }
+.side-general .caja_side .cont_post{ width: 94%; position: relative; overflow: hidden; margin: 19px 3% 19px 3%;  }
+.side-general .caja_side .cont_post img{ width: 80px; height: 80px; position: relative; overflow: hidden; float: left; margin: 0;	  }
+.side-general .caja_side .cont_post h3{width: 191px; position: relative; float: left; font-family: Gotham, Arial, sans-serif; font-size: 12px; color: #000; margin: 0 0 3.5px 10.5px;	   }
+.side-general .caja_side .cont_post h3 a{text-decoration: none; color: #000;}
+.side-general .caja_side .cont_post h4{width: 191px; position: relative; float: left; font-family: 'Mono'; font-size: 12px; color: #00a6ce; font-weight: normal; margin: 0 0 3.5px 10.5px;	   }
+.side-general .caja_side .cont_post p{width: 191px; position: relative; float: left; font-family: 'Georgia'; font-size: 12px; color: #808080; font-weight: normal; line-height: 16px; margin: 0 0 0px 10.5px;	   }
 
 
 /*** CONTENT **/
 #content {width: 640px; float: right; margin-top: 20px; position: relative; overflow: hidden;}
-#content h5 {display: inline-block; width: 100%; font-family: 'Mono-Bold'; font-size: 14px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF; padding: 5px 0; margin: 20px 0;}
+#content h5 {display: inline-block; width: 100%; font-family: 'Mono'; font-size: 14px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF; padding: 5px 0; margin: 20px 0;}
+#content-destacados {position: relative; overflow: hidden;}
 #content-destacados .post:nth-child(2n){margin-right: 0px!important;}
+#content-resenas {position: relative; overflow: hidden;}
 #content-resenas .post:nth-child(2n){margin-right: 0px!important;}
+#content-entrevistas {position: relative; overflow: hidden;}
 #content-entrevistas .post:nth-child(2n){margin-right: 0px!important;}
-#content .colaborador {width: 300px; float: left; margin-bottom: 20px; margin-right:40px; }
+#content .colaborador {width: 290px; float: left; margin-bottom: 20px; margin-right:40px; }
+#content .colaborador .img_estamos{ width: 80px; margin-right: 10px; display: block; float: left; }
+#content .colaborador .estamos_info{ width: 200px; float: left; }
+#content-colaboradores {position: relative; overflow: hidden;}
 #content-colaboradores .colaborador:nth-child(2n){margin-right: 0px!important;}
+#content-estamos-leyendo {position: relative; overflow: hidden;}
+#content-estamos-leyendo .colaborador:nth-child(2n){margin-right: 0px!important;}
 #content .colaborador img {width: 80px; height: 80px; float: left; margin-right: 10px;}
-#content .colaborador h6 {font-family: 'Georgia'; font-size: 14px; color: #000; margin-bottom: 5px;}
+#content .colaborador h6 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; color: #000; margin-bottom: 5px;}
 #content .colaborador a {font-family: 'Mono'; color:#00A6CE; text-decoration: none; font-size: 12px;}
-#content .colaborador p {font-family: 'Georgia'; color: #808080; margin-top: 10px;}
+#content .colaborador p {font-family: 'Georgia'; color: #808080; margin-top: 10px; line-height: 15px;}
 #content .post-estamos {width: 300px; float: left; margin-bottom: 5px; margin-right: 40px;}
 #content-estamos .post-estamos:nth-child(2n){margin-right: 0px!important;}
 #content .post-estamos p a {font-family: 'Georgia'; color: #000; margin-top: 0px; text-decoration: none;}
@@ -191,14 +225,18 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .content-bottom ul {list-style: none; margin:0px; padding: 0px;}
 .content-bottom ul li {width: 140px; float: left; margin-right: 28px;}
 .content-bottom ul li:last-child{margin-right: 0px!important;}
-.content-bottom ul li h5 {font-family: 'Mono-Bold'; font-size: 14px; display: block; width:100%; border-bottom: 1px solid #BFBFBF; padding-bottom: 5px; margin-bottom: 20px;}
+.content-bottom ul li h5 {font-family: 'Mono'; font-size: 14px; display: block; width:100%; border-bottom: 1px solid #BFBFBF; padding-bottom: 5px; margin-bottom: 20px;}
 .content-bottom ul li h5 a {color:#000; text-decoration: none;}
 .content-bottom ul li .post-footer {width: 100%; margin-bottom: 20px;}
 .content-bottom ul li .post-footer span {display: block; font-family: 'mono'; font-size: 12px; color: #808080;}
-.content-bottom ul li .post-footer h6 {font-family: 'Georgia'; font-size: 12px; font-weight: bold; margin-top: 10px; line-height: 18px;}
+.content-bottom ul li .post-footer h6 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 12px; font-weight: bold; margin-top: 10px; line-height: 18px;}
 .content-bottom ul li .post-footer h6 a {color: #000; text-decoration: none;}
 
 
+/*** COLABORADORES ***/
+
+#colaboradores-home {background: #fff7cc; padding: 10px 10px 0 10px;}
+#colaboradores-home h5 {display: block; padding-left:25px; margin: 0 0 10px 0; background: url('images/opinion-bg.png') no-repeat left;}
 /*** VIDEOS HOME ***/
 
 #videos-home {width:100%; float: left;}
@@ -207,7 +245,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 #videos-home .video-main-home iframe {margin-bottom: 10px;}
 #videos-home .video-main-home span.date {font-family: 'Mono'; float: none; color: #808080;}
 #videos-home .video-main-home span.date a {font-family: 'Mono';  text-decoration: none; color: #808080;}
-#videos-home .video-main-home h4 {font-family: 'Georgia'; font-size: 18px; font-weight: normal; margin:10px 0 20px 0;}
+#videos-home .video-main-home h4 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 18px; font-weight: bold; margin:10px 0 20px 0;}
 #videos-home .video-main-home h4 a {color: #000; text-decoration: none;}
 #videos-home .lista-videos {float: right; width: 300px;}
 #videos-home .lista-videos ul {list-style: none; margin: 0px;}
@@ -215,15 +253,15 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 #videos-home .lista-videos ul li img {width:135px; height: auto; float: left; margin-right: 10px;}
 #videos-home .lista-videos ul li span.date {font-family: 'Mono'; float: none; color: #808080; font-size: 12px;}
 #videos-home .lista-videos ul li span.date a {font-family: 'Mono';  text-decoration: none; color: #808080;}
-#videos-home .lista-videos ul li h6 {font-family: 'Georgia'; font-size: 12px; font-weight: normal; margin:10px 0 20px 0; line-height: 18px;}
+#videos-home .lista-videos ul li h6 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 12px; font-weight: bold; margin:10px 0 20px 0; line-height: 18px;}
 #videos-home .lista-videos ul li h6 a {color: #000; text-decoration: none;}
 
 /*** POST - GENÉRICO ***/
-.post {width: 300px; float: left; margin-right: 40px; position: relative;}
+.post {width: 300px; float: left; margin-right: 40px; position: relative; margin-bottom: 20px;}
 .content-archive .post:nth-child(2n){margin-right: 0px!important;}
 .autores .post:nth-child(2n){margin-right: 0px!important;}
-.post h4 {font-family: 'Georgia'; font-size: 18px; font-weight: normal; margin:10px 0 20px 0; line-height: 25px;}
-.post h4 a {color: #000; text-decoration: none;}
+.post h4 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 18px; font-weight: normal; margin:10px 0 20px 0; line-height: 25px;}
+.post h4 a {color: #000; text-decoration: none; font-weight: bold;}
 .post p {font-family: 'Georgia'; color: #808080; font-size: 14px; line-height: 21px;}
 .post img {margin-bottom: 10px; width: 300px; height: auto;}
 .post span.date {font-family: 'Mono'; float: none; color: #808080;}
@@ -249,7 +287,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .bottom-archive .video iframe {margin-bottom: 20px;}
 .bottom-archive .video span.date {font-family: 'Mono'; float: none; color: #808080;}
 .bottom-archive .video span.date a {font-family: 'Mono';  text-decoration: none; color: #808080;}
-.bottom-archive .video h4 {font-family: 'Georgia'; font-size: 18px; font-weight: normal; margin:10px 0 20px 0;}
+.bottom-archive .video h4 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 18px;  margin:10px 0 20px 0;}
 .bottom-archive .video h4 a {color: #000; text-decoration: none;}
 .bottom-archive .content-bottom h5 {border-top: none;}
 .bottom-archive .archive-resenas {width:100%; position: relative; overflow: hidden;}
@@ -258,12 +296,12 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .bottom-archive .archive-resenas .resena-archive img {margin-bottom: 10px;}
 .bottom-archive .archive-resenas .resena-archive .date a {font-family: 'Mono'; float: none; color: #00A6CE; text-decoration: none; font-size: 12px;}
 .bottom-archive .archive-resenas .resena-archive h6 {margin-top: 10px;}
-.bottom-archive .archive-resenas .resena-archive h6 a {color: #000; font-family: 'georgia'; text-decoration: none; font-weight: normal; font-size: 12px; }
+.bottom-archive .archive-resenas .resena-archive h6 a {color: #000; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; text-decoration: none;  font-size: 12px; }
 .bottom-archive .archive-resenas .resena-archive .score-archive {width: 100%; position: absolute; z-index: 100; background: url('images/score-bg.png') center no-repeat; text-align: center; height: 89px; color: #fff; font-family: 'Mono-Bold'; font-size: 24px; padding-top: 67px; top:-5px;}
 .wrapper-post-archive {border-bottom: 1px solid #BFBFBF; margin-bottom: 20px; padding-bottom: 20px; }
 .post-archive {width: 100%;  margin-bottom: 10px; min-height: 150px; position: relative; overflow: hidden;}
 .post-archive img {float: left; margin-right: 10px;}
-.post-archive h4 {font-family: 'Georgia'; font-size: 18px; font-weight: bold; line-height: 18px; margin-bottom: 10px;}
+.post-archive h4 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 18px; font-weight: bold; line-height: 18px; margin-bottom: 10px;}
 .post-archive h4 a {text-decoration: none; color: #000;}
 .post-archive span {font-family: 'Mono'; font-size: 12px; display: block; margin-bottom: 10px; color: #808080}
 .post-archive span a {color: #808080; text-decoration: none;}
@@ -273,22 +311,28 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 
 /*** SINGLE ***/
 .content-single {width:640px; float:left;}
-.content-single h2 {font-family: 'Georgia'; font-size: 30px; font-weight: normal; margin-bottom: 10px; line-height: 38px;}
+.content-single h2 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 30px;  margin-bottom: 10px; line-height: 38px;}
 .content-single h5 {display: inline-block; width: 100%; font-family: 'Mono-Bold'; font-size: 14px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF; padding: 5px 0; margin: 20px 0;}
 .content-single span.date {font-family: 'Mono'; float: none; color: #808080; font-size: 12px;}
 .content-single span.date a {font-family: 'Mono';  text-decoration: none; color: #808080;}
 .content-single .imagenes-single {width:100%; margin: 30px 0px;}
-.content-single p strong {font-family: 'Georgia'; font-weight: 500; font-size: 18px; color:#808080;}
+.content-single p strong {font-family: 'Georgia'; font-weight: bold; font-size: 18px; color:#808080;}
 .content-single img {max-width: 640px; height: auto;}
-.content-single blockquote p {font-family: 'Georgia'; font-weight: 500; font-size: 18px; color:#00A6CE; font-style: italic; padding:0 20px;}
+.content-single blockquote p {font-family: 'Georgia'; font-weight: bold; font-size: 18px; color:#00A6CE; font-style: italic; padding:0 20px;}
 .content-single ul {list-style-image: url('images/bullet.png');}
 .content-single ul li {margin-bottom: 10px; font-family: 'Georgia'; color:#000; font-size: 16px;}
-.content-single p {font-family: 'Georgia'; font-size: 16px; color: #808080; margin: 30px 0px; line-height: 25px;}
-.content-single p a {font-family: 'georgia'; text-decoration: underline; color:#00A6CE;}
+.content-single p {font-family: 'Georgia'; font-size: 16px; color: #808080; margin: 30px 0 0 10px; line-height: 25px;}
+.content-single p a {font-family: 'Georgia'; padding: 4px; text-decoration: underline; color:#00A6CE;}
+.content-single p.tagwrap a {font-family: 'Mono'; font-size: 14px; color:#FFF; text-decoration: none; background-color: #BFBFBF; text-align: center; }
+.content-single p.tagwrap a.title{font-family: 'Mono'; font-size: 14px; background-color: #000;}
+.content-single p.source a{display: inline-block; font-family: 'Mono'; font-size: 14px; text-decoration: none; color: #FFF; background-color: #BFBFBF; padding: 0 4px 0 4px;}
+.content-single p.source a.title{display: inline-block; width: 81px; font-family: 'Mono'; font-size: 14px; background-color: #00A6CF; text-align: center; padding: 0 4px 0 4px;}
+.content-single p.source a.gap{margin-right: 15px; padding: 0 4px 0 4px; font-size: 14px;}
+p.wp-caption-text{width: 630px!important; margin: -1px 0!important; padding: 5px; height: auto; background-color: #bfbfbf; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 75; font-size: 12px; color: #fff; line-height: 16px;}
 .info-autor {width: 100%; margin: 20px 0px; }
 .info-autor img {float:left; margin-right: 20px; }
 .info-autor h4 {margin-bottom: 10px;}
-.info-autor h4 a {font-family: 'Georgia'; font-weight: bold; font-size: 12px; color:#000; text-decoration: none;}
+.info-autor h4 a {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 12px; color:#000; text-decoration: none;}
 .info-autor .date a {color: #00A6CE;}
 .info-autor p {font-size: 12px; line-height: 15px; margin-top: 10px;}
 .tags, .social-post {width: 100%; display: inline-block; margin:30px 0px; padding: 0px; list-style: none;}
@@ -302,10 +346,10 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .relacionados {margin-bottom: 30px;}
 .relacionados .post-relacionado {margin-bottom: 10px;}
 .relacionados .post-relacionado h6 {margin-top: 10px;}
-.relacionados .post-relacionado h6 a {font-family: 'Georgia'; font-weight: bold; font-size: 14px; color:#000; text-decoration: none;}
+.relacionados .post-relacionado h6 a {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 14px; color:#000; text-decoration: none;}
 .nav-post {width: 300px; margin-bottom: 10px; min-height: 80px; position: relative; overflow: hidden;}
 .nav-post img {float: left; margin-right: 10px; width: 80px; height: 80px;}
-.nav-post h4 {font-family: 'Georgia'; font-size: 12px; font-weight: bold; line-height: 18px; margin-bottom: 10px;}
+.nav-post h4 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 12px; line-height: 18px; margin-bottom: 10px;}
 .nav-post h4 a {text-decoration: none; color: #000;}
 .nav-post span {font-family: 'Mono'; font-size: 12px; display: block; margin-bottom: 10px; color: #808080}
 .nav-post span a {color: #808080; text-decoration: none;}
@@ -331,7 +375,8 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .autores .sidebar-autor {width:216px; background: #fff; float: right;}
 .autores .uno {border-bottom: 1px solid #BFBFBF;}
 .autores .side { margin-bottom: 10px; padding: 20px 0; width: 136px; margin: 0 auto;}
-.autores .side blockquote {font-family: 'Georgia'; font-weight: 500; font-size: 18px; color:#00A6CE; font-style: italic; text-align: left; margin: 10px 0 0 0;}
+#avatarBox.side{ text-align: center; margin: 10px auto; width: auto;}
+.autores .side blockquote {font-family: 'Georgia'; font-weight: bold; font-size: 18px; color:#00A6CE; font-style: italic; text-align: left; margin: 10px 0 0 0;}
 .autores .side ul {list-style: none; margin: 0px; padding: 0px;}
 .autores .side ul li {font-family: 'Mono'; font-size:14px; margin-bottom: 5px;}
 .autores .side ul li a {color: #000; text-decoration: none;}
@@ -346,7 +391,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .resenas-single .contenido-resena .single-resena-izq {width:640px; float:left;}
 .resenas-single .info-resena {width: 100%;  background: url('images/bg-slide.png') repeat!important; position: relative; overflow: hidden; padding-bottom: 20px;}
 .resenas-single .info-resena .info-resena-izq {width: 630px; float: left;}
-.resenas-single .info-resena .info-resena-izq h2 {color: #fff; font-family: 'georgia'; font-size: 30px; font-weight: normal; margin: 0px; padding: 20px; }
+.resenas-single .info-resena .info-resena-izq h2 {color: #fff; font-family: font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 30px; font-weight: normal; margin: 0px; padding: 20px; }
 .resenas-single .info-resena .info-resena-izq span.date {font-family: 'Mono'; float: none; color: #808080; font-size: 12px; padding: 20px;}
 .resenas-single .info-resena .info-resena-izq span.date a {font-family: 'Mono';  text-decoration: none; color: #808080;}
 .resenas-single .info-resena .resena-score {width: 90px; height: 89px;background: url('images/score-bg.png') center no-repeat; text-align: center;  color: #fff; font-family: 'Mono-Bold'; font-size: 24px; float: right; margin-right: 67px; padding-top: 25px;}
@@ -363,7 +408,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .resenas-single .side.ficha {background: #00A6CE; margin-top: 25px; color: #fff; padding: 10px 10px 10px 10px; }
 .resenas-single .side.ficha h6 {font-family: 'mono'; color: #000; font-size: 12px; font-weight: normal; margin-bottom: 20px;}
 .resenas-single .side.ficha p {color: #fff; font-family: 'georgia'; font-size: 14px; line-height: 18px; }
-.resenas-single .side blockquote {font-family: 'Georgia'; font-weight: 500; font-size: 18px; color:#00A6CE; font-style: italic; text-align: left; margin: 10px 0 0 0;}
+.resenas-single .side blockquote {font-family: 'Georgia'; font-weight: bold; font-size: 18px; color:#00A6CE; font-style: italic; text-align: left; margin: 10px 0 0 0;}
 .resenas-single .extra-resenas {width: 640px; margin-top: 30px;}
 .resenas-single .extra-resenas span.date {font-family: 'Mono'; float: none; color: #808080; font-size: 12px;}
 .resenas-single .extra-resenas span.date a {font-family: 'Mono';  text-decoration: none; color: #808080;}
@@ -383,7 +428,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 
 /*** FOOTER ***/
 
-#footer {width: 960px; height: 260px; background: #000; margin:0 auto; padding:20px 10px; margin-top: 50px;}
+#footer {width: 960px; height: 260px; background: #000; margin:0 auto; padding:20px 10px; margin-top: 15px;}
 #tweet-foot {width:295px; float: left; height: 260px; border-right: 1px solid #fff;  padding:0 10px; }
 #tweet-foot span{width:30px; float: left; height: 30px;  margin:0; }
 #tweet-foot #caja_prin{width:250px; float: left; height: 260px;  margin:0 0 0 10px;  overflow: hidden; }
@@ -395,6 +440,23 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 #about-foot {width: 295px; padding: 10px; color: #808080; float: left;}
 #about-foot p {margin-top: 10px; font-family: 'Georgia'; font-size: 12px; line-height: 15px;}
 
+.banner-foot {margin-left: 5px;}
+
 /*** 404 ***/
 
-.error404 #wrapper #container #error404{text-align: center;}
+.error404 #wrapper #container #error404{text-align: center; margin: 50px 0;}
+.error404 #wrapper #container #error404 .fantasma {margin-right: 30px;}
+
+/*** PAGINACIÓN ***/
+
+
+
+#paginacion{width: 100%; height: 20px; float:left; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF; margin-bottom:20px; padding: 10px 0px; margin-top: 20px;}
+#paginacion ul {list-style: none; margin: 0px; padding: 0px;}
+#paginacion ul li {float: left; margin-right: 10px;}
+#paginacion ul li {color:#00A6CE; text-decoration: none; font-family: 'Mono-Bold'; font-size: 14px;}
+#paginacion ul li a {color:#00A6CE; text-decoration: none; font-family: 'Mono-Bold'; font-size: 14px;}
+#paginacion ul li .current {color:red;}
+
+
+

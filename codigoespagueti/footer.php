@@ -30,6 +30,13 @@
 				<?php } ?>
 			</div><!-- end #container -->
 
+			<!-- cod_home_3_970x90 -->
+			<div class="banner-foot" id='div-gpt-ad-1378399931388-0' style='width:970px; height:90px;'>
+				<script type='text/javascript'>
+					googletag.display('div-gpt-ad-1378399931388-0');
+				</script>
+			</div>
+
 			<footer>
 				<div id="footer">
 
@@ -40,18 +47,18 @@
 							<?php foreach ( $mentions as $mention ) {
 								$tweet = format_twitter_mention_data($mention); ?>
 								<div class="caja">
-									
+
 
 										<?php echo $tweet->name .' '. $tweet->user ; ?>
 										<?php echo $tweet->time; ?><br/>
 										<?php echo $tweet->text; ?>
-									
+
 								</div>
 							<?php } ?>
 						</div><!-- caja_prin -->
 					</div><!-- tweet-foot -->
 					<div id="fb-foot">
-						<div class="fb-like-box" data-href="https://www.facebook.com/codigoespagueticom" data-width="295" data-height="260" data-show-faces="false" data-colorscheme="dark" data-stream="true" data-show-border="false" data-header="false"></div>
+						<div class="fb-like-box" data-href="https://www.facebook.com/SomosEspagueti" data-width="295" data-height="260" data-show-faces="true" data-colorscheme="dark" data-stream="false" data-show-border="false" data-header="false"></div>
 					</div>
 					<div id="about-foot">
 						<a href="<?php bloginfo('url'); ?>"><img src="<?php echo bloginfo('template_url'); ?>/images/logo-foot.png"></a>
@@ -76,6 +83,39 @@
 				var s = document.getElementsByTagName('script')[0];
 					s.parentNode.insertBefore(po, s);
 			})();
+		</script>
+		<!--- analytics -->
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-43094742-1']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+		<script type="text/javascript">
+
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-5555895-1']);
+			  _gaq.push(['_setDomainName', 'codigoespagueti.com']);
+			  _gaq.push(['_setAllowLinker', true]);
+			  _gaq.push(['_trackPageview']);
+
+			  (function() {
+			    var ga = document.createElement('script'); ga.type =
+			'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+			'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+			  })();
+
 		</script>
 		<?php wp_footer(); ?>
 	</body>

@@ -69,9 +69,9 @@
 					</ul>
 					<div class="extra-resenas">
 						<div class="info-autor">
-							<?php echo get_avatar( get_the_author_meta('ID'), 150 ); ?>
+							<a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>"><?php echo get_avatar( get_the_author_meta('ID'), 150 ); ?></a>
 							<h4><?php the_author_posts_link(); ?></h4>
-							<span class="date"><a href=""><?php echo get_the_author_meta('nombre_columna'); ?></a></span>
+							<span class="date"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>"><?php echo get_the_author_meta('nombre_columna'); ?></a></span>
 							<p><?php echo get_the_author_meta('bio'); ?></p>
 						</div><!-- end .info-autor-->
 						<h5>Más artículos del autor</h5>
@@ -150,9 +150,10 @@
 					<div class="side ficha">
 						<h6>Ficha técnica</h6>
 						<?php
+							echo get_post_meta($post->ID, 'imagen-resena', true);
 							$ficha = apply_filters('the_content', get_post_meta($post->ID, 'ficha', true));
 							echo $ficha;
-							echo get_post_meta($post->ID, 'imagen-resena', true);
+
 						?>
 					</div><!-- end .side-->
 					<?php } if(get_post_meta($post->ID, 'post_quote', true)) { ?>

@@ -90,7 +90,19 @@
 		});
 
 
+		$('.mandar_a_sopitas_checkbox').on('change', function () {
 
+			var jqxhr = $.ajax({
+				type: 'POST',
+				url: ajax_url,
+				data: {
+					post_id: $(this).data('post_id'),
+					checked: $(this).is(':checked'),
+					action: 'ajax_update_post_meta'
+				},
+				dataType:'JSON'
+			});
+		});
 
 
 

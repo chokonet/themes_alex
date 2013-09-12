@@ -81,12 +81,57 @@
 
 
 
-		// ANIMACIÓN TWWETS ////////////////////////////////////////////////////////////////////////
+		// ANIMACIÓN TWEETS ////////////////////////////////////////////////////////////////////////
 
 
 
-			$("#tweets").liScroll();
+			var countTweets       = $('#tweets').children().length;
+			var tweetListElements = $('#tweets').children();
+			var index             = 0;
 
+			/**
+			 * Mostrar los tweets recursivamente uno por uno con fadeIn y fadeOut
+			 */
+			(function show_next_tweet(){
+
+				tweetListElements.fadeOut();
+
+				var current = (countTweets <= index+1) ? index = 0 : index++;
+
+				$(tweetListElements[current]).fadeIn();
+
+				setTimeout(show_next_tweet, 12000);
+
+			})();
+
+			// Caja sidebar favoritos ///////////////////////////////////////////////////////////
+
+
+
+			$('#noticias').on('click', function () {
+				$('.side_noticias').fadeIn(0);
+				$('.side_masgustado, .side_comentado, .side_sopitas').fadeOut(0);
+				$('.favoritos li').removeClass('select');
+				$(this).addClass('select');
+			});
+			$('#masgustado').on('click', function () {
+				$('.side_masgustado').fadeIn(0);
+				$('.side_noticias, .side_comentado, .side_sopitas').fadeOut(0);
+				$('.favoritos li').removeClass('select');
+				$(this).addClass('select');
+			});
+			$('#comentado').on('click', function () {
+				$('.side_comentado').fadeIn(0);
+				$('.side_noticias, .side_masgustado, .side_sopitas').fadeOut(0);
+				$('.favoritos li').removeClass('select');
+				$(this).addClass('select');
+			});
+			$('#sopitas').on('click', function () {
+				$('.side_sopitas').fadeIn(0);
+				$('.side_noticias, .side_comentado, .side_masgustado').fadeOut(0);
+				$('.favoritos li').removeClass('select');
+				$(this).addClass('select');
+			});
 
 
 		}); // end document.ready

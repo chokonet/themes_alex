@@ -24,9 +24,20 @@
 			'has_archive'   => true,
 			'taxonomies'    => array('category'),
 			'supports'      => array('title','thumbnail','editor'),
-			'menu_position' => 5,
+			'menu_position' => 6,
 		);
 		register_post_type( 'resenas', $args );
+
+		// ESTAMOS LEYENDO
+		$args = array(
+			'label'         => 'Estamos leyendo',
+			'public'        => true,
+			'rewrite'       => array('slug' => 'leyendo'),
+			'has_archive'   => true,
+			'supports'      => array('title','thumbnail','editor'),
+			'menu_position' => 7,
+		);
+		register_post_type( 'leyendo', $args );
 	}
 	add_action( 'init', 'post_types_espagueti' );
 

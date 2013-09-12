@@ -21,9 +21,9 @@
 		<?php } ?>
 		<?php the_content(); ?>
 		<div class="info-autor">
-			<?php echo get_avatar( get_the_author_meta('ID'), 150 ); ?>
+			<a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>"><?php echo get_avatar( get_the_author_meta('ID'), 150 ); ?></a>
 			<h4><?php the_author_posts_link(); ?></h4>
-			<span class="date"><a href=""><?php echo get_the_author_meta('nombre_columna'); ?></a></span>
+			<span class="date"><a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>"><?php echo get_the_author_meta('nombre_columna'); ?></a></span>
 			<p><?php echo get_the_author_meta('bio'); ?></p>
 		</div><!-- end .info-autor-->
 		<ul class="social-post">

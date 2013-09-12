@@ -11,6 +11,13 @@
 
 		<table class="form-table">
 			<tr>
+				<th><label for="colaborador">Colaborador</label></th>
+				<td>
+					<input type="checkbox" name="colaborador" id="colaborador" value="1" <?php checked( get_the_author_meta( 'colaborador', $user->ID ), 1 ); ?> />
+					<span class="description">El usuario es un colaborador</span>
+				</td>
+			</tr>
+			<tr>
 				<th><label for="bio">Biografía corta</label></th>
 				<td>
 					<textarea rows="4" cols="50" name="bio" id="bio" class="regular-text" /><?php echo esc_attr( get_the_author_meta( 'bio', $user->ID ) ); ?></textarea><br />
@@ -91,6 +98,12 @@
 	function save_extra_profile_fields( $user_id ) {
 		if ( !current_user_can( 'edit_user', $user_id ) )
 			return false;
+
+		if ( isset($_POST['colaborador']) ){
+			update_user_meta( $user_id, 'colaborador', $_POST['colaborador'] );
+		}else{
+			delete_user_meta( $user_id, 'colaborador' );
+		}
 		update_user_meta( $user_id, 'bio', $_POST['bio'] );
 		update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
 		update_user_meta( $user_id, 'nombre_columna', $_POST['nombre_columna'] );
@@ -114,7 +127,9 @@
 		foreach( $posttypes as $posttype ) {
 	      add_meta_box( 'meta-box-post-video', 'Video', 'show_metabox_post_video', $posttype, 'side', 'high' );
 	      add_meta_box( 'meta-box-post', 'Opciones del artículo', 'show_metabox_post', $posttype, 'side', 'high' );
-	      add_meta_box( 'meta-box-post-quote', 'Quote', 'show_metabox_post_quote', $posttype, 'side', 'high' );
+	      add_meta_box( 'meta-box-post-quote', 'Quote', 'show_metabox_post_quote', 'resenas', 'side', 'high' );
+		  add_meta_box( 'meta-box-post-source', 'Fuente', 'show_metabox_post_source', $posttype, 'normal', 'high' );
+		  add_meta_box( 'meta-box-post-sopitas', 'Mandar a Sopitas', 'show_metabox_post_sopitas', 'post', 'side', 'high' );
 		}
 
 	//META BOX SLIDER
@@ -127,6 +142,10 @@
 	//META BOX FICHA TÉCNICA
 
 		add_meta_box( 'meta-box-ficha', 'Ficha técnica', 'show_metabox_ficha', 'resenas', 'normal', 'high' );
+
+	//META BOX LINK ESTAMOS LEYENDO
+
+		add_meta_box( 'meta-box-leyendo', 'Link externo', 'show_metabox_link_externo', 'leyendo', 'side', 'default' );
 
 	});
 
@@ -172,7 +191,6 @@ meta_box_post_video;
 	}
 
 
-
 	// Callback function to show fields in meta box Opciones del slider
 
 	function show_metabox_post_slider($post) {
@@ -214,8 +232,38 @@ meta_box_resena;
 				<input type="text" name="post_quote" id="post_quote" value="$post_quote" class="widefat">
 				<p class="howto" style="font-size:11px; margin: 0.2em 0 1.5em 0;">Cita del artículo</strong></p>
 
-
 meta_box_post_quote;
+	}
+
+	// Callback function to show fields in meta box Via-Fuente
+
+	function show_metabox_post_source($post) {
+		$post_via   = get_post_meta($post->ID, 'post_via', true);
+		$post_fuente = get_post_meta($post->ID, 'post_fuente', true);
+		$link_fuente = get_post_meta($post->ID, 'link_fuente', true);
+		$link_via = get_post_meta($post->ID, 'link_via', true);
+		wp_nonce_field(__FILE__, 'via-meta-nonce');
+		wp_nonce_field(__FILE__, 'fuente-meta-nonce');
+		echo <<< meta_box_post_source
+
+			<label for="post_via">Via</label>
+			<input type="text" name="post_via" value="$post_via" class="widefat">
+			<p class="howto" style="font-size:11px; margin: 0.2em 0 1.5em 0;">Articulo posteado via:</p>
+
+			<label for="link_via">Link via</label>
+			<input type="text" name="link_via" value="$link_via" class="widefat">
+			<p class="howto" style="font-size:11px; margin: 0.2em 0 1.5em 0;">Link via del articulo</p>
+
+			<label for="post_fuente">Fuente del articulo</label>
+			<input type="text" name="post_fuente" value="$post_fuente" class="widefat">
+			<p class="howto" style="font-size:11px; margin: 0.2em 0 1.5em 0;">Fuente original del articulo</p>
+
+			<label for="link_fuente">Link de la fuente</label>
+			<input type="text" name="link_fuente" value="$link_fuente" class="widefat">
+			<p class="howto" style="font-size:11px; margin: 0.2em 0 1.5em 0;">Link de la fuente del articulo</p>
+
+
+meta_box_post_source;
 	}
 
 
@@ -254,6 +302,23 @@ meta_box_post_quote;
 meta_box_ficha;
 	}
 
+	//Callback function to show metabox link_externo
+
+	function show_metabox_link_externo($post) {
+		$link = get_post_meta($post->ID, 'link_externo', true);
+		wp_nonce_field(__FILE__, 'link_externo_nonce');
+		echo "<input type='url' name='link_externo' class='widefat' value='$link'>";
+	}
+
+
+	function show_metabox_post_sopitas($post){
+		$checked = get_post_meta($post->ID, 'mandar_a_sopitas', true);
+		$checked = $checked ? 'checked' : '';
+		wp_nonce_field(__FILE__, 'mandar_a_sopitas_nonce');
+		echo "<input type='checkbox' id='mandar_a_sopitas' name='mandar_a_sopitas' value='true' $checked>&nbsp;&nbsp;&nbsp;";
+		echo "<label for='mandar_a_sopitas'>Compartir en el feed de sopitas.</label>";
+	}
+
 
 
 // SAVE METABOXES DATA ///////////////////////////////////////////////////////////////
@@ -267,6 +332,37 @@ meta_box_ficha;
 		if(defined('DOING_AUTOSAVE') and DOING_AUTOSAVE){
 			return $post_id;
 		}
+
+
+		if(isset($_POST['mandar_a_sopitas']) and check_admin_referer(__FILE__, 'mandar_a_sopitas_nonce') ){
+			update_post_meta($post_id, 'mandar_a_sopitas', 'true');
+		}else{
+			delete_post_meta($post_id, 'mandar_a_sopitas');
+		}
+
+
+		if(isset($_POST['post_via']) and check_admin_referer(__FILE__, 'via-meta-nonce') ){
+			update_post_meta($post_id, 'post_via', $_POST['post_via']);
+		}else{
+			delete_post_meta($post_id, 'post_via');
+		}
+
+		if(isset($_POST['post_fuente']) and check_admin_referer(__FILE__, 'fuente-meta-nonce') ){
+			update_post_meta($post_id, 'link_fuente', $_POST['link_fuente']);
+			update_post_meta($post_id, 'post_fuente', $_POST['post_fuente']);
+			update_post_meta($post_id, 'link_via', $_POST['link_via']);
+		}else{
+			delete_post_meta($post_id, 'post_fuente');
+			delete_post_meta($post_id, 'link_fuente');
+			delete_post_meta($post_id, 'link_via');
+		}
+
+		if(isset($_POST['link_externo']) and check_admin_referer(__FILE__, 'link_externo_nonce') ){
+			update_post_meta($post_id, 'link_externo', $_POST['link_externo']);
+		}else{
+			delete_post_meta($post_id, 'link_externo');
+		}
+
 
 		/// DESTACADOS
 
@@ -299,7 +395,6 @@ meta_box_ficha;
 		//}
 
 		/// VIDEOS
-
 		if( isset($_POST['id_vimeo']) and check_admin_referer( __FILE__, '_articulo_videos_nonce' ) ){
 
 			if (isset($_POST['id_vimeo']) ) {
@@ -325,8 +420,6 @@ meta_box_ficha;
 
 
 		/// RESEÑA
-
-
 		if( isset($_POST['score']) and check_admin_referer( __FILE__, '_articulo_resena_nonce' ) ){
 
 
@@ -336,7 +429,6 @@ meta_box_ficha;
 		}
 
 		/// QUOTE
-
 		if( isset($_POST['post_quote']) and check_admin_referer( __FILE__, '_articulo_quotes_nonce' ) ){
 
 			if (isset($_POST['post_quote']) ) {
@@ -345,7 +437,6 @@ meta_box_ficha;
 		}
 
 		/// FICHA TÉCNICA
-
 		if( isset($_POST['ficha']) and check_admin_referer( __FILE__, '_articulo_ficha_nonce' ) ){
 
 			if (isset($_POST['ficha']) ) {
@@ -354,3 +445,39 @@ meta_box_ficha;
 		}
 
 	});
+
+
+
+	add_filter( 'manage_posts_columns', 'add_custom_colums_callback');
+
+	function add_custom_colums_callback($columns){
+
+		return array (
+			'cb'         => '<input type="checkbox" />',
+			'title'      => 'Título',
+			'sopitas'    => 'Sopitas RSS',
+			'author'     => 'Autor',
+			'categories' => 'Categorías',
+			'tags'       => 'Etiquetas',
+			'comments'   => '<span class="vers"><div title="Comentarios" class="comment-grey-bubble"></div></span>',
+			'date'       => 'Fecha'
+		);
+	}
+
+
+
+
+	add_action( 'manage_posts_custom_column', 'custom_noticias_columns', 10, 2 );
+
+	function custom_noticias_columns( $column, $post_id ) {
+		$checked = get_post_meta($post_id, 'mandar_a_sopitas', TRUE);
+		$checked = $checked ? 'checked' : '';
+		if( $column == 'sopitas' ){
+			echo <<< mandar_a_sopitas_metabox
+				<br /><p class='description'>
+					<input type='checkbox' class='mandar_a_sopitas_checkbox' data-post_id='$post_id' $checked>
+					&nbsp; RSS feed de sopitas.
+				</p>
+mandar_a_sopitas_metabox;
+		}
+	}
