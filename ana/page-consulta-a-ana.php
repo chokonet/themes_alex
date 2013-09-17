@@ -4,7 +4,7 @@
 				<?php the_post(); ?>
 				<div class="single_izq">
 					<div class="tercio">
-						<h3 class="ana_verde">Consulta a Ana Vásquez Colmenares</h3>
+						<h2 class="ana_verde">Consulta a Ana Vásquez Colmenares</h2>
 					</div>
 
 					<div class="single_cont">
@@ -26,7 +26,7 @@
 
 					<div class="tercio">
 
-						<h3 class="ana_verde">Conferencias</h3>
+						<h2 class="ana_verde">Conferencias</h2>
 
 						<div class="tercio_in">
 							<?php
@@ -49,7 +49,7 @@
 					</div><!-- tercio -->
 
 					<div id="twitter_wid" class="tercio margen_sup_25">
-						<a class="twitter-timeline" href="https://twitter.com/anavasquezc" data-widget-id="339810405939552258">Tweets by @anavasquezc</a>
+						<a class="twitter-timeline" href="https://twitter.com/ConsejosdeAna" data-widget-id="346712873344573440">Tweets by @ConsejosdeAna</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					</div><!-- twitter -->
 

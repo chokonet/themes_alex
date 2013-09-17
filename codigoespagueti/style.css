@@ -328,7 +328,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .content-single p.source a{display: inline-block; font-family: 'Mono'; font-size: 14px; text-decoration: none; color: #FFF; background-color: #BFBFBF; padding: 0 4px 0 4px;}
 .content-single p.source a.title{display: inline-block; width: 81px; font-family: 'Mono'; font-size: 14px; background-color: #00A6CF; text-align: center; padding: 0 4px 0 4px;}
 .content-single p.source a.gap{margin-right: 15px; padding: 0 4px 0 4px; font-size: 14px;}
-p.wp-caption-text{width: 630px!important; margin: -1px 0!important; padding: 5px; height: auto; background-color: #bfbfbf; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 75; font-size: 12px; color: #fff; line-height: 16px;}
+p.wp-caption-text{width: 630px!important; margin: -5px 0!important; padding: 5px; height: auto; background-color: #bfbfbf; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight:bold; font-size: 12px; color: #fff; line-height: 16px;}
 .info-autor {width: 100%; margin: 20px 0px; }
 .info-autor img {float:left; margin-right: 20px; }
 .info-autor h4 {margin-bottom: 10px;}

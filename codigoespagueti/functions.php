@@ -389,45 +389,72 @@
 						AND post_status = 'publish' LIMIT 40;", OBJECT);
 	}
 
+///facebook counts ///////////////////////////////////////////////////////////
+
+	/**
+	 * Recibe una url y regresa el tweet count
+	 * @param  string $url
+	 * @return integer      tweet count
+	 */
+	function getFacebookCount($url){
+	    $fileData   = file_get_contents('http://graph.facebook.com/?id='.$url);
+	    $json       = json_decode($fileData, true);
+	    return $json['shares'];
+	}
+
+	add_action('init', function(){
+		setFacebookCountTransients();
+	});
 
 
-// FACEBOOCK SHARES ////////////////////////////////////////////////////////
+	function setFacebookCountTransients(){
 
-
-
-	function oder_posts_by_date($posts){
-
-		$permalinks = '';
+		$posts = get_posts_from_last_week();
 
 		foreach ($posts as $post) {
-			$permalinks .= get_permalink($post->ID) .',';
+
+			$facebookCount = get_transient( "facebook_count_".$post->ID );
+
+			if( $facebookCount === false ){
+
+				$permalink  = get_permalink($post->ID);
+				$facebookCount = getFacebookCount( $permalink );
+				set_transient( "facebook_count_".$post->ID, $facebookCount, 7200);
+			}
 		}
-		$permalinks    = substr_replace($permalinks ,'',-1);
-
-		$results       = file_get_contents("http://graph.facebook.com/?ids=$permalinks");
-		$facebook_data = json_decode($results);
-
-		$count_facebook = array(); // guarda los resultados
-
-		foreach ($facebook_data as $value) {
-
-				$data = new stdClass;
-				$data->url        = $value->id;
-				$data->count     = $value->shares;
-				// $count_facebook       = $data;
-				array_push($count_facebook, $data);
-
-		}
-
-		return $count_facebook;
 	}
 
 
-
-	function get_posts_mas_shares(){
-		$posts = get_posts_from_last_week();
-		return oder_posts_by_date($posts);
+	function get_posts_facebook_count(){
+		global $wpdb;
+		return $wpdb->get_results(
+			"SELECT SUBSTRING( option_name, 27, 3 ) AS post_id, option_value AS tweet_count
+				FROM wp_options WHERE option_name LIKE '_transient_facebook_count%';", OBJECT
+		);
 	}
+
+	function countFacebook(){
+
+		$postsData = get_posts_facebook_count();
+
+		$count_face = array(); // guarda los resultados
+
+		foreach ($postsData as $key => $values) {
+
+				$post = get_post($values->post_id);
+
+				$face_counts        = new stdClass;
+				$face_counts->url   = get_permalink($post->ID);
+				$face_counts->count = $values->tweet_count;
+				$count_face[$key]   = $face_counts;
+
+		}
+
+		return $count_face;
+
+
+	}
+
 
 	///tweet counts ///////////////////////////////////////////////////////////
 
@@ -538,8 +565,7 @@
 			if( $googleCount === false ){
 				$permalink  = get_permalink($post->ID);
 				$googleCount = getGoogleCount( $permalink );
-				set_transient( "google_count_".$post->ID, $googleCount, 20);
-				//set_transient( "google_count_".$post->ID, $googleCount, 7200);
+				set_transient( "google_count_".$post->ID, $googleCount, 7200);
 			}
 		}
 	}
@@ -579,7 +605,7 @@
 
 	function imprime_post_masgustados(){
 
-		$count_facebook = get_posts_mas_shares();
+		$count_facebook = countFacebook();
 		$count_tweet    = count_tweet();
 		$countGoogle    = countGoogle();
 
@@ -631,7 +657,6 @@
 		);
 
 	}
-
 
 
 
@@ -708,5 +733,3 @@
 		$posts = get_posts_from_last_week();
 		return get_oder_posts_by_coment($posts);
 	}
-
-

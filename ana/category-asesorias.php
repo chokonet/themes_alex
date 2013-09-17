@@ -6,56 +6,41 @@
 
 				<div class="single_izq">
 					<div class="tercio">
-						<h3 class="ana_verde">Asesorías</h3>
-
-						<?php
-
-
-
-						$termino = get_term_by( 'slug', 'asesorias', 'category' );
-
-						// echo '<pre>';
-						// 	print_r($termino);
-						// echo '</pre>';
-
-						?>
+						<h2 class="ana_verde">Asesorías</h2>
+						<?php $termino = get_term_by( 'slug', 'asesorias', 'category' ); ?>
 						<p><?php echo $termino->description; ?></p>
 					</div>
 
-					<?php
+					<?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-			
-					$args = array(
+					query_posts( array(
 						'paged' 		 => $paged,
 						'category_name'  => 'asesorias'
-					);
-					query_posts( $args );
-
+					));
 					while ( have_posts() ) : the_post(); ?>
 						<div class="cada_post">
-							<h4 class="post_h">
+							<h2 class="post_h_azul2">
 								<a href="<?php the_permalink(); ?>">
 									<?php the_title(); ?>
 								</a>
-							</h4>
+							</h2>
 							<div class="cada_post_img_warp">
 								<?php the_post_thumbnail( 'img_blog' ); ?>
 							</div><!-- cada_post_img_warp -->
 							<div class="cada_post_p_warp">
-								<?php
-								$excerpt = get_the_content();
-								$excerpt = string_limit_words($excerpt,40);
-								?>
-							<p><?php echo $excerpt; ?>…</p>
+
+							<p><?php the_excerpt(); ?></p>
 								<div class="cada_post_leer"> <a href="<?php the_permalink(); ?>"> Leer más </a> </div>
 							</div><!-- cada_post_p_warp -->
 							<div class="separacion sepa_blog"></div>
-						</div><!-- cada_post -->	
+						</div><!-- cada_post -->
 					<?php endwhile; ?>
-					
-					<ul class="dicc_pager link_azul2">
-						<?php posts_nav_link( ' | ', '< Anterior', 'Siguiente >' ); ?>
+
+					<ul class="dicc_pager link_gris2">
+					<?php if (function_exists('pagination')) {
+						global $wp_query;
+						pagination($wp_query->max_num_pages);
+					} ?>
 					</ul><!-- dicc_pager -->
 
 				</div><!-- single_izq -->
@@ -83,7 +68,7 @@
 
 					<div class="tercio margen_sup_25">
 
-						<h3 class="ana_verde">Conferencias</h3>
+						<h2 class="ana_verde">Conferencias</h2>
 						<div class="tri_ana tri_ana_izq"></div>
 
 						<div class="tercio_in">
@@ -102,7 +87,7 @@
 
 					<div class="tercio margen_sup_25 tag_cloud">
 
-					    <h3 class="ana_verde">Tag Cloud</h3>
+					    <h2 class="ana_verde">Tag Cloud</h2>
 
 					    <div class="tercio_in">
 					        <a style="font-size: 34px;" href="#">Branding personal</a>
@@ -119,15 +104,25 @@
 
 					</div><!-- tercio -->
 
-					<div class="tercio margen_sup_25">
+					<div class="tercio margen_sup_25 banner_ocultar">
 						<div class="tercio_in">
-							<img src="<?php bloginfo('template_url'); ?>/images/ad.jpg">
+							<!-- Google Adsense -->
+							<script type="text/javascript">
+							google_ad_client = "ca-pub-5042601521790259";
+							/* Header */
+							google_ad_slot = "4963263372";
+							google_ad_width = 300;
+							google_ad_height = 250;
+							</script>
+							<script type="text/javascript"
+							src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+							</script>
 						</div><!-- tercio_in -->
 
 					</div><!-- tercio -->
 
 					<div id="twitter_wid" class="tercio margen_sup_25 twitter_border">
-						<a class="twitter-timeline" href="https://twitter.com/anavasquezc" data-widget-id="339810405939552258">Tweets by @anavasquezc</a>
+						<a class="twitter-timeline" href="https://twitter.com/ConsejosdeAna" data-widget-id="346712873344573440">Tweets by @ConsejosdeAna</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					</div><!-- twitter -->
 				</div><!-- single_der -->

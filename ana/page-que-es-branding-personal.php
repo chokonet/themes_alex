@@ -5,7 +5,7 @@
 				<div class="single_izq">
 					<div class="tercio">
 
-						<h3 class="brand_verde">Branding Personal</h3>
+						<h2 class="brand_verde">Branding Personal</h2>
 					</div>
 
 					<div class="single_cont">
@@ -87,7 +87,7 @@
 						);
 						$comments = get_comments($args);
 						if ( $comments ){?>
-							<h3>Comentarios:</h3>
+							<h2>Comentarios:</h2>
 						<?php }
 						foreach ( $comments as $comment ){ ?>
 
@@ -105,21 +105,32 @@
 				<div class="single_der ana_verde">
 
 					<div class="un_tercio tercio preguntale brand_verde">
-						<a href="<?php echo home_url('/consulta-a-ana/'); ?>"><h3 class="brand_verde">Consulta a Ana</h3></a>
+						<a href="<?php echo home_url('/consulta-a-ana/'); ?>"><h2 class="brand_verde">Consulta a Ana</h2></a>
 						<img class="preguntale_img" src="<?php bloginfo('template_url'); ?>/images/preguntale.png">
-						
+
 					</div><!-- un_tercio -->
 
-					<div class="tercio margen_sup_25">
+					<div class="tercio margen_sup_25 banner_ocultar">
 						<div class="tercio_in">
-							<img src="<?php bloginfo('template_url'); ?>/images/ad.jpg">
+							<!-- Google Adsense -->
+							<script type="text/javascript">
+							google_ad_client = "ca-pub-5042601521790259";
+							/* Header */
+							google_ad_slot = "4963263372";
+							google_ad_width = 300;
+							google_ad_height = 250;
+							</script>
+							<script type="text/javascript"
+							src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+							</script>
 						</div><!-- tercio_in -->
 
 					</div><!-- tercio -->
 
 					<div id="twitter_wid" class="tercio margen_sup_25 twitter_border">
-						<a class="twitter-timeline" href="https://twitter.com/anavasquezc" data-widget-id="339810405939552258">Tweets by @anavasquezc</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						<a class="twitter-timeline" href="https://twitter.com/ConsejosdeAna" data-widget-id="346712873344573440">Tweets by @ConsejosdeAna</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 					</div><!-- twitter -->
 
 

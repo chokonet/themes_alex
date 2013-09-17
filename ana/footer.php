@@ -15,7 +15,7 @@
 			<div class="footer_wrap">
 				<p>Tel.: +52 55 55149773 |  <a href="mailto:info@anavasquez.com"> info@anavasquez.com</a></p>
 				<p>Copyright © Ana Vásquez Colmenares - Branding Personal</p>
-				<p><small><a href="privacidad.html">Áviso de Privacidad</a></small></p>
+				<p><small><a href="<?php echo SITEURL ?>/aviso-de-privacidad/">Áviso de Privacidad</a></small></p>
 			</div><!-- footer_wrap -->
 		</div><!-- footer -->
 		<?php wp_footer(); ?>

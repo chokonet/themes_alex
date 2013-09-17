@@ -1,11 +1,7 @@
 <div class="side-general">
 	<?php if ( is_single() ): ?>
 	<!-- prueba loop ultimo mes-->
-	<?php
 
-	get_posts_mas_shares();//imprime shares faceebook
-
-	?>
 		<div class="caja_side">
 			<ul class="favoritos">
 				<li id="noticias" class="select"></li>

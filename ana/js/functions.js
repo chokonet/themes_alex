@@ -4,13 +4,21 @@
 
 	$(function(){
 
+		$('.page-numbers').each(function(index, value){
+			if(!$(this).hasClass('next') && !$(this).hasClass('prev') && !$(this).is(':nth-last-child(2)')){
+				$(this).append(' - ');
+			}
+		});
+
+
 		$('#slider, #slider_ana1, #slider_branding, #slider_equi').roundabout({
 			btnPrev:    '#slider_prev',
 			btnNext:    '#slider_next',
 			responsive: true
 		});
 
-		$('#carusel-diccionario, #carusel-articulos, #carusel_videos_verde').tinycarousel({ display: 2 });
+		$('#carusel-diccionario, #carusel-articulos, #carusel_videos_verde, #slider_wrap').tinycarousel({ display: 1 });
+
 
 		$('#carusel-moda').tinycarousel({ display: 2 });
 
@@ -29,7 +37,9 @@
 			$('.iframe_wrap').hide();
 			$('.' + class_selector).show();
 		});
-
+		$(".videos_ventana").click(function(){
+		    	$(".videos_ventana").addClass('cycle-paused');
+		  });
 		//POPUP INDEX
 		//carga de página, se ejecuta solamente 1 vez cuando la página cargo por completo
 		$(document).ready(function(){
@@ -114,4 +124,178 @@
 		});
 
 	});
+	//video_segundo
+	$('.video_wrap_el').each(function(index, value){
+				if( (index+1)%2 === 0){
+					$(this).addClass('segundo_vid');
+				}
+			});
+	//responsive menu
+	$('.nav_mobile').live('click', function(){
+
+		if ($(this).hasClass('on') ){
+			$('.menu_mobile ').slideUp();
+			$(this).removeClass('on');
+		} else {
+			$('.menu_mobile ').slideDown();
+			$(this).addClass('on');
+		}
+	});
+	//submenu
+	$('.abre_submenu').live('click', function(){
+
+		if ($(this).hasClass('active') ){
+			$(this).next('.submenu_mobile').slideUp();
+			$(this).removeClass('active');
+
+		} else {
+
+			$('.submenu_mobile').slideUp();
+			$(this).next('.submenu_mobile').slideDown();
+			$('.abre_submenu').removeClass('active');
+			$(this).addClass('active');
+		}
+	});
+	//subsub menu
+	$('.abre_subsubmenu').live('click', function(){
+
+		if ($(this).hasClass('on2') ){
+			$('.subsubmenu_mobile').slideUp();
+			$(this).removeClass('on2');
+
+		} else {
+
+			$('.subsubmenu_mobile').slideDown();
+			$(this).addClass('on2');
+		}
+	});
+
+	//slider
+	$('#right_scroll').click(function(){
+
+		var item_width = $('#carousel_ul li').outerWidth() + 20;
+		var parse = parseInt($('#carousel_ul').css('left'));
+		var left_indent = parse - item_width;
+
+		$('#carousel_ul').animate({
+			'left' : left_indent}, 500, function () {
+
+			$('#carousel_ul').css({'left' : '0px'});
+			$('#carousel_ul li:last').after($('#carousel_ul li:first'));
+		});
+
+	});
+
+	$('#left_scroll').click(function(){
+
+		var item_width = $('#carousel_ul li').outerWidth() + 20;
+		var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
+
+		$('#carousel_ul').animate({
+			'left' : left_indent}, 500 ,function () {
+
+			$('#carousel_ul').css({'left' : '0px'});
+			$('#carousel_ul li:first').before($('#carousel_ul li:last'));
+		});
+	});
+
+
+	// Touch --------------------------
+	$("#carousel_ul").touchwipe({
+		preventDefaultEvents: false,
+		wipeLeft: function() {
+
+			var item_width = $('#carousel_ul li').outerWidth() + 20;
+			var parse = parseInt($('#carousel_ul').css('left'));
+			var left_indent = parse - item_width;
+
+			$('#carousel_ul').animate({
+				'left' : left_indent}, 500, function () {
+
+				$('#carousel_ul').css({'left' : '0px'});
+				$('#carousel_ul li:last').after($('#carousel_ul li:first'));
+			});
+			return false;
+		},
+		wipeRight: function() {
+
+			var item_width = $('#carousel_ul li').outerWidth() + 20;
+			var parse = parseInt($('#carousel_ul').css('left'));
+			var left_indent = parse + item_width;
+
+			$('#carousel_ul').animate({
+				'left' : left_indent}, 500 ,function () {
+
+				$('#carousel_ul').css({'left' : '0px'});
+				$('#carousel_ul li:first').before($('#carousel_ul li:last'));
+			});
+			return false;
+		}
+	});
+	// Touch diccionario--------------------------
+	$("#carousel_uls").touchwipe({
+		preventDefaultEvents: false,
+		wipeLeft: function() {
+
+			var item_width = $('#carousel_uls li').outerWidth() + 20;
+			var parse = parseInt($('#carousel_uls').css('left'));
+			var left_indent = parse - item_width;
+
+			$('#carousel_uls').animate({
+				'left' : left_indent}, 500, function () {
+
+				$('#carousel_uls').css({'left' : '0px'});
+				$('#carousel_uls li:last').after($('#carousel_uls li:first'));
+			});
+			return false;
+		},
+		wipeRight: function() {
+
+			var item_width = $('#carousel_uls li').outerWidth() + 20;
+			var parse = parseInt($('#carousel_uls').css('left'));
+			var left_indent = parse + item_width;
+
+			$('#carousel_uls').animate({
+				'left' : left_indent}, 500 ,function () {
+
+				$('#carousel_uls').css({'left' : '0px'});
+				$('#carousel_uls li:first').before($('#carousel_uls li:last'));
+			});
+			return false;
+		}
+	});
+	// Touch diccionario--------------------------
+	$("#carousel_articulos").touchwipe({
+		preventDefaultEvents: false,
+		wipeLeft: function() {
+
+			var item_width = $('#carousel_articulos li').outerWidth() + 20;
+			var parse = parseInt($('#carousel_articulos').css('left'));
+			var left_indent = parse - item_width;
+
+			$('#carousel_articulos').animate({
+				'left' : left_indent}, 500, function () {
+
+				$('#carousel_articulos').css({'left' : '0px'});
+				$('#carousel_articulos li:last').after($('#carousel_articulos li:first'));
+			});
+			return false;
+		},
+		wipeRight: function() {
+
+			var item_width = $('#carousel_articulos li').outerWidth() + 20;
+			var parse = parseInt($('#carousel_articulos').css('left'));
+			var left_indent = parse + item_width;
+
+			$('#carousel_articulos').animate({
+				'left' : left_indent}, 500 ,function () {
+
+				$('#carousel_articulos').css({'left' : '0px'});
+				$('#carousel_articulos li:first').before($('#carousel_articulos li:last'));
+			});
+			return false;
+		}
+	});
+
+
 })(jQuery);

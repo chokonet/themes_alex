@@ -4,7 +4,7 @@
 				<?php the_post(); ?>
 				<div class="single_izq">
 					<div class="tercio">
-						<h3 class="ana_verde">Ana Vásquez Colmenares</h3>
+						<h2 class="ana_verde">Ana Vásquez Colmenares</h2>
 					</div>
 
 					<div class="single_cont">
@@ -58,7 +58,7 @@
 						);
 						$comments = get_comments($args);
 						if ( $comments ){?>
-							<h3>Comentarios:</h3>
+							<h2>Comentarios:</h2>
 						<?php }
 						foreach ( $comments as $comment ){ ?>
 
@@ -78,13 +78,13 @@
 				<div class="single_der ana_azul2">
 
 					<div class="un_tercio tercio preguntale ana_verde">
-						<a href="<?php echo home_url('/consulta-a-ana/'); ?>"><h3 class="brand_azul">Consulta a Ana</h3></a>
+						<a href="<?php echo home_url('/consulta-a-ana/'); ?>"><h2 class="brand_azul">Consulta a Ana</h2></a>
 						<img class="preguntale_img" src="<?php bloginfo('template_url'); ?>/images/preguntale.png">
 					</div><!-- un_tercio -->
 
 					<div class="tercio margen_sup_25">
 
-						<h3 class="ana_verde">Conferencias</h3>
+						<h2 class="ana_verde">Conferencias</h2>
 
 
 						<div class="tercio_in">
@@ -101,7 +101,7 @@
 
 
 					</div><!-- tercio -->
-				
+
 
 					<div id="twitter_wid" class="tercio margen_sup_25">
 						<a class="twitter-timeline" href="https://twitter.com/anavasquezc" data-widget-id="339810405939552258">Tweets by @anavasquezc</a>
