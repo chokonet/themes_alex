@@ -22,7 +22,7 @@
 
 		var save_attachment = function(attachment, user_id, fecha){
 
-			console.log(attachment.compat.item);
+			//console.log(attachment.compat.item);
 
 			var jqxhr = $.ajax({
 				type: 'POST',

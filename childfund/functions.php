@@ -2,9 +2,9 @@
 
 //------------------------------------ Front end scripts
 
-
 	define( 'JSPATH', get_template_directory_uri() . '/js/' );
 	define( 'CSSPATH', get_template_directory_uri() . '/css/' );
+	define( 'THEMEPATH', get_template_directory_uri() . '/' );
 
 	add_action('wp_enqueue_scripts', 'enqueue_childfund_scripts');
 
@@ -18,6 +18,14 @@
 		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('jquery', 'validate'), false, true);
 		wp_enqueue_script( 'mapa', JSPATH.'jquery-1.7.1.js', array('jquery'), false, true);
 
+
+		if ( is_page('nuevosproductos') OR is_page('post-donativo') ){
+			wp_enqueue_script( 'nuevosproductos', JSPATH.'nuevosproductos.js', array('jquery'), false, true);
+			wp_localize_script('nuevosproductos', 'ajax_url', get_bloginfo('wpurl').'/wp-admin/admin-ajax.php');
+			wp_localize_script('nuevosproductos', 'theme_url', THEMEPATH.'/');
+			wp_enqueue_style( 'styles_programas', CSSPATH.'nuevosproductos.css' );
+		}
+
 		wp_localize_script('functions', 'ajax_url', get_bloginfo('wpurl').'/wp-admin/admin-ajax.php');
 	}
 
@@ -30,6 +38,7 @@
 
 		// scripts
 		wp_enqueue_script( 'media-upload' );
+
 		wp_enqueue_script( 'jquery-ui-datepicker' ); // Default WordPress datepicker
 		wp_enqueue_script( 'modernizr_admin', JSPATH.'modernizr.min.js', array('jquery'), false, true);
 		wp_enqueue_script( 'functions_admin', JSPATH.'functions_admin.js', array('jquery', 'media-upload', 'modernizr_admin', 'jquery-ui-datepicker'), false, true);
@@ -50,7 +59,6 @@
 		register_nav_menus(
 			array(
 				'top_menu'  => 'Menú superior',
-
 				'main_menu' => 'Menú principal'
 			));
 	}
@@ -59,17 +67,10 @@
 
 //------------------------------------ Crear Pages
 
-	add_action('init', function(){
-		if( ! get_page_by_title('Padrino Facturas') ){
-			$page = array(
-				'post_author'  => 1,
-				'post_status'  => 'publish',
-				'post_title'   => 'Padrino Facturas',
-				'post_type'    => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-	});
+
+
+	require_once 'inc/custom-pages.php';
+
 
 
 //------------------------------------ Acceso redirigido para padrinos
@@ -171,7 +172,6 @@
 
 
 	if ( function_exists( 'add_image_size' ) ) {
-
 		add_image_size( 'noticias-thumb', 220, 180, true ); //300 pixels wide (and unlimited height)
 		add_image_size( 'noticias-interior', 600, 9999 ); //(cropped)
 		add_image_size( 'ninos-thumb', 100, 133, true );
@@ -226,7 +226,6 @@
 		<script>
 			jQuery(document).ready(function() {
 
-
 				var edad = jQuery('#_rango_edad').val();
 				if(edad != ''){
 					jQuery('#select_edad').val(edad);
@@ -245,12 +244,26 @@
 
 	add_action('save_post', 'ninos_meta_save');
 
-	function ninos_meta_save(){
-		global $post;
-		update_post_meta($post->ID, "_padrino_id", $_POST["_padrino_id"]);
-		update_post_meta($post->ID, "_nino_id", $_POST["_nino_id"]);
-		update_post_meta($post->ID, "_rango_edad", $_POST["_rango_edad"]);
+	function ninos_meta_save($post_id){
 
+		// check autosave
+		if( defined('DOING_AUTOSAVE') and DOING_AUTOSAVE ){
+			return $post_id;
+		}
+		// check permissions
+		if( !current_user_can('edit_page', $post_id) ){
+			return $post_id;
+		}
+
+		if( isset($_POST['_padrino_id']) ){
+			update_post_meta($post_id, "_padrino_id", $_POST["_padrino_id"]);
+		}
+		if( isset($_POST['_nino_id']) ){
+			update_post_meta($post_id, "_nino_id", $_POST["_nino_id"]);
+		}
+		if( isset($_POST['_rango_edad']) ){
+			update_post_meta($post_id, "_rango_edad", $_POST["_rango_edad"]);
+		}
 	}
 
 
@@ -398,6 +411,7 @@
 
 
 //------------------------------------ Cambiar la cantidad de elementos en wp_cart
+
 	function update_cart_quantity(){
 		global $wpdb;
 
@@ -548,13 +562,14 @@
 	add_filter('parse_query', 'parse_query_callback');
 
 	function parse_query_callback($wp_query){
-		if( is_admin() and preg_match('/user-edit.php/', $_SERVER['HTTP_REFERER']) ){
+
+		if( is_admin() AND isset($_SERVER['HTTP_REFERER']) AND preg_match('/user-edit.php/', $_SERVER['HTTP_REFERER']) ){
 
 			$parts = explode('user_id=', $_SERVER['HTTP_REFERER']);
 
 			$user_id = ($parts) ? explode('&', $parts[1]) : false;
 
-			if( isset($user_id[0]) and !empty($user_id[0]) ){
+			if( isset($user_id[0]) AND !empty($user_id[0]) ){
 				$wp_query->set('author' , $user_id[0]);
 			}
 
@@ -565,7 +580,7 @@
 
 	// Guardar los campos (meta) del usuario
 	function save_user_custom_fields($user_id) {
-		if ( !current_user_can( 'edit_user', $user_id ) ){
+		if ( ! current_user_can('edit_user', $user_id)) {
 			return false;
 		}
 		$user_meta = ( isset($_POST['_facturas_padrino']) ) ? $_POST['_facturas_padrino'] : '';
@@ -610,8 +625,6 @@
 		// 	'input' => 'text',
 		// 	'value' => $fecha_factura
 		// );
-
-
 
 		$fecha_factura = &$form_fields['fecha_factura'];
 		$fecha_factura['label'] = 'Fecha';
@@ -671,3 +684,27 @@
 
 
 
+// CREAR LA TABLA PARA GUARDAR INFORMACION DE LOS DONATIVOS //////////////////////////
+
+
+	add_action('init', function(){
+		global $wpdb;
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS wp_donativos (
+				donativos_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				tipo VARCHAR(255) DEFAULT NULL,
+				programa VARCHAR(255) DEFAULT NULL,
+				monto INT(10),
+				txn_id VARCHAR(255) DEFAULT NULL,
+				payment_status VARCHAR(255) DEFAULT NULL,
+				fecha datetime DEFAULT '0000-00-00 00:00:00',
+				PRIMARY KEY (donativos_id)
+			)DEFAULT CHARSET=utf8;"
+		);
+	});
+
+
+
+	add_action( 'login_enqueue_scripts', function(){
+		wp_enqueue_style( 'styles_login', CSSPATH.'login.css' );
+	});

@@ -5,24 +5,26 @@
 		<h2>Apadrina a un niño</h2>
 		
 		<?php if(have_posts()): while(have_posts()): the_post(); $do_not_duplicate = $post->ID; ?>
-		<div class="ficha">
-			
-				<?php the_post_thumbnail('ninos-interior'); ?>
-				<h3 class="hola">¡Hola! mi nombre es:</h3>
-				<h3><?php the_title(); ?></h3>
+		<div class="fichaContainer">
+			<div class="ficha">
 				
-				<?php the_content(); ?>
-				
-				<div class="boton grande"><a href="<?php echo site_url('intencion-de-apadrinar'); ?>/?nino=<?php echo $post->ID; ?>">Apadrínalo ></a></div>
+					<?php the_post_thumbnail('ninos-interior'); ?>
+					<h3 class="hola">¡Hola! mi nombre es:</h3>
+					<h3><?php the_title(); ?></h3>
+					
+					<?php the_content(); ?>
+					
+					<div class="boton grande"><a href="<?php echo site_url('intencion-de-apadrinar'); ?>/?nino=<?php echo $post->ID; ?>">Apadrínalo ></a></div>
 
-		</div><!-- end .ficha -->
-		
-		<div class="datos">
+			</div><!-- end .ficha -->
 			
-			<h3 class="hola">Más sobre mí:</h3>
-				<?php the_meta(); ?>
-		
-		</div><!-- end .datos -->
+			<div class="datos">
+				
+				<h3 class="hola">Más sobre mí:</h3>
+					<?php the_meta(); ?>
+			
+			</div><!-- end .datos -->
+		</div><!-- fichaContainer -->
 		
 		<?php endwhile; endif; ?>
 		

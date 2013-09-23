@@ -1,4 +1,29 @@
+// Avoid `console` errors in browsers that lack a console.
+(function() {
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
+
+
 (function($){
+
 	"use strict";
 
 	$(function(){
@@ -6,8 +31,32 @@
 
 		$('#submit-intencion-apadrinar').on('click', function (e) {
 			e.preventDefault();
-			$('#aviso-container').fadeIn('slow');
+			$('#aviso-container').show();
 		});
+
+		$('#submit-paypal-form').on('click', function (e) {
+
+			e.preventDefault();
+			if ( $('#unico').is(':checked')
+				|| $('#mensual').is(':checked')
+				&& $('#educacion').is(':checked')
+					|| $('#salud').is(':checked')
+					|| $('#proteccion').is(':checked')
+					|| $('#cuidado').is(':checked')
+					|| $('#cualquiera').is(':checked')
+				&& $('#150').is(':checked')
+					|| $('#300').is(':checked')
+					|| $('#500').is(':checked')
+					|| $('#1000').is(':checked')
+					|| $('#2000').is(':checked')
+					|| $('#2500').is(':checked') ) {
+				$('#aviso-container').show();
+			} else {
+				alert('Por favor llene todo el formulario.');
+			}
+
+		});
+
 
 		$('#aviso-container').on('click', function (e) {
 			if (e.target == this) {
@@ -15,18 +64,119 @@
 			}
 		});
 
+
 		$('#submit-aviso-privacidad').on('click', function () {
 			if( $('#autorizo').is(':checked') ){
-				$('#aviso-container').fadeOut();
+				$('#aviso-container').hide();
 				$('#datos_padrino').submit();
 			}else{
 				$('#autorizo').focus();
 			}
 		});
 
-		$('#aviso-container .cerrar').on('click', function () {
-			$('#aviso-container').fadeOut();
+
+		$('#submit-aviso-paypal').on('click', function () {
+
+			if( $('#autorizo').is(':checked') ){
+
+				$('#aviso-container').hide();
+				$('#donativo').hide();
+				$('#factura-container').show();
+
+			}else{
+				$('#autorizo').focus();
+			}
 		});
+
+
+		$('#aviso-container .cerrar').on('click', function () {
+			$('#aviso-container').hide();
+		});
+
+
+		$('#factura-container').hide();
+
+
+		function cancelformFactura (selected) {
+			$(selected).focus();
+			$('.error-message').fadeIn(300);
+		}
+
+
+		$('#submit-formFactura').on('click', function (e) {
+
+			e.preventDefault();
+
+			var nombre     = $('#nombre').val(),
+				apPat      = $('#apPat').val(),
+				apMat      = $('#apMat').val(),
+				rfc        = $('#rfc').val(),
+				mail       = $('#mail').val(),
+				calle      = $('#calle').val(),
+				colonia    = $('#colonia').val(),
+				delegacion = $('#delegacion').val(),
+				ciudad     = $('#ciudad').val(),
+				cp         = $('#cp').val();
+
+
+			if( nombre == '' ){
+				cancelformFactura('#nombre');
+			}else if ( apPat == '' ){
+				cancelformFactura('#apPat');
+			}else if ( apMat == '' ){
+				cancelformFactura('#apMat');
+			}else if ( rfc == '' ){
+				cancelformFactura('#rfc');
+			}else if ( mail == '' ){
+				cancelformFactura('#mail');
+			}else if ( calle == '' ){
+				cancelformFactura('#calle');
+			}else if ( colonia == '' ){
+				cancelformFactura('#colonia');
+			}else if ( delegacion == '' ){
+				cancelformFactura('#delegacion');
+			}else if ( ciudad == '' ){
+				cancelformFactura('#ciudad');
+			}else if ( cp == '' ){
+				cancelformFactura('#cp');
+			} else {
+
+				var custom = $('#form-facturaForm').serialize();
+
+				if( $('#unico').is(':checked') ){
+					$('#onetime-custom').val(custom);
+					$('form#donativo').submit();
+				}
+				if( $('#mensual').is(':checked') ){
+					$('#subscription-custom').val(custom);
+					$('#subscription').submit();
+				}
+			}
+		});
+
+
+		$('#desea_recibo li.no').on('click', function (e) {
+			e.preventDefault();
+			if( $('#unico').is(':checked') ){
+				$('#onetime-custom').val('');
+				$('<h1></h1>',{
+					text: 'Redirigiendo a Paypal...',
+					css: {
+						'text-align': 'center',
+						'font-size': '28px',
+						'margin': '100px 20px 0 20px',
+						'padding-bottom': '200px'
+					}
+				}).appendTo('#wrapper header');
+
+				$('form#donativo').submit();
+			}
+			if( $('#mensual').is(':checked') ){
+				$('#subscription-custom').val('');
+				$('#subscription').submit();
+			}
+		});
+
 
 
 		function openPopup (url) {
@@ -35,9 +185,11 @@
 				pop  = window.open( url, "popup", "width=800, height=600, top="+top+", left="+left );
 		}
 
+
 		function goBack(){
 			window.history.back();
 		}
+
 
 		$(document).ready(function() {
 

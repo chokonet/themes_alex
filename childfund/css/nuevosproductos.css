@@ -1,0 +1,136 @@
+@charset 'utf-8';
+
+body{margin:0; padding:0; font-family: "HermesFB Bold", Verdana, Helvetica, Arial, sans-serif; font-weight: bold; background-color:#fff; color: #F7A517;}
+
+#wrapper{width: 1224px; margin: 0 auto; }
+
+header{width: 100%;}
+header img{width: 100%;}
+#recibo header{width: 97%; height: auto; margin: auto;}
+h1, h2, h3 {
+margin: 0em 0;
+}
+#wrapper label{
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	border-radius: 15px;
+	background-color: #f9b233;
+	min-height: 35px; display:
+	inline-block; color: #FFF;
+	padding: 0 1em;
+	vertical-align: middle;
+	line-height: 2em;
+	font-size: 16px;
+	behavior:url('../wp-content/themes/childfund/css/pie/PIE.htc');
+	position:relative;
+}
+/*Formulario*/
+#main-content{background-color:#F8F5EE;}
+#wrapper input{transform: scale(2); -ms-transform: scale(2); -webkit-transform: scale(2);}
+#donativo ul{padding: 0; margin: 0; list-style: none; background: url('img/bullet.png'); background-repeat: no-repeat; background-position: 51px 42px;}
+#donativo ul li{margin: 10px 55px 0 55px; }
+#donativo ul li a.num{position: absolute; margin-top: 2px; margin-left: -4px; color: #FFF; font-size: 20px; background: url('img/bullet.png'); background-repeat: no-repeat; width: 42px;height: 42px;text-align: center;padding-top: 8px; }
+#donativo ul li.uno{background-image: url('img/sprite.png'); background-repeat: no-repeat; background-position: 97% -3%; min-height: 215px; }
+#donativo ul li.uno input{margin: 5em 2em 5em 64px;}
+.col{  margin: 0;  padding: 8px 0 0 0; position: relative; width: 160px; float: left;}
+.col img {opacity:0.8; filter:alpha(opacity=80); }
+:root .col img{ z-index: 2\0/IE9!important; }  /* IE9 + IE10pp4 */
+.col p {z-index: 9999;}
+#donativo ul li.dos{text-align: left; margin: 0 0 0 4em; height: 310px;}
+#donativo ul .col p {z-index: 9999; padding: 0; width: 125px; margin-left: 16px!important; margin-top: 10px; font-size: 17px!important; line-height: 21px;}
+#donativo ul li.dos label img{width: 100%;}
+:root .col img{ z-index: 2\0/IE9!important; }  /* IE9 + IE10pp4 */
+#donativo ul li.dos label p{position: absolute; text-align: right; margin-left: 62px; font-size: 1.3em; z-index: 10!important;}
+#donativo ul li.dos label{width: 158px; height: 210px; background-color: transparent; overflow: hidden; padding: 0 .1em; cursor:pointer;}
+#donativo ul li.dos label,
+#donativo ul li.dos input,
+#donativo ul li.tres label,
+#donativo ul li.tres .col_3 input{display: block; margin:auto; text-align: center;  }
+#donativo ul li.tres .col_3 input{margin: 2em 0em 0 3em;}
+#donativo ul li.tres .col_3{ width: auto; display: inline; float: left;  margin-top: 16px;}
+#donativo ul li.tres .col_3 .label3{width: auto; display: inline; padding: 2px 12px;font-size: 13px; margin-right: 14px; font-family: 'hermesregular', Verdana, Helvetica, Arial, sans-serif; }
+#donativo ul li.dos input{padding: .6em;}
+#donativo ul li.tres{background-image: url('img/sprite.png'); background-repeat: no-repeat; min-height: 250px; background-position: 101% 107%; }
+#donativo ul h2{display: inline-block; padding: 0px 1em 0px 7px; margin-top: 17px!important; }
+#donativo ul p{display: inline-block; padding: 0 1em 0px 23px;}
+#donativo h3{display: inline-block; padding: 0 1em 0px 29px;}
+#donativo h3{font-size: 25px;}
+#donativo ul h2{font-weight: bold; background-image: url('img/arrow.png'); background-repeat: no-repeat; background-position: right center; margin: 0 0 0 42px; }
+#donativo ul p{font-weight: normal;}
+.submit{float: right; margin:1em 8em;}
+.submit input{
+	background-color: #f9b233;
+	color: #FFF;
+	cursor: pointer;
+	border: 0;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	border-radius: 8px;
+	behavior:url('../wp-content/themes/childfund/css/pie/PIE.htc');
+	position:relative;
+}
+.submit input:hover{background-color: #F7A517;}
+#submit-paypal-form{padding: 1px 4px;}
+/*Info Boxes*/
+#eduWnd{background: url('img/eduWnd.png');}
+#salWnd{background: url('img/salWnd.png');}
+#proWnd{background: url('img/proWnd.png');}
+#cuiWnd{background: url('img/cuiWnd.png');}
+#eduWnd,
+#salWnd,
+#proWnd,
+#cuiWnd{
+	width: 500px;
+	height: 480px;
+	position: absolute;
+	margin-top: -161px;
+	margin-left: -85px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 100;
+}
+#col_top{}
+:root #col_top{top: 0px\0/IE9!important; }  /* IE9 + IE10pp4 */
+.clickme{position: absolute; bottom: 42px; width: 130px; height: 32px; margin-left: 38px; cursor: pointer; background-image: url(../css/img/info.png); background-repeat: no-repeat;}
+:root .clickme{bottom: 42px\0/IE9!important; z-index: 90\0/IE9!important; }  /* IE9 + IE10pp4 */
+.close{position: absolute; top: 0; width: 55px; height: 55px; background: url('img/close.png') no-repeat center center; right: 0; cursor: pointer;}
+#eduWnd .close{right: 2em;}
+@-moz-document url-prefix() {/*firefox*/
+
+#col_top{top: 0px!important; }
+
+}
+
+/*Post donativo*/
+#recibo,
+#formFactura{width: 780px; height: 602px; margin: 4em auto; vertical-align: center; background-color: #FD9000; border-radius: 25px; -moz-border-radius: 25px; -webkit-border-radius: 25px; behavior:url('../wp-content/themes/childfund/css/pie/PIE.htc'); position:relative;}
+#desea_recibo{width: 550px; list-style: none; margin: 3em auto; height: 225px;}
+#desea_recibo a{text-decoration: none;}
+#desea_recibo li{width: 157px; height: 85px; display: inline-block; vertical-align: top; margin: 0 3em; cursor: pointer;}
+#desea_recibo li.si{background: url('img/si.png') no-repeat center center;}
+#desea_recibo li.no{background: url('img/no.png') no-repeat center center;}
+#desea_recibo li p{position:relative; width: 216px; top:77px; left:-29px; height:72px; color:#FFF; font-size:1.8em; font-weight:100; margin:.5em auto; text-align:center;}
+.logo_blanco{width: 250px; height: 85px; margin: auto; background: url('img/logo_blanco.png') no-repeat center center; }
+#formFactura{height: 722px;}
+#formFactura form{display: block; margin: 0 3em; padding: 2em;}
+#formFactura form input{float: right; clear:right; width:18em; margin:1em 5em 0 0;}
+#formFactura form label{float: left; clear:left; background-color:transparent; text-align:right; width:218px; margin:.5em 0;}
+#formFactura p{position: relative; color: #FFF; width: 190px; height: auto;}
+#formFactura form input submit{width: auto;}
+#agradecimiento{ text-align: center; }
+#agradecimiento{position:relative; width: 780px; height: auto; margin: 4em auto; vertical-align: center; background-color: #FD9000; border-radius: 25px; -moz-border-radius: 25px; -webkit-border-radius: 25px; padding: 0.5em; behavior:url('../wp-content/themes/childfund/css/pie/PIE.htc');}
+#agradecimiento img{width: 100%; margin: 0; padding: 0; height: auto; vertical-align: bottom;}
+#agradecimiento p{color:#FFF;}
+#agradecimiento a{color: #FEC774;}
+.faceButton{width: 45px; height: 45px; position: absolute; top:127px; left: 654px; cursor: pointer;}
+.twitButton{width: 45px; height: 45px; position: absolute; top:127px; left: 714px; cursor: pointer;}
+.faceButton a,
+.twitButton a{width: 45px; height: 45px; display: block;}
+
+div#footer {  margin: 0px 0 15px 0; font-family: arial, helvetica, clean, sans-serif; font-weight: normal; }
+
+/*Fixes*/
+#menu-menu-superior a,
+#menu-menu-sociales{font-weight: normal !important; text-decoration: none; font: 13px/1.231 arial,helvetica,clean,sans-serif;}
