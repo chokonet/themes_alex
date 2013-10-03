@@ -1,0 +1,130 @@
+/*
+Theme Name: fasion depot
+Theme URI: http://hacemoscodigo.com
+Author: Los Maquiladores
+Author URI: http://hacemoscodigo.com
+Description: Tema de WordPress Personalizado
+Version: 1.0
+*/
+
+@charset 'utf-8';
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif}table{font-size:inherit;font:100%}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}
+
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+h1{font-size:138.5%}h2{font-size:123.1%}h3{font-size:108%}h1,h2,h3{margin:1em 0}h1,h2,h3,h4,h5,h6,strong{font-weight:bold}abbr,acronym{border-bottom:1px dotted #000;cursor:help}em{font-style:italic}blockquote,ul,ol,dl{margin:1em}ol,ul,dl{margin-left:2em}ol{list-style:decimal outside}ul{list-style:disc outside}dl dd{margin-left:1em}th,td{border:1px solid #000;padding:.5em}th{font-weight:bold;text-align:center}caption{margin-bottom:.5em;text-align:center}p,fieldset,table,pre{margin-bottom:1em}input[type=text],input[type=password],textarea{width:12.25em;*width:11.9em}
+/*HTML5 element display*/
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section{display:block;}
+/*Figures*/
+figure {margin: 0;}
+
+/* Utilities */
+.lst_reset, .lst_reset li { margin: 0; padding: 0; list-style: none; }
+.clear { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
+
+/* clearfix for modern browsers */
+.cf:before,
+.cf:after { content:""; display:table; }
+.cf:after { clear:both; }
+/* For IE 6/7 (trigger hasLayout) */
+.cf { zoom:1; }
+
+
+/*** FONT FACE ***/
+
+@font-face {
+  font-family: 'gotham-bold';
+  src: url('fonts/gotham-medium.eot');
+  src: local('☺'), url('fonts/gotham-medium.woff') format('woff'), url('fonts/gotham-medium.ttf') format('truetype'), url('fonts/gotham-medium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fjord';
+  src: url('fonts/fjordone-regular-webfont.eot');
+  src: local('☺'), url('fonts/fjordone-regular-webfont.woff') format('woff'), url('fonts/fjordone-regular-webfont.ttf') format('truetype'), url('fonts/fjordone-regular-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*** GENERAL ***/
+
+html, body { font-family: 'gotham-bold'; background: #f1f1f1; }
+
+.container {  width: 980px; margin: auto; position: relative; overflow: hidden;}
+
+.tema_verde{border-color: #a5cd29!important;}
+.texto_verde{color: #a5cd29!important;}
+.tema_morado{border-color: #98328a!important;}
+.texto_morado{color: #98328a!important;}
+
+.header { width: 100%; position: relative; overflow: hidden; background: #fff; border-bottom: 1px solid #c91e4e; clear: both; margin-bottom: 39.3px; }
+
+.header span#redes_idioma{width: 128px; height: 23px; position: relative; overflow: hidden; float: right; margin-right: 10px; margin-bottom: 16px; background:url('images/fondo_redes.png'); display: block;}
+.header span#redes_idioma #idioma{width: 60px; margin: 4px 0 0 7.5px; color: #7a0a32; font-size: 12px; float: left;}
+.header span#redes_idioma #idioma ul#idioma-chooser{list-style: none; margin: 0 0 0 5px;}
+.header span#redes_idioma #idioma ul#idioma-chooser li{float: left; margin-right: 15px;}
+.header span#redes_idioma #idioma ul#idioma-chooser li.lang-en{ margin-right: 0px;}
+.header span#redes_idioma #idioma ul#idioma-chooser li.active a{color: #fff;}
+.header span#redes_idioma #idioma a{text-decoration: none; color: #7a0a32;}
+.header span#redes_idioma #idioma a.active{color: #fff;}
+.header span#redes_idioma #idioma span.line{position: absolute; overflow: visible; left: 37px;}
+.header span#redes_idioma #idioma span{margin: 0 -4px;}
+.header span#redes_idioma #tweet{width: 17.2px; height: 16px; margin: 3px 0 0 15px; float: left; background-image: url('images/logos_redes.png'); background-position: -3px -2px; text-indent: -9999px; }
+.header span#redes_idioma #facebook{width: 14px; height: 14px; margin: 3px 0 0 7.5px; float: left; background-image: url('images/logos_redes.png'); background-position: -24px -2px; text-indent: -9999px;}
+
+.header h1.logo{width: 460px; height: 84px; position: relative; overflow: hidden; margin: 0 auto 40.3px auto; clear: both; background:url('images/logo.png'); text-indent: -99999em; display: block;}
+
+.header ul.nav{width: 760px; height: auto; position: relative; overflow: hidden; margin: 0 auto 40.3px auto; list-style: none; font-family: 'gotham-bold';font-weight: normal; font-size: 20px;}
+.header ul.nav li{width: 210px; height: 79px; position: relative; overflow: hidden; margin: 0 62px 0 0; float: left;}
+.header ul.nav li h2{ margin: 0 0px 0 0; line-height: 22px; }
+.header ul.nav li a{width: 100%; height: 25px; text-decoration: none; text-transform: uppercase; color: #fff; text-align: center; display: block; padding-top: 5px;}
+.header ul.nav li:nth-last-child(3){background: url('images/fondo_mnu_rojo.png');}
+.header ul.nav li:nth-last-child(2){background: url('images/fondo_mnu_verde.png');}
+.header ul.nav li:nth-last-child(1){background: url('images/fondo_mnu_morado.png'); margin-right: 0px;}
+.header ul.nav li ul.submnu{width: 100%; height: auto; position: relative; overflow: hidden; margin: 0; float: left; list-style: none;}
+.header ul.nav li ul.submnu li{width: 100%; height: 24px; position: relative; overflow: hidden; margin: 0; background: none; font-size: 14px;}
+
+.main { width: 98%; position: relative; overflow: hidden; background: #fff; border-bottom: 1px solid #c91e4e; border-top: 1px solid #c91e4e; clear: both; margin-bottom: 39.3px; padding: 40.6px 10px 0 10px; }
+.main h3{width: 100%; position: relative; text-transform: uppercase; overflow: hidden; font-size: 28px; color: #c91e4e; text-align: center; display: block; margin: 0 0 30px 0;}
+.main img.img_acerca{width: 960px; height: 460px; position: relative; margin-bottom: 39.6px; }
+.main p{width: 708px; position: relative; overflow: hidden; margin: 0 auto 25px auto; display: block; font-family: 'fjord'; font-size: 18px; line-height: 26px;}
+.main ul.nav_marcas{position: relative; overflow: hidden; list-style: none;}
+.main ul.nav_marcas li{width: 158px; position: relative; overflow: hidden; float: left; font-size: 14px; color: #a5cd29; margin-left: 100px; padding-left: 12px; cursor: pointer;}
+.main ul.nav_marcas li.active{background-image: url('images/select.png'); background-repeat: no-repeat; background-position: 0px 4px;}
+#contenedor_marcas{width: 708px; position: relative; overflow: hidden; margin: 0 auto 0px auto; display: none; }
+
+
+.main a.marcas{width: 210px; height: 100px; margin: 0 40px 10px 0; border-bottom: 1px solid #c91e4e; display: block; float: left;}
+.main .margen_derecho{margin-right: 0!important; }
+.main .borde_img{border: 0!important; margin-bottom: 30px!important; }
+
+.main .campo_form{width: 460px; height: auto; position: relative; overflow: hidden; margin: 0 auto 27px auto;}
+.main .campo_form label{width: 78px; position: relative; text-transform: uppercase; float: left; font-size: 14px; color: #000; margin-top: 6px;}
+.main .campo_form input{width: 367px; height: 24px; border:none; font-family: 'fjord'; font-size: 16px; color: #3f3f3f; padding-left: 10px; background-image: url('images/fondo_input.png'); outline: none;}
+.main .campo_form textarea{width: 367px; height: 207px; border:none; font-family: 'fjord'; font-size: 16px; color: #3f3f3f; padding-left: 10px; padding-top: 5px; background-image: url('images/fondo_textarea.png'); resize:none; outline: none;}
+.main .campo_form input.enviar{width: 87px; height: 24px; cursor: pointer; padding-left: 0; float: right; text-transform: uppercase; margin-right: 6px;}
+
+.footer{width: 100%; height: auto; min-height: 100px; position: relative; overflow: hidden; margin-top: 30px; background-color: #7c7c7c; padding: 47px 0 21px 0; }
+.footer p{font-family: 'fjord'; font-size: 18px; color: #fff; text-align: center; margin-bottom: 6px;}

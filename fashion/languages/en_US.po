@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: fashion\n"
+"POT-Creation-Date: 2013-09-25 18:13-0600\n"
+"PO-Revision-Date: 2013-10-01 13:54-0600\n"
+"Last-Translator: Los Maquiladores <info@losmaquiladores.com>\n"
+"Language-Team: Los Maquiladores <info@losmaquiladores.com>\n"
+"Language: es_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../footer.php:6
+msgid "Oficina"
+msgstr "Headquarters"
+
+#: ../functions.php:160
+#, php-format
+msgid "Pagina %s"
+msgstr "Page %s"
+
+#: ../header.php:31
+msgid "NOSOTROS"
+msgstr "Our Company"
+
+#: ../header.php:33 ../index.php:4
+msgid "ACERCA DE"
+msgstr "About Us"
+
+#: ../header.php:34 ../index.php:18
+msgid "CLIENTES"
+msgstr "clients"
+
+#: ../header.php:37
+msgid "PRODUCTOS"
+msgstr "Products"
+
+#: ../header.php:39 ../page-productos.php:3
+msgid "MARCAS"
+msgstr "Brands"
+
+#: ../header.php:40 ../page-productos.php:13
+msgid "MARCAS PROPIAS"
+msgstr " Private Label"
+
+#: ../header.php:43
+msgid "CONTACTO"
+msgstr "Contact Us"
+
+#: ../header.php:45 ../page-contacto.php:4
+msgid "ESCRÍBENOS"
+msgstr "Contact Us"
+
+#: ../header.php:46
+msgid "SERVICIO A CLIENTES"
+msgstr "Customer Service"
+
+#: ../page-contacto.php:8 ../page-contacto.php:31
+msgid "NOMBRE"
+msgstr "Name"
+
+#: ../page-contacto.php:12 ../page-contacto.php:39
+msgid "CORREO"
+msgstr "e-mail"
+
+#: ../page-contacto.php:16 ../page-contacto.php:51
+msgid "MENSAJE"
+msgstr "Message"
+
+#: ../page-contacto.php:21 ../page-contacto.php:56
+msgid "ENVIAR"
+msgstr "submit"
+
+#: ../page-contacto.php:28
+msgid "SERVICIOS A CLIENTES"
+msgstr "Customer Services"
+
+#: ../page-contacto.php:35
+msgid "APELLIDO"
+msgstr "Surname"
+
+#: ../page-contacto.php:43
+msgid "EMPRESA"
+msgstr "Company"
+
+#: ../page-contacto.php:47
+msgid "PUESTO"
+msgstr "Position"
+
+#: ../page-productos.php:15
+msgid "GUSTATIVA"
+msgstr ""
+
+#: ../page-productos.php:16
+msgid "PRONTO MODA"
+msgstr "Fast Fashion"
+
+#: ../page-productos.php:17
+msgid "UNIFORMES Y PROMOCIONALES"
+msgstr "Uniforms and merchandising"

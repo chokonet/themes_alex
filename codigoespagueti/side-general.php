@@ -7,7 +7,7 @@
 				<li id="noticias" class="select"></li>
 				<li id="masgustado" class=""></li>
 				<li id="comentado" class=""></li>
-				<!-- <li id="sopitas" class=""></li> -->
+				<li id="sopitas" class=""></li>
 			</ul>
 			<div class="side_noticias">
 				<h2>Últimas noticias</h2>
@@ -113,17 +113,45 @@
 				<?php } } } wp_reset_postdata(); ?>
 
 			</div><!-- end mas comentados-->
+
 			<div class="side_sopitas">
+
 				<h2>sopitas.com</h2>
 
-				<div class="cont_post">
-					<a href="#"><img src="<?php echo bloginfo('template_url'); ?>/images/lorem.jpg" alt=""></a>
-					<h3><a href="#">Lorem</a></h3>
-					<h4>Categoria</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-				</div>
+				<?php
+				$rss_sopitas = fetch_feed('http://www.sopitas.com/site/cat/editors-choice/feed/');
+
+				if( ! is_wp_error($rss_sopitas)) :
+					$feed_elements = $rss_sopitas->get_items( 0, 3 );
+
+				 	foreach ( $feed_elements as $element ) :
+
+						$imagen = $element->get_item_tags('http://search.yahoo.com/mrss/', 'content');
+						$imagen = isset($imagen[0]['attribs']['']['url']) ? $imagen[0]['attribs']['']['url'] : 'http://placehold.it/80x80';
+
+						$categories = $element->get_categories();
+						$category   = isset($categories[0]) ? $categories[0]->term : ''; ?>
+
+						<div class="cont_post">
+							<a href="<?php echo $element->get_permalink() ?>">
+								<img src="<?php echo $imagen ?>">
+							</a>
+							<h3>
+								<a href="<?php echo $element->get_permalink() ?>">
+									<?php echo $element->get_title() ?>
+								</a>
+							</h3>
+							<h4><?php echo $category ?></h4>
+							<p><?php echo wp_trim_words( $element->get_content(), 10 )?></p>
+						</div><?php
+
+					endforeach;
+
+				endif; ?>
 
 			</div><!-- end sopitas.com-->
+
+
 
 		</div><!-- end caja_side-->
 	<?php endif;?>

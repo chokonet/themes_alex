@@ -87,11 +87,15 @@
 	function custom_excerpt_length( $length ) {
 		return 20;
 	}
+
 	add_filter( 'excerpt_length', 'custom_excerpt_length', 10 );
-	add_filter( 'excerpt_length', 'custom_excerpt_length', 10 );
+
+
 	add_filter('the_excerpt', function($excerpt){
 		return strip_tags($excerpt);
 	});
+
+
 	add_filter('excerpt_more', function($more){
 		return '... &raquo;';
 	});
@@ -112,6 +116,7 @@
 // RSS POST THUMBNAIL ///////////////////////////////////////////////////////////////
 
 
+
 	//DEPRECATED
 	function rss_post_thumbnail($content) {
 		global $post;
@@ -125,7 +130,35 @@
 
 
 
+// RSS FEED IMAGES ///////////////////////////////////////////////////////////////////
+
+
+
+	add_theme_support( 'automatic-feed-links' );
+
+
+	add_action('rss2_ns', function (){
+		echo "xmlns:media='http://search.yahoo.com/mrss/'";
+	});
+
+
+	add_filter('rss2_item', function() use (&$post) {
+
+		$thumbnail_id = get_post_thumbnail_id($post->ID);
+
+		if ($thumbnail_id ) {
+			$attachment_url = wp_get_attachment_url($thumbnail_id);
+			$attributes     = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail' );
+			$attachment_url = isset($attributes[0]) ? $attributes[0] : '';
+			echo "<media:content url='$attachment_url' medium='image' />";
+		}
+
+	});
+
+
+
 // RSS FEED FILTERS /////////////////////////////////////////////////////////////////
+
 
 
 
@@ -173,6 +206,7 @@
 // TWITTER //////////////////////////////////////////////////////////////////////////
 
 
+
 	require_once('inc/twitter/twitteroauth.php');
 
 
@@ -196,6 +230,7 @@
 			return $result;
 		}
 	}
+
 
 
 	/**
@@ -254,6 +289,7 @@
 	}
 
 
+
 	function format_twitter_mention_data($mention) {
 		$tweet = new stdClass;
 		$tweet->user = parseLinks( '@'.$mention->user->screen_name );
@@ -262,7 +298,6 @@
 		$tweet->text = parseLinks($mention->text);
 		return $tweet;
 	}
-
 
 
 
@@ -293,7 +328,6 @@
 
 
 
-
 	/**
 	 * BORRA metadata 'imagen-resena'
 	 * @param post_id
@@ -317,8 +351,6 @@
 
 
 
-
-
 	function ajax_update_post_meta(){
 		$post_id  = ( isset($_POST['post_id']) ) ? $_POST['post_id'] : false;
 		$checked  = ( isset($_POST['checked']) ) ? $_POST['checked'] : false;
@@ -332,6 +364,7 @@
 	add_action('wp_ajax_ajax_update_post_meta', 'ajax_update_post_meta');
 	add_action('wp_ajax_nopriv_ajax_update_post_meta', 'ajax_update_post_meta');
 
+
 	/*
 	---------------------
 		LIMIT WORDS
@@ -344,6 +377,7 @@
 	  array_pop($words);
 	  return implode(' ', $words);
 	}
+
 
 
 /// REWRITE AUTHOR BASE URL  //////////////////////////////////////////////////////
@@ -513,10 +547,10 @@
 
 				$post = get_post($values->post_id);
 
-				$tweet_counts         = new stdClass;
-				$tweet_counts->url     = get_permalink($post->ID);
-				$tweet_counts->count  = $values->tweet_count;
-				$count_tweet[$key] 		  = $tweet_counts;
+				$tweet_counts        = new stdClass;
+				$tweet_counts->url   = get_permalink($post->ID);
+				$tweet_counts->count = $values->tweet_count;
+				$count_tweet[$key]   = $tweet_counts;
 
 		}
 
@@ -661,15 +695,18 @@
 
 
 	/**
-		 * usort helper function ordena el array de mayor a menor
-		 * @param  Object $a primer elemento
-		 * @param  Object $b segundo elemento
-		 * @return Object    Resultado
-		 */
-		function sort_objects_by_couts($a, $b) {
-			if($a->count == $b->count){ return 0 ; }
-			return ($a->count > $b->count) ? -1 : 1;
-		}
+	 * usort helper function ordena el array de mayor a menor
+	 * @param  Object $a primer elemento
+	 * @param  Object $b segundo elemento
+	 * @return Object    Resultado
+	 */
+	function sort_objects_by_couts($a, $b) {
+		if($a->count == $b->count){ return 0 ; }
+		return ($a->count > $b->count) ? -1 : 1;
+	}
+
+
+
 // FACEBOOCK COMMENTS //////////////////////////////////////////////////////
 
 
@@ -713,6 +750,8 @@
 		return $arrayResults_order;
 	}
 
+
+
 	/**
 	 * usort helper function ordena el array de mayor a menor
 	 * @param  Object $a primer elemento
@@ -723,6 +762,7 @@
 		if($a->comments == $b->comments){ return 0 ; }
 		return ($a->comments > $b->comments) ? -1 : 1;
 	}
+
 
 
 	/**
