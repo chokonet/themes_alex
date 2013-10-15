@@ -4,7 +4,7 @@
 
 	$(function(){
 
-		console.log('hello from the admin');
+
 
 	});
 

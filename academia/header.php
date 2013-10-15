@@ -7,9 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico">
 		<title><?php bloginfo('name'); ?></title>
+		<script type="text/javascript"> if (window.location.hash == '#_=_') window.location.hash = ''; </script>
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class() ?>>
+	<body <?php body_class() ?> >
 
 		<div id="fb-root">
 			<!-- Place holder for the Facebook javascript API script to attach elements to the DOM -->
@@ -27,7 +28,7 @@
 
 				<h1>
 					<a href="<?php echo site_url(); ?>">
-						<img src="<?php echo THEMEPATH ?>/images/leon_escudo.png" alt="Progress Gold"  />
+						<img class="logo" src="<?php echo THEMEPATH ?>/images/leon_escudo.png" alt="Progress Gold"  />
 					</a>
 				</h1>
 

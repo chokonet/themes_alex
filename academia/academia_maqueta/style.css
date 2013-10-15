@@ -751,6 +751,9 @@ p.footer {
   width: 30px;
   height: 30px;
 }
+.leyeron .usuarios a {
+float: right;
+}
 .titulo_single {
   width: 40%;
   margin: 10px 0 15px 5%;

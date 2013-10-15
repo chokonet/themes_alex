@@ -27,19 +27,38 @@
 						<h3 class="<?php get_category_text($category) ?>">
 							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 						</h3>
-						<a href="<?php the_permalink(); ?>"><p><?php the_excerpt() ?></p></a>
+						<a href="<?php the_permalink(); ?>">
+							<p><?php echo wp_trim_words( get_the_excerpt(), 18 ) ?></p>
+						</a>
 					</div><!-- info_seccion -->
 
 				</div><!-- seccion_mitad -->
 
 				<div class="share_buttons">
+
 					<!-- twitter -->
 					<div class="twitter">
-						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.com/home?status=<?php the_permalink() ?>" data-text="<?php the_title() ?>" data-size="large" data-count="none">Tweet</a>
+						<a	href="https://twitter.com/share"
+							class="twitter-share-button"
+							data-url="http://twitter.com/home?status=<?php the_permalink() ?>"
+							data-text="<?php the_title() ?>"
+							data-size="large"
+							data-via="academiaBBgold"
+							data-hashtags="AcademiaBebeGOLD"
+							data-count="none">
+							Tweet</a>
 					</div>
 
 					<!-- facebook -->
-					<div class="facebook"><a href="#" onclick="shareOnFacebook();">compartir</a></div>
+					<div class="facebook">
+						<a href="#"
+							data-permalink="<?php the_permalink() ?>"
+							data-title="<?php the_title() ?>"
+							data-description="<?php echo strip_tags( wp_trim_words( get_the_content(), 26 ) ) ?>"
+							data-image="<?php attachment_image_url($post->ID, 'thumbnail') ?>">
+							compartir</a>
+					</div>
+
 				</div><!-- share_buttons -->
 
 			</div><!-- secciom_mitad_papa -->

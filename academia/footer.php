@@ -12,10 +12,17 @@
 
 				<div class="barra_footer">
 					<div id="cont_politicas">
-						<p> <a href="#">Política de privacidad</a></p>
-						<p class="terms"> <a href="#">Términos y condiciones</a></p>
+						<p> <a href="#"  id="privToggle">Política de privacidad</a></p>
+						<p class="terms"> <a href="#" id="termsToggle">Términos y condiciones</a></p>
 					</div>
 				</div><!-- barra_footer -->
+
+				<div id="terminos">
+				  <?php get_template_part( 'templates/academia', 'terminos' ); ?>
+				</div>
+				<div id="privacy">
+				  <?php get_template_part( 'templates/academia', 'privacy' ); ?>
+				</div>
 
 			</div><!-- footer -->
 

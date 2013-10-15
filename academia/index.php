@@ -35,7 +35,7 @@
 			<div class="info_seccion">
 				<p class="date">Hace <?php echo parsepostDate(get_post_time('U', true)); ?></p>
 				<h3 class="primeros_texto"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
-				<a href="<?php the_permalink() ?>"><?php the_excerpt() ?></a>
+				<a href="<?php the_permalink() ?>"><p><?php echo wp_trim_words( get_the_excerpt(), 18 ) ?></p></a>
 			</div>
 
 		<?php endwhile; endif; wp_reset_query(); ?>
@@ -59,7 +59,7 @@
 			<div class="info_seccion">
 				<p class="date">Hace <?php echo parsepostDate(get_post_time('U', true)); ?></p>
 				<h3 class="sorpresas_texto"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a>
+				<a href="<?php the_permalink(); ?>"><p><?php echo wp_trim_words( get_the_excerpt(), 18 ) ?></p></a>
 			</div>
 
 		<?php endwhile; endif; wp_reset_query(); ?>
@@ -82,7 +82,7 @@
 			<div class="info_seccion">
 				<p class="date">Hace <?php echo parsepostDate(get_post_time('U', true));  ?></p>
 				<h3 class="descubriendo_texto"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
-				<a href="<?php the_permalink() ?>"><?php the_excerpt() ?></a>
+				<a href="<?php the_permalink() ?>"><p><?php echo wp_trim_words( get_the_excerpt(), 18 ) ?></p></a>
 			</div>
 
 		<?php endwhile; endif; wp_reset_query(); ?>

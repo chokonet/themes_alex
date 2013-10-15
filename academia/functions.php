@@ -23,7 +23,7 @@
 
 		// scripts
 		wp_enqueue_script('plugins', JSPATH.'plugins.js', array('jquery'), false, true );
-		wp_enqueue_script('functions', JSPATH.'functions.js', array('plugins'), false, true );
+		wp_enqueue_script('functions', JSPATH.'functions.js', array('plugins', 'jquery-effects-core'), false, true );
 
 		// styles
 		wp_enqueue_style('style', get_stylesheet_uri());
@@ -31,7 +31,12 @@
 		//localize
 		wp_localize_script('plugins', 'template_url',  get_bloginfo('template_url'));
 		wp_localize_script('plugins', 'is_single',  (string)is_single() );
-		wp_localize_script('functions', 'ajax_url',  get_bloginfo('wpurl').'/wp-admin/admin-ajax.php');
+		wp_localize_script('functions', 'ajax_url',  admin_url('admin-ajax.php'));
+
+		if (is_home()){
+			wp_localize_script('functions', 'is_home', 'true');
+		}
+
 
 	});
 
@@ -46,6 +51,7 @@
 		add_image_size( 'seccion_imagen', 619, 175, true );
 		add_image_size( 'seccion_imagen_chica', 296, 153, true );
 		add_image_size( 'imagen_single', 619, 314, true );
+		add_image_size( 'imagen_single_relacion', 247, 100, true );
 
 
 
@@ -66,6 +72,9 @@
 
 
 	require_once 'inc/queries.php';
+
+
+	require_once 'inc/users.php';
 
 
 
@@ -96,12 +105,12 @@
 
 
 	add_filter('excerpt_length', function(){
-		return 8;
+		return 50;
 	});
 
 
 	add_filter('excerpt_more', function(){
-		return ' &raquo;';
+		return ' ...';
 	});
 
 
@@ -138,7 +147,7 @@
 
 	add_action('wp_footer', function() use (&$post){
 		$facebook_user = get_facebook_user();
-		if ( is_single() AND $facebook_user){
+		if ( is_single() AND $facebook_user AND $post ){
 			$existe = check_if_actividad_exists($facebook_user, $post->ID);
 			if ( ! $existe) {
 				create_new_actividad($facebook_user, $post->ID);
@@ -159,6 +168,7 @@
 	 * @param $_POST['post_id']
 	 * @param $_POST['favorito'] Si el post es favorito o no
 	 */
+
 	function administrar_favoritos(){
 
 		$post_id       = isset($_POST['post_id'])  ? $_POST['post_id']  : false;
@@ -187,7 +197,7 @@
 
 
 	add_filter('body_class', function($classes) use (&$post) {
-		if( is_post_favorito($post->ID) ){
+		if( $post AND is_post_favorito($post->ID) ){
 			array_push($classes, 'favorito');
 		}else{
 			array_push($classes, 'no-favorito');
@@ -222,7 +232,7 @@
 		$minutos = ( time() - $fecha )/60;
 
 		if($minutos < 60){
-			return roºund($minutos).' minutos';
+			return round($minutos).' minutos';
 		}else if($minutos < 1440){
 			return round($minutos/60).' horas';
 		}else if($minutos >= 1440){
@@ -378,9 +388,9 @@
 	 */
 	function get_friends_posts(){
 
-		if ( ! isset($_GET['friends']) ){
-			echo json_encode(false); exit;
-		}
+		// if ( ! isset($_GET['friends']) ){
+		// 	wp_send_json_error();
+		// }
 
 		global $wpdb;
 		$friends = implode( ' OR facebook_id = ', array_values($_GET['friends']) );
@@ -418,4 +428,27 @@
 		);
 
 		return (boolean)$result;
+	}
+
+
+
+	/**
+	 * Regresa la url del attachment especificado
+	 * @param  integer $post_id
+	 * @return string  $size
+	 */
+	function attachment_image_url($post_id, $size){
+		$image_id   = get_post_thumbnail_id($post_id);
+		$image_data = wp_get_attachment_image_src($image_id, $size, true);
+		echo isset($image_data[0]) ? $image_data[0] : '';
+	}
+
+	function get_frace_categoria($cat){
+
+		switch ($cat) {
+			case 'mi-embarazo' : echo '<p><strong>El Inicio de Todo:</strong> Mi embarazo</p>'; break;
+			case '0-6-meses'   : echo '<p><strong>Mis Primeros Momentos:</strong> 0 - 6 meses</p>'; break;
+			case '6-12-meses'  : echo '<p><strong>Sorpresas Cada Día:</strong> 6 - 12 meses</p>'; break;
+			case '1-3-anos'    : echo '<p><strong>Descubriendo el Mundo:</strong> 1 - 3 años</p>'; break;
+		}
 	}

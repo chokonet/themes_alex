@@ -33,7 +33,7 @@
 					<p class="date">Hace <?php echo parsepostDate(get_post_time('U', true)); ?></p>
 					<h3 class="embarazo_texto"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<a href="<?php the_permalink(); ?>">
-					<p><?php the_excerpt() ?></p>
+					<p><?php echo wp_trim_words( get_the_excerpt(), 18 ); ?></p>
 					</a>
 				</div>
 
@@ -54,7 +54,7 @@
 					<p class="date">Hace <?php echo parsepostDate(get_post_time('U', true)); ?></p>
 					<h3 class="embarazo_texto"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
 					<a href="<?php the_permalink() ?>">
-					<p><?php the_excerpt() ?></p>
+					<p><?php echo wp_trim_words( get_the_excerpt(), 18 ); ?></p>
 					</a>
 				</div>
 
