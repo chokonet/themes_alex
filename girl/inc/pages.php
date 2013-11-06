@@ -6,84 +6,32 @@
 
 	add_action('init', function(){
 
-		//•------------» [ PARA ADMIN ] «------------•\\
 
-		// DASHBOARD
-		if( ! get_page_by_path('dashboard') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Dashboard',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
+	//•--------------------» [ FRONT END ] «--------------------•\\
 
-		// EDIT
-		if( ! get_page_by_path('edit') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Edit',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-		// USERS
-		if( ! get_page_by_path('users') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Users',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
 
-		// USERS EDIT
-		if( ! get_page_by_path('users-edit') ){
+		// PAGE HOME
+		if( ! get_page_by_path('home') ){
 			$page = array(
 				'post_author' => 1,
 				'post_status' => 'publish',
-				'post_title'  => 'Users Edit',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-		// Members
-		if( ! get_page_by_path('members') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Members',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-		// create-user
-		if( ! get_page_by_path('create-users') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Create Users',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-		// create-edit
-		if( ! get_page_by_path('create-edit') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Create edit',
+				'post_title'  => 'Home',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );
 		}
 
 
-		//•------------» [ TERMINA PARA ADMIN ] «------------•\\
-
+		// PAGE FAQ
+		if( ! get_page_by_path('faq') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'FAQ',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
 
 		// PAGE ADVANCED
 		if( ! get_page_by_path('advanced-search') ){
@@ -91,17 +39,6 @@
 				'post_author' => 1,
 				'post_status' => 'publish',
 				'post_title'  => 'Advanced Search',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// PAGE FQS
-		if( ! get_page_by_path('frequent-questions') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Frequent Questions',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );
@@ -150,6 +87,16 @@
 			);
 			wp_insert_post( $page, true );
 		}
+		// favorites
+		if( ! get_page_by_path('favorites') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Favorites',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
 
 		// PAGE SIGN ACCOUNT
 		if( ! get_page_by_path('account') ){
@@ -174,5 +121,86 @@
 		}
 
 
+
+
+
+	//•--------------------» [ PARA ADMIN ] «--------------------•\\
+
+		// DASHBOARD
+		if( ! get_page_by_path('dashboard') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Dashboard',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// EDIT
+		if( ! get_page_by_path('dashboard/edit') ){
+			$parent = get_page_by_path('dashboard', OBJECT);
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Edit',
+				'post_parent' => $parent->ID,
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+
+		// MEMBERS
+		if( ! get_page_by_path('dashboard/members') ){
+			$parent = get_page_by_path('dashboard', OBJECT);
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Members',
+				'post_parent' => $parent->ID,
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// CREATE USER
+		if( ! get_page_by_path('dashboard/create-user') ){
+			$parent = get_page_by_path('dashboard', OBJECT);
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Create User',
+				'post_parent' => $parent->ID,
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// USERS
+		if( ! get_page_by_path('dashboard/users') ){
+			$parent = get_page_by_path('dashboard', OBJECT);
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Users',
+				'post_parent' => $parent->ID,
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// USERS EDIT
+		if( ! get_page_by_path('dashboard/edit-user') ){
+			$parent = get_page_by_path('dashboard', OBJECT);
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Edit User',
+				'post_parent' => $parent->ID,
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
 
 	});

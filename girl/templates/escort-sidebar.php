@@ -1,13 +1,10 @@
 <?php $escort = get_queried_object() ?>
 	<ul class="girl_sidebar">
 
-
+			<!-- Nota: la ruta de la imagen va en los dos links uno para iphone y otro para pc -->
 			<li class="girl girlie">
-
-				<a class=" slide_box" href="http://www.bemygirl.ch/sites/default/files/girls/photos/cassandra-bemygirl-01.jpg" title="Cassandra">
-					<div class="hover"></div>
-				</a>
-				<a href="http://www.bemygirl.ch/sites/default/files/cassandra-bemygirl-02.jpg" class="soloiPhone link_phone_gallery"></a>
+				<a class=" slide_box" href="<?php the_author_meta('url_imagen', $escort->ID ); ?>" title="Cassandra"><div class="hover"></div></a>
+				<a href="<?php the_author_meta('url_imagen', $escort->ID ); ?>" class="soloiPhone link_phone_gallery"></a>
 				<img src="<?php the_author_meta('url_imagen', $escort->ID ); ?>">
 			</li><!-- end .girl -->
 

@@ -6,115 +6,144 @@
 			<span><?php _e('Contact', 'bemygirl'); ?> </span>
 		</div>
 		<div class="register">
-			<form id="form-girlcontact-edit" class="forms-admin">
+
+			<form id="form-girlcontact-edit" class="forms-admin no-submit">
+
 				<div class="col1">
-					<label for="contact-girl-available"><?php _e('Available', 'bemygirl'); ?> <span class="form-required" title="required">*</span> </label>
-					<input type="radio" name="avalible" value="" id="no-avaliable" checked="checked">
-					<label for="no-avaliable" class="available-contact"><?php _e('Not Available', 'bemygirl'); ?></label>
-					<input type="radio" name="avalible" value="" id="avaliable" checked="">
-					<label for="avaliable" class="available-contact"><?php _e('Available', 'bemygirl'); ?></label>
-				</div>
-				<div class="col1">
-					<label for="showname"><?php _e('Showname', 'bemygirl'); ?> <span class="form-required">*</span></label>
-                    <input class="form-text" id="contact-girl-shownamel" name="showname" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
- 				</div>
+					<label for="contact-girl-shownamel">
+						<?php _e('Showname', 'bemygirl'); ?>
+						<span class="form-required">*</span>
+					</label>
+                    <input type="text" class="form-text" id="contact-girl-shownamel" name="user_nicename" size="60">
+ 				</div><!-- /showname -->
+
  				<div class="col2 selected-contact">
-					<label for="contact-girl-gender"><?php _e('Gender', 'bemygirl'); ?> <span class="form-required">*</span></label>
-                    <select>
-						<option>Woman</option>
+					<label for="contact-girl-type"><?php _e('Type', 'bemygirl'); ?>
+					<span class="form-required">*</span></label>
+                    <select id="contact-girl-type" name="service_venue">
+                    	<option value="">&lt;none&gt;</option>
+						<option value="Private Apartment">Private Apartment</option>
+						<option value="Massage Parlour">Massage Parlour</option>
 					</select>
- 				</div>
- 				<div class="col2 selected-contact">
-					<label for="contact-girl-type"><?php _e('Type', 'bemygirl'); ?> <span class="form-required">*</span></label>
-                    <select>
-						<option>Private Apartment</option>
-						<option>Massage Parlour</option>
-					</select>
- 				</div>
+					<div id="bt-select-contact-type"></div>
+ 				</div><!-- /type -->
+
  				<div class="col1">
-					<label for="mobile"><?php _e('Mobile', 'bemygirl'); ?> <span class="form-required">*</span></label>
-                    <input class="form-text" id="contact-girl-mobile" name="mobile" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
- 				</div>
+					<label for="contact-girl-mobile"><?php _e('Mobile', 'bemygirl'); ?>
+					<span class="form-required">*</span></label>
+                    <input type="tel" class="form-text" id="contact-girl-mobile" name="contact_mobile" size="60">
+ 				</div><!-- /mobile -->
+
  				<div class="col1">
-					<label for="contact-girl-instructions"><?php _e('Instructions', 'bemygirl'); ?> <span class="form-required" title="required">*</span> </label>
-					<input type="radio" name="instructions" value="" id="smaycall" checked="checked">
-					<label for="smaycall" class="available-contact"><?php _e('SMS & Call', 'bemygirl'); ?></label>
-					<input type="radio" name="instructions" value="" id="smsonly" checked="">
-					<label for="smsonly" class="available-contact"><?php _e('SMS Only', 'bemygirl'); ?></label>
-					<input type="radio" name="instructions" value="" id="nosms" checked="">
-					<label for="nosms" class="available-contact"><?php _e('No SMS', 'bemygirl'); ?></label>
-					<input type="checkbox" name="withheld" value="" id="withheld-numbers">
-					<label for="withheld-numbers" class="withheld"><?php _e('No Withheld numbers', 'bemygirl'); ?></label>
-				</div>
+
+					<label for="contact-instructions">
+						<?php _e('Instructions', 'bemygirl'); ?>
+						<span class="form-required" title="required">*</span>
+					</label>
+
+					<!-- radio: SMS & Call -->
+					<input type="radio" name="contact_instructions" value="sms-call" id="contact-sms-call">
+					<label for="contact-sms-call" class="available-contact">
+						<?php _e('SMS & Call', 'bemygirl'); ?>
+					</label>
+
+					<!-- radio: SMS Only -->
+					<input type="radio" name="contact_instructions" value="sms" id="contact-sms">
+					<label for="contact-sms" class="available-contact">
+						<?php _e('SMS Only', 'bemygirl'); ?>
+					</label>
+
+					<!-- radio: No SMS -->
+					<input type="radio" name="contact_instructions" value="no-sms" id="contact-no-sms">
+					<label for="contact-no-sms" class="available-contact">
+						<?php _e('No SMS', 'bemygirl'); ?>
+					</label>
+
+					<!-- checkbox: No Withheld numbers -->
+					<input type="checkbox" name="withheld" value="true" id="contact-withheld-numbers">
+					<label for="contact-withheld-numbers" class="withheld">
+						<?php _e('No Withheld numbers', 'bemygirl'); ?>
+					</label>
+
+				</div><!-- /instructions -->
+
 				<div class="col2 selected-contact">
-					<label for="contact-girl-type"><?php _e('Region', 'bemygirl'); ?></label>
-                    <select>
-                    	<option>- Select a value -</option>
-						<option>Geneva</option>
-						<option>Vaud</option>
+					<label for="contact-region"><?php _e('Region', 'bemygirl'); ?></label>
+                    <select id="contact-region" name="region">
+                    	<option value="">&lt;none&gt;</option>
+						<option value="Geneva">Geneva</option>
+						<option value="Vaud">Vaud</option>
 					</select>
- 				</div>
+					<div id="bt-select-contact-region"></div>
+ 				</div><!-- /region -->
+
  				<div class="col2 selected-contact">
-					<label for="contact-girl-type"><?php _e('Area', 'bemygirl'); ?></label>
-                    <select>
-						<option>- Select a value -</option>
-						<option>Acacias</option>
-						<option>Carouge</option>
-						<option>Charmilles</option>
-						<option>Champel</option>
-						<option>Cointrin</option>
-						<option>Cornavin</option>
-						<option>Eaux-Vives</option>
-						<option>Grand-Saconnex</option>
-						<option>Jonction</option>
-						<option>Meyrin</option>
-						<option>Petit-Lancy</option>
-						<option>Plainpalais</option>
-						<option>Plan-les-Ouates</option>
-						<option>Cité-Centre</option>
-						<option>Servette</option>
+					<label for="contact-area"><?php _e('Area', 'bemygirl'); ?></label>
+                    <select id="contact-area" name="area">
+						<option value="">&lt;none&gt;</option>
+						<option value="Acacias">Acacias</option>
+						<option value="Carouge">Carouge</option>
+						<option value="Charmilles">Charmilles</option>
+						<option value="Champel">Champel</option>
+						<option value="Cointrin">Cointrin</option>
+						<option value="Cornavin">Cornavin</option>
+						<option value="Eaux-Vives">Eaux-Vives</option>
+						<option value="Grand-Saconnex">Grand-Saconnex</option>
+						<option value="Jonction">Jonction</option>
+						<option value="Meyrin">Meyrin</option>
+						<option value="Petit-Lancy">Petit-Lancy</option>
+						<option value="Plainpalais">Plainpalais</option>
+						<option value="Plan-les-Ouates">Plan-les-Ouates</option>
+						<option value="Cité-Centre">Cité-Centre</option>
+						<option value="Servette">Servette</option>
 					</select>
- 				</div>
+					<div id="bt-select-contact-area"></div>
+ 				</div><!-- /area -->
+
  				<div class="col1">
 					<label for="contact-girl-appointment"><?php _e('Appointment', 'bemygirl'); ?> </label>
-					<input type="checkbox" name="appointment" value="" id="incall">
+
+					<!-- checkbox: Incall -->
+					<input type="checkbox" name="incall" value="true" id="incall">
 					<label for="incall" class="withheld"><?php _e('Incall', 'bemygirl'); ?></label>
-					<input type="checkbox" name="appointment" value="" id="outcall">
+
+					<!-- checkbox: Outcall -->
+					<input type="checkbox" name="outcall" value="true" id="outcall">
 					<label for="outcall" class="withheld"><?php _e('Outcall', 'bemygirl'); ?></label>
-				</div>
+				</div><!-- /appointment -->
+
 				<div class="col1">
 					<label for="Website"><?php _e('Website', 'bemygirl'); ?> </label>
-					<div class="file-website">
-						<label for="title"><?php _e('Title ', 'bemygirl'); ?> </label>
-                    	<input class="form-text" id="contact-girl-title " name="Title" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
-                    	<div class="description-date"><?php _e('The link title is limited to 128 characters maximum', 'bemygirl'); ?>.</div>
-                    </div>
-                    <div class="file-website">
-						<label for="url"><?php _e('URL ', 'bemygirl'); ?> </label>
-                    	<input class="form-text" id="contact-girl-url " name="url" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
-                    </div>
- 				</div>
- 				<div class="col1">
 
-					<input type="checkbox" name="show-email" value="" id="show-email">
+                    <div class="file-website">
+						<label for="contact-girl-url"><?php _e('URL ', 'bemygirl'); ?> </label>
+                    	<input type="url" class="form-text" id="contact-girl-url" name="user_url" size="60">
+                    </div>
+ 				</div><!-- /Website -->
+
+ 				<div class="col1">
+					<input type="checkbox" name="contact_show_email" value="true" id="show-email">
 					<label for="show-email" class="withheld bold"><?php _e('Show my Email on my profile', 'bemygirl'); ?> </label>
-				</div>
+				</div><!-- /show email -->
+
 				<div class="col1">
 					<label for="email"><?php _e('Email', 'bemygirl'); ?></label>
-                    <input class="form-text" id="contact-girl-Email" name="email" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
- 				</div>
+                    <input type="email" class="form-text" id="contact-girl-Email" name="work_email" size="60">
+ 				</div><!-- /email -->
+
  				<div class="col1">
 					<label for="address"><?php _e('Address', 'bemygirl'); ?> </label>
-                    <input class="form-text" id="contact-girl-address" name="address" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
- 				</div>
+                    <input type="text" class="form-text" id="contact-girl-address" name="contact_address" size="60">
+ 				</div><!-- /address -->
+
  				<div class="col1">
 					<label for="postalCode"><?php _e('Postal Code', 'bemygirl'); ?> </label>
-                    <input class="form-text" id="contact-girl-postalCode" name="postalCode" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
- 				</div>
-
+                    <input type="number" min="0" class="form-text" id="contact-girl-postalCode" name="contact_postal_code" size="60">
+ 				</div><!-- /postalCode -->
 
 				<input type="submit" name="op" value="Save" class="form-submit-contact-girl" >
-			 </form>
+
+			 </form><!-- end #form-girlcontact-edit -->
 		</div>
 
 	</div><!-- end main -->

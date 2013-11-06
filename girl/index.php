@@ -1,12 +1,7 @@
-<?php get_header(); ?>
-
-	<!-- main-->
-	<div class="main">
-
-		<?php get_template_part( 'templates/nav', 'filters' ); ?>
-
-		<?php get_template_part( 'templates/loop', 'escorts' ); ?>
-
-	</div><!-- fin main-->
-
-<?php get_footer(); ?>
+<?php
+/**
+ * This file doesn't do anything
+ * page-home.php is the main page.
+ *
+ * @package WordPress
+ */

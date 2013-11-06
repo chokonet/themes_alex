@@ -4,7 +4,7 @@
 
 		<div class="col2 selected-contact-small">
 			<label for="contact-girl-age"><?php _e('From', 'bemygirl'); ?></label>
-			<select id="chico">
+			<select class="select_chico">
 				<option value="" selected="selected">00:00</option>
 				<option value="00">00:00</option>
 				<option value="01">01:00</option>
@@ -34,7 +34,7 @@
 		</div>
 		<div class="col2 selected-contact-small">
 			<label for="contact-girl-age"><?php _e('To', 'bemygirl'); ?></label>
-			<select id="chico">
+			<select class="select_chico">
 				<option value="" selected="selected">00:00</option>
 				<option value="00">00:00</option>
 				<option value="01">01:00</option>

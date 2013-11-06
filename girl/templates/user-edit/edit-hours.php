@@ -29,9 +29,16 @@
 						<span>Rate </span>
 					</div>
 
-					<div class="col1">
-						<label for="showname"><?php _e('Minimum Rate', 'bemygirl'); ?> </label>
-	                    <input class="form-text" id="contact-girl-shownamel" name="showname" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
+					<div class="col2 selected-contact-small">
+						<label for="minimum-rate"><?php _e('Minimum Rate', 'bemygirl'); ?> </label>
+	                    <!-- <input class="form-text" id="contact-girl-shownamel" name="showname" size="60" value="" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';"> -->
+	                    <select class="select_chico" id="minimum-rate">
+	                    	<option value="100">100</option>
+	                    	<option value="150">150</option>
+	                    	<option value="200">200</option>
+	                    	<option value="250">250</option>
+	                    	<option value="300">300</option>
+						</select>
 	 					<span class="field-suffix"> CHF</span>
 	 				</div>
 				</div>

@@ -1,0 +1,45 @@
+/**
+ * Wordpress Login and Lost Password screen styles
+ * By Los Maquiladores.
+ */
+@charset 'utf-8';
+.login #login h1 a {
+	background-image: url( '../images/logo-bmg.png' );
+	background-size: 250px auto;
+}
+.login #nav a, .login #backtoblog a {
+	color: #6B6A6A !important;
+}
+.login #nav a:hover, .login #backtoblog a:hover {
+	color: #6B6A6A !important;
+}
+.login .button-primary {
+	background: url(../images/btn-black-114.png);
+	background-size: 110% 130%;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	border: black 1px solid !important;
+		-moz-box-shadow: 1px 0px 1px #888;
+		-webkit-box-shadow: 1px 0px 1px #888;
+		box-shadow: 1px 0px 1px #888;
+}
+.login .button-primary:hover {
+	background: url(../images/btn-black-114.png);
+	background-position:50% 50%;
+	background-size: 108% 130%;
+	background-repeat:no-repeat;
+	border: black 1px solid !important;
+		-moz-box-shadow: 2px 1px 2px #888;
+		-webkit-box-shadow: 2px 1px 2px #888;
+		box-shadow: 2px 1px 2px #888;
+}
+.login .button-primary:active, .login .button-primary:focus {
+	background: url(../images/btn-black-114.png);
+	background-size: 110% 130%;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	border: black 1px solid !important;
+		-moz-box-shadow: 1px 0px 1px #888;
+		-webkit-box-shadow: 1px 0px 1px #888;
+		box-shadow: 1px 0px 1px #888;
+}

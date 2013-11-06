@@ -1,5 +1,7 @@
 <?php get_header(); ?>
+
 	<div class="main_fq border_fq">
+
 		<div id="plecasup">
 			<span><?php _e('Keyword Search Results', 'bemygirl'); ?></span>
 		</div>
@@ -22,4 +24,5 @@
 		</div>
 
 	</div><!-- end #main -->
+
 <?php get_footer(); ?>

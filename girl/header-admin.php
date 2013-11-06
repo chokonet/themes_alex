@@ -8,7 +8,7 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body class="admin">
+	<body class="admin <?php if( is_page('edit-user') OR is_page('create-user') ): echo 'm-calendario'; endif; ?>">
 		<?php $object = get_queried_object() ?>
 
 		<div  class="container"><!--inicia page-container  -->
@@ -26,7 +26,7 @@
 										<div class="content_search">
 											<form class="forma_buscar" method="get" action="<?php bloginfo('url'); ?>/">
 												<input type="submit" value="">
-												<input type="text" name="s" value="Enter search keywords..." onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
+												<input type="search" name="s" value="Enter search keywords..." onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';">
 											</form><!-- forma_buscar boton_barra -->
 										</div>
 									</li>
@@ -48,7 +48,7 @@
 							<li class="title"><?php _e('Menu', 'bemygirl'); ?>
 								<ul>
 									<li><a href="<?php bloginfo('url'); ?>/advanced-search/"><?php _e('Advanced search', 'bemygirl'); ?></a></li>
-									<li><a href="<?php bloginfo('url'); ?>/frequent-questions/">FAQ</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/faq/">FAQ</a></li>
 									<li class="last"><a href="#"> <?php _e('Costumer Support', 'bemygirl'); ?></a></li>
 								</ul>
 							</li>
@@ -82,10 +82,9 @@
 				<div class="nav">
 					<ul id="nav">
 						<a href="<?php bloginfo('url'); ?>/dashboard/" ><li class="nav_li"  <?php if(is_page('dashboard')):?>id="active"<?php endif; ?> ><?php _e('Dashboard', 'bemygirl'); ?></li></a>
-						<a href="<?php bloginfo('url'); ?>/edit/" ><li class="nav_li" <?php if(is_page('edit')):?>id="active"<?php endif; ?>><?php _e('My Account', 'bemygirl'); ?></li></a>
-						<a href="<?php bloginfo('url'); ?>/users/" ><li class="nav_li" <?php if((is_page('users')) or (is_page('create-users'))):?>id="active"<?php endif; ?> ><?php _e('Users', 'bemygirl'); ?></li></a>
-						<a href="<?php bloginfo('url'); ?>/members/" ><li class="nav_li" <?php if(is_page('members')):?>id="active"<?php endif; ?>> <?php _e('Members', 'bemygirl'); ?></li></a>
-						<a href="<?php bloginfo('url'); ?>/#/" ><li class="nav_li" <?php if(is_page('#')):?>id="active"<?php endif; ?>> <?php _e('Reports', 'bemygirl'); ?></li></a>
+						<a href="<?php bloginfo('url'); ?>/dashboard/edit/" ><li class="nav_li" <?php if(is_page('edit')):?>id="active"<?php endif; ?>><?php _e('My Account', 'bemygirl'); ?></li></a>
+						<a href="<?php bloginfo('url'); ?>/dashboard/users/" ><li class="nav_li" <?php if((is_page('users')) or (is_page('create-users'))):?>id="active"<?php endif; ?> ><?php _e('Users', 'bemygirl'); ?></li></a>
+						<a href="<?php bloginfo('url'); ?>/dashboard/members/" ><li class="nav_li" <?php if(is_page('members')):?>id="active"<?php endif; ?>> <?php _e('Members', 'bemygirl'); ?></li></a>
 					</ul>
 				</div>
 			</div> <!-- fin header-->

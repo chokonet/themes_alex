@@ -1,17 +1,24 @@
 <?php get_header(); ?>
+
 	<div class="main_fq border_fq">
+
 		<div id="plecasup">
 			<span><?php _e('Magazine', 'bemygirl'); ?></span>
 		</div>
 
 		<div class="columna_izq magazine">
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
+
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 				<div class="container_magazine magazine_a">
 
-					<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_post_thumbnail( 'large' ); ?></a>
-					<h2>Bemygirl <?php _e('news', 'bemygirl'); ?> </h2>
-					<p id="pie_foto"><?php _e('Photo shoot for', 'bemygirl'); ?> <?php the_author_posts_link(); ?> <?php _e('escort in', 'bemygirl'); ?> Cornavin, Genève</p>
+					<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+						<?php the_post_thumbnail( 'large' ); ?>
+					</a>
+					<h2><?php the_title(); ?></h2>
+					<p id="pie_foto">
+						<?php _e('Photo shoot for', 'bemygirl'); ?> <?php the_author_posts_link(); ?> <?php _e('escort in', 'bemygirl'); ?> Cornavin, Genève
+					</p>
 					<p id="copy">2013 © bemygirl.ch</p>
 					<div class="share"><?php _e('Share', 'bemygirl'); ?></div>
 
@@ -27,20 +34,30 @@
 
 				</div>
 
-			<?php endwhile; endif; wp_reset_query(); ?>
-		</div>
+			<?php endwhile; endif; wp_reset_postdata(); ?>
+
+		</div><!-- end .columna_izq -->
+
 		<nav class="main_paging" >
 
-				<div class="prev" class="enabled"><a href="#"><?php _e('Previous', 'bemygirl'); ?></a></div>
-				<div class="divider"></div>
-				<div class="next"><a href="#"><?php _e('Next', 'bemygirl'); ?></a></div>
+			<div class="prev" class="enabled">
+				<?php previous_posts_link(__('Previous', 'bemygirl')); ?>
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="next">
+				<?php next_posts_link(__('Next', 'bemygirl')); ?>
+			</div>
+
 		</nav>
 
 		<div class="content_search">
 			 <form id="searchForm" action="/search" method="get">
-						<input id="searchField" placeholder="Search" type="text" name="q" value="">
-					</form>
+				<input id="searchField" placeholder="Search" type="text" name="q" value="">
+			</form>
 		</div>
 
-	</div><!-- end #main -->
+	</div><!-- end .main_fq -->
+
 <?php get_footer(); ?>

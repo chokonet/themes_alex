@@ -10,22 +10,18 @@
 			<label for="edit-field-girl-message-und-0-value">Write your message in English <span class="form-required" title="This field is required.">*</span></label>
 
 				<?php
-
 					$elements = array('media_buttons' => false, 'textarea_name' => 'message-english');
-					wp_editor( $content, 'editpost', $elements);
-
-				?>
+					$content = isset($content) ? $content : '';
+					wp_editor( $content, 'editpost', $elements); ?>
 			</div>
 			<div class="caja-textedit">
 				<label for="edit-field-message-fr-und-0-value">Écrire votre message en français (limite de 200 mots) </label>
 				<?php
-
 					$elements = array('media_buttons' => false, 'textarea_name' => 'message-francais');
-					wp_editor( $content, 'editpost-francais', $elements);
-
-				?>
+					$content = isset($content) ? $content : '';
+					wp_editor( $content, 'editpost-francais', $elements); ?>
 			</div>
 
-			<input type="submit" name="op" value="Save" class="form-submit-contact-girl" >
+			<input type="submit" name="op" value="Save" class="form-submit-message" >
 		</form>
 	</div><!-- end main -->

@@ -84,14 +84,14 @@
 
 			            <div class="selectWrap">
 			            	<label class="chico"><?php _e('From', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
 			                </select>
 
 			                <label class="chicob"><?php _e('To', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
@@ -103,14 +103,14 @@
 
 			            <div class="selectWrap">
 			            	<label class="chico"><?php _e('From', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
 			                </select>
 
 			                <label class="chicob"><?php _e('To', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
@@ -128,14 +128,14 @@
 
 						<div class="selectWrap">
 			            	<label class="chico"><?php _e('From', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
 			                </select>
 
 			                <label class="chicob"><?php _e('To', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
@@ -147,14 +147,14 @@
 
 			            <div class="selectWrap">
 			            	<label class="chico"><?php _e('From', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
 			                </select>
 
 			                <label class="chicob"><?php _e('To', 'bemygirl'); ?></label>
-			            	<select id="chico">
+			            	<select class="select_chico">
 			                  	<option >All</option>
 			                  	<option>Geneve</option>
 			                  	<option>Vaud</option>
@@ -377,7 +377,7 @@
             </ul>
         </div>
 
-         <?php get_template_part( 'templates/part', 'escorts' ) ?>
+         <?php get_template_part( 'templates/loop', 'escorts' ) ?>
 
     </div><!-- fin main-->
 <?php get_footer(); ?>

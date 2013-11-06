@@ -33,8 +33,8 @@
 						<span class="dato"><a href="mailto:info@bemygirl.ch">info@bemygirl.ch</a></span>
 						<ul>
 							<li><a href="<?php bloginfo('url'); ?>/contact/"><?php _e('Contact', 'bemygirl'); ?></a></li>
-							<li><a href="<?php bloginfo('url'); ?>/frequent-questions/">FAQ</a></li>
-							<li><a href="<?php bloginfo('url'); ?>/terms/"><?php _e('Terms and conditions', 'bemygirl'); ?></a></li>
+							<li><a href="<?php bloginfo('url'); ?>/faq/">FAQ</a></li>
+							<li><a href="<?php bloginfo('url'); ?>/terms/?accepted=true"><?php _e('Terms and conditions', 'bemygirl'); ?></a></li>
 						</ul>
 						<ul class="right">
 							<span class="firma">© 2012-2013 BemyGirl.ch</span>
@@ -48,8 +48,8 @@
 							<li><a href="<?php bloginfo('url'); ?>/advanced-search/"><?php _e('Advanced Search', 'bemygirl'); ?></a></li>
 							<li><a href="<?php bloginfo('url'); ?>/login/"><?php _e('Sign in', 'bemygirl'); ?></a></li>
 							<li><a href="<?php bloginfo('url'); ?>/register/"><?php _e('Register', 'bemygirl'); ?></a></li>
-							<li><a href="/escorts/geneve"><?php _e('Escort in', 'bemygirl'); ?> Geneve</a></li>
-							<li><a href="/escorts/lausanne"><?php _e('Escort in', 'bemygirl'); ?> Lausanne</a></li>
+							<li><a href="<?php bloginfo('url'); ?>/escorts/?region=geneve"><?php _e('Escort in', 'bemygirl'); ?> Geneve</a></li>
+							<li><a href="<?php bloginfo('url'); ?>/escorts/?region=lausanne"><?php _e('Escort in', 'bemygirl'); ?> Lausanne</a></li>
 						</ul>
 					</div>
 

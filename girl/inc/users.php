@@ -1,6 +1,8 @@
 <?php
 
+
 	include_once('class.escorts.php');
+
 
 
 // CUSTOM USER CONFIGURATIONS /////////////////////////////////////////////////////////
@@ -19,16 +21,14 @@
 
 
 	add_filter('user_contactmethods', function ( $contactmethods ) {
-			unset($contactmethods['url']);
 			unset($contactmethods['aim']);
 			unset($contactmethods['yim']);
 			unset($contactmethods['jabber']);
-			$contactmethods['twitter']  = 'Twitter';
-			$contactmethods['facebook'] = 'Facebook';
-			$contactmethods['url_imagen']  = 'Url Imagen';
-			$contactmethods['mobile']  = 'Mobile';
+			$contactmethods['twitter']    = 'Twitter';
+			$contactmethods['facebook']   = 'Facebook';
+			$contactmethods['url_imagen'] = 'Url Imagen';
+			$contactmethods['mobile']     = 'Mobile';
 			return $contactmethods;
-
 	});
 
 
@@ -68,18 +68,8 @@
 
 
 
-// CREAR ROLES ////////////////////////////////////////////////////////////////////////
+// MOSTRAR MENUS ESPECIALES PARA EL ROL DEVELOPER /////////////////////////////////////
 
-
-
-	add_action('admin_menu', function() use (&$current_user){
-		if ( in_array('developer', $current_user->roles) ){
-			add_options_page( 'All Settings', 'All Settings', 'developer', 'options.php');
-		}
-		if ( in_array('escort', $current_user->roles) ){
-			add_options_page( 'All Settings', 'All Settings', 'escort', 'options.php');
-		}
-	});
 
 
 	add_action('admin_menu', function() use (&$current_user){
@@ -138,4 +128,62 @@
 					TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;"
 			);
 		}
+
+
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}services (
+				service_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				service_type VARCHAR(20) NOT NULL DEFAULT '',
+				service_name VARCHAR(20) NOT NULL DEFAULT '',
+				service_slug VARCHAR(20) NOT NULL DEFAULT '',
+				PRIMARY KEY (service_id),
+				UNIQUE KEY service_slug (service_slug),
+				KEY service_name (service_name)
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+		);
+
+
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}service_relationships (
+				escort_id BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
+				service_relationship_id BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
+				INDEX service_index (service_relationship_id),
+				FOREIGN KEY (service_relationship_id) REFERENCES {$wpdb->prefix}services(service_id) ON DELETE CASCADE
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+		);
+
+
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}account_profile (
+				profile_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				account_id BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
+				region VARCHAR(20) NOT NULL,
+				area VARCHAR(20) NOT NULL,
+				nationality VARCHAR(20) NOT NULL DEFAULT '',
+				ethnicity VARCHAR(20) NOT NULL DEFAULT '',
+				height INT(11) NOT NULL DEFAULT '0',
+				weight INT(11) NOT NULL DEFAULT '0',
+				age INT(11) NOT NULL DEFAULT '0',
+				shoe_size INT(11) NOT NULL DEFAULT '0',
+				hair_color VARCHAR(20) NOT NULL DEFAULT '',
+				eyes_color VARCHAR(20) NOT NULL DEFAULT '',
+				breast_size VARCHAR(20) NOT NULL DEFAULT '',
+				pubic_hair VARCHAR(20) NOT NULL DEFAULT '',
+				available TINYINT(1) NOT NULL DEFAULT '0',
+				work_email VARCHAR(20) NOT NULL DEFAULT '',
+				rating_appearance INT(11) NOT NULL DEFAULT '0',
+				rating_personality INT(11) NOT NULL DEFAULT '0',
+				rating_service INT(11) NOT NULL DEFAULT '0',
+				rating_place INT(11) NOT NULL DEFAULT '0',
+				next_payment DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+				PRIMARY KEY (profile_id),
+				KEY escort_id (account_id)
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+		);
+
 	});
+
+
+
+
+// ADMINISTRAR USUARIOS ///////////////////////////////////////////////////////////////
