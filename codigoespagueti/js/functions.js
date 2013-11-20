@@ -54,7 +54,7 @@
 
 
 			$("#search").mouseenter(function() {
-				$("#form_busqueda").animate({"right":"0px"}, {duration:750, queue:false});
+				$("#form_busqueda").animate({"right":"-1px"}, {duration:750, queue:false});
 				$("#search").fadeOut(0);
 				$("#searcho").fadeIn(0);
 			});
@@ -94,11 +94,14 @@
 			 */
 			(function show_next_tweet(){
 
-				tweetListElements.fadeOut();
+				tweetListElements.fadeOut('fast');
 
 				var current = (countTweets <= index+1) ? index = 0 : index++;
 
-				$(tweetListElements[current]).fadeIn();
+				$(tweetListElements[current]).delay(200).fadeIn().css({
+					'display': 'inline-block',
+					'vertical-align': 'top'
+				});
 
 				setTimeout(show_next_tweet, 12000);
 

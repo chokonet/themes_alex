@@ -18,9 +18,6 @@
 							foreach ( $lugares as $post ) : setup_postdata( $post );
 							$terms = wp_get_post_terms($post->ID, 'categorias');
 								foreach($terms as $term){
-
-
-
 						?>
 						<div <?php post_class('lugar-home no_click'); ?>>
 							<a class="link-foto" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('cuadrado_grande'); ?></a>

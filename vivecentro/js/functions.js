@@ -1,4 +1,3 @@
-
 (function($){
 
 	$(document).ready(function(){
@@ -11,13 +10,13 @@
 
 		var container = $('.loop-lugares');
 
-	    container.isotope({
-	    	itemSelector : '.lugar-home',
-	  		layoutMode : 'masonry',
-	    	masonry : {
-	          columnWidth : 287,
-	        }
-	    });
+		container.isotope({
+			itemSelector : '.lugar-home',
+			layoutMode : 'masonry',
+			masonry : {
+			  columnWidth : 287,
+			}
+		});
 
 
 	// SINGLE RECORRIDOS //////////////////////////////
@@ -48,6 +47,77 @@
 
 		});
 
+		if( $('.move_sidebar') ){
+			$('.sidebar').prependTo('#content');
+		}
+
+		//Desplegado de lugar
+		function open_lugar_pop(){
+			
+			$(this).parent().fadeOut('fast');
+			$('#map-canvas').remove();
+
+			$(this).siblings().fadeOut('fast', function(){
+				$('.lugar-in-recorrido').slideDown('fast');
+			});
+
+			$('.load_here').load(
+				theme_path+'templates/lugar_template.php',
+				lugares_array[id_selected],
+				function(url, data, response){
+					init_gallery();
+					initialize_map( $('#post_id').val(), $('#post_title').val() );
+
+				}
+
+			);
+		}
+		
+
+		$('.lugar-recorrido-single.expand').live('click', function(e){
+			e.preventDefault();
+			open_lugar_pop();
+		});
+
+		$('.prev_lugar').live('click', function(){
+			console.log('previo');
+
+		});
+
+		$('.next_lugar').live('click', function(){
+			console.log('siguiente');
+
+		});
+
+		//Init maps desplegado
+    	function initialize_map(lugar_id, lugar_title) {
+
+    		var styles = [];
+			var styledMap = new google.maps.StyledMapType(styles, {name: "Vive el Centro"});
+	      	var myLatLong = new google.maps.LatLng( $('#lat_long').val() );
+
+	        var mapOptions = {
+		        center: myLatLong,
+		        zoom: 16,
+		        mapTypeControlOptions: {
+						mapTypeIds: [ google.maps.MapTypeId.ROADMAP, 'map_style' ]
+					}
+				};
+
+	        var map = new google.maps.Map( document.getElementById("map-canvas-inlugar"), mapOptions );
+
+	        map.mapTypes.set('map_style', styledMap);
+			map.setMapTypeId('map_style');
+
+	        var marker = new google.maps.Marker({
+		      position: myLatLong,
+		      map: map,
+		      title: lugar_title
+		  	});
+
+    	}
+
+    	
 
 
 		// Map highlight
@@ -62,31 +132,35 @@
 
 
 		// Side Strip gallery
-		var myViewport = $('.big_viewport');
-		var myStrip = $('.imgStrip');
+		
+		function init_gallery(){
+			var myViewport = $('.big_viewport');
+			var myStrip = $('.imgStrip');
 
-		myStrip.find('li a').live('click', function(e){
-			e.preventDefault();
-			$(this).parent().siblings('.selected').removeClass('selected');
-			$(this).parent().addClass('selected');
-			myViewport.html( $(this).html() );
-		});
+			myStrip.find('li a').live('click', function(e){
+				e.preventDefault();
+				$(this).parent().siblings('.selected').removeClass('selected');
+				$(this).parent().addClass('selected');
+				myViewport.html( $(this).html() );
+			});
 
-		$('.sliderContainer').mouseenter(function(){
-			myStrip.animate({
-				right : '+=65px'
-			}, 300, 'swing');
-		}).mouseleave(function(){
-			myStrip.animate({
-				right : '-=65px'
-			}, 200, 'swing');
-		});
+			$('.sliderContainer').mouseenter(function(){
+				myStrip.animate({
+					right : '+=65px'
+				}, 300, 'swing');
+			}).mouseleave(function(){
+				myStrip.animate({
+					right : '-=65px'
+				}, 200, 'swing');
+			});
+		}
+		init_gallery();
 
 		//ScrollIt
 		if( $('.scrollIt').length ){
 			$('body').animate({
-		        scrollTop	: '700'
-		    }, 700, 'swing');
+				scrollTop	: '700'
+			}, 700, 'swing');
 		}
 
 		// //Show hide Zona

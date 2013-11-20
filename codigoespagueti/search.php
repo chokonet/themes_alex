@@ -1,17 +1,15 @@
 <?php
 	get_header();
-	$objeto = get_queried_object();
-	// echo '<pre>';
-	// echo print_r($objeto);
-	// echo '</pre>';
-?>
+
+	$objeto = get_queried_object(); ?>
+
 		<div class="content-archive">
 			<h2><?php printf( __( 'Resultados de "%s"' ),  get_search_query()  ); ?></h2>
 			<?php if(have_posts()): while(have_posts()): the_post(); ?>
 			<div class="wrapper-post-archive">
 				<div class="post-archive">
 					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
-					<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ', $post->ID); ?></span>
+					<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ', $post->ID); ?></span>
 					<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 					<?php the_excerpt(); ?>
 
@@ -27,13 +25,28 @@
 			</div><!-- end .wrapper-post-archive -->
 
 
-			<?php endwhile; endif; wp_reset_query(); ?>
-			<div class="post-nav">
-			<?php previous_posts_link('%link', '&raquo Anterior'); ?>
-			<span class="siguiente-post">
-				<?php next_posts_link('%link', 'Siguiente &laquo'); ?>
-			</span>
-		</div><!-- end .post-nav -->
+			<?php endwhile; endif; wp_reset_query();
+			if( $wp_query->max_num_pages > 1 ) :?>
+			<div id="paginacion">
+				<?php global $wp_query;
+					$big  = 999999999; // need an unlikely integer
+					$args = array(
+						'base'      => str_replace( $big, '%#%', esc_url(get_pagenum_link($big)) ),
+						'format'    => '?page=%#%',
+						'total'     => $wp_query->max_num_pages,
+						'current'   => max( 1, get_query_var('paged') ),
+						'show_all'  => false,
+						'end_size'  => 3,
+						'mid_size'  => 2,
+						'type'      => 'list',
+						'prev_next' => true,
+						'prev_text' => __('&raquo; Anterior |'),
+						'next_text' => __('| &laquo; Siguiente'),
+					);
+					echo paginate_links($args);?>
+			</div><!-- end #paginacion -->
+			<?php endif; ?>
+
 		</div><!-- end content-archive -->
 		<?php get_template_part('side-general'); ?>
 

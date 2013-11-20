@@ -3,7 +3,7 @@
 	/**
 	 * Crear tabla en la base de datos
 	 */
-	add_action('init', function(){
+	add_action('after_switch_theme', function(){
 		global $wpdb;
 		$wpdb->query(
 			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}votes (
@@ -67,10 +67,18 @@
 	 */
 	function get_vote_data($post_id){
 		global $wpdb;
-		return $wpdb->get_var($wpdb->prepare(
+		$data = get_transient( 'vote_data' );
+
+		if($data !== false) return $data;
+
+		$data = $wpdb->get_var($wpdb->prepare(
 			"SELECT ROUND(AVG(vote_value), 1) AS rating FROM {$wpdb->prefix}votes WHERE post_id = %d;",
 			$wpdb->escape($post_id)
 		));
+
+		set_transient( 'vote_data', $data, 600 );
+
+		return $data;
 	}
 
 

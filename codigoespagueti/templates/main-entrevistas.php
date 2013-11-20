@@ -13,7 +13,7 @@
 
 			<div class="post">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured_post');?></a>
-				<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+				<span class="date"><?php the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
 				<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 				<?php the_excerpt();?>
 			</div><!-- end .post -->

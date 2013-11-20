@@ -42,39 +42,9 @@
 				<script type="text/javascript">
 			    	function initialize() {
 
-			    		var styles = [
-						    {
-						      stylers: [
+			    		var styles = [];
 
-						        { saturation: 10 }
-						      ]
-						    },{
-						      featureType: "all",
-						      elementType: "labels",
-						      stylers: [
-						        { visibility: "off" }
-						      ]
-						    },{
-						      featureType: "road",
-						      elementType: "geometry",
-						      stylers: [
-						        { visibility: "on" },
-						        { hue: "#e5b3b2" },
-						        { weight: 1.5},
-						        { saturation: 20 }
-						      ]
-						    },{
-						      featureType: "landscape",
-						      elementType: "all",
-						      stylers: [
-						      	{ hue: "#ffffff" },
-						      	{ saturation: 0 },
-						        { visibility: "simplified" }
-						      ]
-						    }
-						  ];
-
-						var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+						var styledMap = new google.maps.StyledMapType(styles, {name: "Vive el Centro"});
 
 				      	var myLatLong = new google.maps.LatLng(<?php echo get_post_meta($post->ID, 'latlong', true); ?>);
 
@@ -104,11 +74,11 @@
 			    </script>
 	   			<!-- MAPAS -->
 				<div id="map-canvas">
-				</div>
-			</div><!-- mapContainer -->
+				</div><!-- mapContainer -->
+			</div><!-- end .twoCols -->
 
 
-		</div><!-- end .twoCols -->
+	</div> <!-- end content_lugar -->
 
 		<div class="twoCols">
 			<h1><?php the_title(); ?></h1>
@@ -149,18 +119,32 @@
 			</div><!-- end .comenta -->
 
 			<div class="otras_zonas">
-				<h5>Otras zonas</h5>
+				<h5>Otros lugares</h5>
 				<ul>
-					<li class="selected"></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+				<?php
+
+				$thisterm = array_values( get_the_terms($post->ID, 'zonas') )[0]->slug;
+				
+				$args = array(
+					'posts_per_page' => -1,
+					'post_type'      => 'lugares',
+					'zonas'	         => $thisterm
+				);
+
+				$postlist = get_posts( $args );
+				file_put_contents(
+									'/Users/maquilador8/Desktop/php.log', 
+									var_export($postlist, true), 
+									FILE_APPEND);
+				foreach ($postlist as $post) {
+					
+					echo '<li><a href="'.$post->guid.'">'.get_the_post_thumbnail( $post->ID, 'thumbnail' ).'</a></li>';
+
+				}
+
+				?>
+					
+					
 				</ul>
 			</div>
 			<div class="navPosts">

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+					
 
 					<div class="navegador recorridos" >
 
@@ -24,14 +24,7 @@
 					<?php endwhile; endif; wp_reset_query(); ?>
 					</div><!-- end .navegador recorridos-->
 
-					<?php
-
-						$lugares = get_post_meta($post->ID, 'lugar', true);
-						$descripciones = get_post_meta($post->ID, 'descripcion', true);
-						$lugaresydescripciones = array_map(null, $lugares, $descripciones);
-
-					?>
-
+					
 					<? // SCRIPT MAPA // ?>
 					<script type="text/javascript">
 
@@ -68,6 +61,8 @@
 					    <?php }  wp_reset_query();  */ ?>
 
 					   <?php
+
+					   $lugaresydescripciones = get_lugares_descripciones($post->ID);
 
 					   	foreach ($lugaresydescripciones as $index => $lugar){
 					   		if($index == 0){
@@ -127,24 +122,25 @@
 
 
 
-						foreach ($lugaresydescripciones as $lugar){
+						foreach ($lugaresydescripciones as $index => $lugar){
 
 
 							$entrada = get_page_by_title($lugar[0], OBJECT, 'lugares');
+							
 							if($entrada != '') { ?>
 
-						<div class="lugar-recorrido-single">
-
-							<?php if(has_post_thumbnail() ) {the_post_thumbnail( 'cuadrado_grande' ); } else { ?> <img src="http://placehold.it/164x165"> <?php } ?>
-							<span class="nombre-lugar"><h4><?php echo $entrada->post_title; ?></h4></span>
-
+						<div class="lugar-recorrido-single expand">
+							<a href="#" data-id="<?php echo $index ?>">
+								<?php if( has_post_thumbnail() ) {the_post_thumbnail( 'cuadrado_grande' ); } else { ?> <img src="http://placehold.it/164x165"> <?php } ?>
+								<span class="nombre-lugar"><h4><?php echo $entrada->post_title; ?></h4></span>
+							</a>
 
 						</div><!-- end lugar-single -->
 
 					<?php } } wp_reset_query(); ?>
 
 					</div><!-- end .lugares-single -->
+<div class="load_here"> </div>
 
-
-
+<div class="move_sidebar"></div>
 <?php get_footer(); ?>

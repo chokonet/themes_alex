@@ -4,6 +4,7 @@
 	// Definir el paths a los directorios de javascript y css
 	define( 'JSPATH', get_template_directory_uri() . '/js/' );
 	define( 'CSSPATH', get_template_directory_uri() . '/css/' );
+	define( 'THEMEPATH', get_template_directory_uri() . '/' );
 	$featured_posts = array();
 
 
@@ -50,13 +51,16 @@
 		wp_enqueue_script('plugins', JSPATH.'plugins.js', array('jquery', 'jquery-ui-slider'), false, true );
 		wp_enqueue_script('functions', JSPATH.'functions.js', array('cycle', 'plugins'), false, true );
 		wp_enqueue_script('lastest', JSPATH.'jquery-latest.js', array('jquery'), false, true );
+
+
 		// styles
 		wp_enqueue_style('jquery-ui-css', CSSPATH.'jquery-ui.css');
 		wp_enqueue_style('style', get_stylesheet_uri());
 
 
 		// localize scripts
-		wp_localize_script('functions', 'ajax_url',  get_bloginfo('wpurl').'/wp-admin/admin-ajax.php');
+		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
+
 	});
 
 
@@ -113,23 +117,6 @@
 
 
 
-// RSS POST THUMBNAIL ///////////////////////////////////////////////////////////////
-
-
-
-	//DEPRECATED
-	function rss_post_thumbnail($content) {
-		global $post;
-		if( has_post_thumbnail($post->ID) ) {
-			$content = get_the_post_thumbnail($post->ID, 'thumbnail', array('style'=>'width:80px; height:80px;'));
-		}
-		return $content;
-	}
-	add_filter('the_excerpt_rss', 'rss_post_thumbnail');
-	add_filter('the_content_feed', 'rss_post_thumbnail');
-
-
-
 // RSS FEED IMAGES ///////////////////////////////////////////////////////////////////
 
 
@@ -154,52 +141,6 @@
 		}
 
 	});
-
-
-
-// RSS FEED FILTERS /////////////////////////////////////////////////////////////////
-
-
-
-
-	add_feed('sopitas', 'custom_sopitas_rss_feed');
-	function custom_sopitas_rss_feed() {
-
-		$transient = get_transient( 'sopitas_feed_rss' );
-		if($transient){
-			echo $transient;
-			exit;
-		}
-
-		global $wpdb;
-		$results = $wpdb->get_results(
-			"SELECT * FROM wp_posts
-				INNER JOIN wp_postmeta ON ID = post_id
-					WHERE post_type = 'post'
-					AND post_status = 'publish'
-					AND meta_key    = 'mandar_a_sopitas'
-					AND meta_value  = 'true'
-						ORDER BY ID DESC LIMIT 7;", OBJECT
-		);
-
-		$json = array();
-
-		foreach ($results as $result) {
-			$item = new stdClass();
-			$item->title     = get_the_title($result->ID);
-			$item->date      = get_the_date('j/m/Y');
-			$item->permalink = get_permalink($result->ID);
-			$item->thumbnail = get_the_post_thumbnail($result->ID, 'thumbnail', array('style'=>'width:80px; height:80px;'));
-			$json[] = $item;
-		}
-
-		$result = json_encode($json);
-
-		set_transient( 'sopitas_feed_rss', $result, 1800 );
-
-		echo $result;
-		exit;
-	}
 
 
 
@@ -394,7 +335,7 @@
 
 
 
-// PAGINCIÓN ////////////////////////////////////////////////////////////////////
+// PAGINACIÓN ////////////////////////////////////////////////////////////////////
 
 
 
@@ -411,7 +352,36 @@
 
 
 
-/// ULTIMOS POST /////////////////////////////////////////////////////////////
+
+/*
+ .d888                                    d8b 888
+d88P"                                     Y8P 888
+888                                           888
+888888  8888b.  888  888  .d88b.  888d888 888 888888  .d88b.  .d8888b
+888        "88b 888  888 d88""88b 888P"   888 888    d88""88b 88K
+888    .d888888 Y88  88P 888  888 888     888 888    888  888 "Y8888b.
+888    888  888  Y8bd8P  Y88..88P 888     888 Y88b.  Y88..88P      X88
+888    "Y888888   Y88P    "Y88P"  888     888  "Y888  "Y88P"   88888P'
+*/
+
+
+
+
+	/**
+	 * Get posts likes from google, facebook, twitter
+	 */
+	add_action('init', function(){
+
+		setFacebookCountTransients();
+
+		setTwitterCountTransients();
+
+		setGoogleCountTransients();
+	});
+
+
+// ULTIMOS POST //////////////////////////////////////////////////////////////
+
 
 
 	function get_posts_from_last_week(){
@@ -423,7 +393,11 @@
 						AND post_status = 'publish' LIMIT 40;", OBJECT);
 	}
 
-///facebook counts ///////////////////////////////////////////////////////////
+
+
+// FACEBOOK COUNTS ///////////////////////////////////////////////////////////
+
+
 
 	/**
 	 * Recibe una url y regresa el tweet count
@@ -431,21 +405,19 @@
 	 * @return integer      tweet count
 	 */
 	function getFacebookCount($url){
-	    $fileData   = file_get_contents('http://graph.facebook.com/?id='.$url);
-	    $json       = json_decode($fileData, true);
-	    return $json['shares'];
+		$fileData = file_get_contents('http://graph.facebook.com/?id='.$url);
+		$json     = json_decode($fileData, true);
+		return isset($json['shares']) ? $json['shares'] : false;
 	}
 
-	add_action('init', function(){
-		setFacebookCountTransients();
-	});
+
 
 
 	function setFacebookCountTransients(){
 
 		$posts = get_posts_from_last_week();
 
-		foreach ($posts as $post) {
+		if ( $posts ) : foreach ($posts as $post) :
 
 			$facebookCount = get_transient( "facebook_count_".$post->ID );
 
@@ -453,19 +425,23 @@
 
 				$permalink  = get_permalink($post->ID);
 				$facebookCount = getFacebookCount( $permalink );
-				set_transient( "facebook_count_".$post->ID, $facebookCount, 7200);
+				set_transient( "facebook_count_".$post->ID, $facebookCount, 3600);
 			}
-		}
+
+		endforeach; endif;
 	}
+
 
 
 	function get_posts_facebook_count(){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT SUBSTRING( option_name, 27, 3 ) AS post_id, option_value AS tweet_count
+			"SELECT SUBSTRING( option_name, 27, 5 ) AS post_id, option_value AS facebook_count
 				FROM wp_options WHERE option_name LIKE '_transient_facebook_count%';", OBJECT
 		);
 	}
+
+
 
 	function countFacebook(){
 
@@ -479,18 +455,18 @@
 
 				$face_counts        = new stdClass;
 				$face_counts->url   = get_permalink($post->ID);
-				$face_counts->count = $values->tweet_count;
-				$count_face[$key]   = $face_counts;
+				$face_counts->count = $values->facebook_count;
+				$count_face[get_permalink($post->ID)]   = $face_counts;
 
 		}
-
 		return $count_face;
-
-
 	}
 
 
-	///tweet counts ///////////////////////////////////////////////////////////
+
+
+// TWEET COUNTS //////////////////////////////////////////////////////////////
+
 
 	/**
 	 * Recibe una url y regresa el tweet count
@@ -498,44 +474,43 @@
 	 * @return integer      tweet count
 	 */
 	function getTweetCount($url){
-	    $twitterApi = "http://urls.api.twitter.com/1/urls/count.json?url=%s";
-	    $fileData   = file_get_contents(sprintf($twitterApi, urlencode($url)));
-	    $json       = json_decode($fileData, true);
-	    unset($fileData);
-	    return $json['count'];
+		$twitterApi = "http://urls.api.twitter.com/1/urls/count.json?url=%s";
+		$fileData   = file_get_contents(sprintf($twitterApi, urlencode($url)));
+		$json       = json_decode($fileData, true);
+		unset($fileData);
+		return $json['count'];
 	}
 
-
-
-	add_action('init', function(){
-		setTwitterCountTransients();
-	});
 
 
 	function setTwitterCountTransients(){
 
 		$posts = get_posts_from_last_week();
 
-		foreach ($posts as $post) {
+		if ( $posts ) : foreach ($posts as $post) :
 
 			$tweetCount = get_transient( "tweet_count_".$post->ID );
 
 			if( $tweetCount === false ){
 				$permalink  = get_permalink($post->ID);
 				$tweetCount = getTweetCount( $permalink );
-				set_transient( "tweet_count_".$post->ID, $tweetCount, 7200);
+				set_transient( "tweet_count_".$post->ID, $tweetCount, 3600);
 			}
-		}
+
+		endforeach; endif;
 	}
+
 
 
 	function get_posts_tweet_count(){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT SUBSTRING( option_name, 24, 3 ) AS post_id, option_value AS tweet_count
+			"SELECT SUBSTRING( option_name, 24, 5 ) AS post_id, option_value AS tweet_count
 				FROM wp_options WHERE option_name LIKE '_transient_tweet_count%';", OBJECT
 		);
 	}
+
+
 
 	function count_tweet(){
 
@@ -550,15 +525,17 @@
 				$tweet_counts        = new stdClass;
 				$tweet_counts->url   = get_permalink($post->ID);
 				$tweet_counts->count = $values->tweet_count;
-				$count_tweet[$key]   = $tweet_counts;
+				$count_tweet[get_permalink($post->ID)]   = $tweet_counts;
 
 		}
-
 		return $count_tweet;
-
 	}
 
-	///google counts ///////////////////////////////////////////////////////////
+
+
+// GOOGLE COUNTS /////////////////////////////////////////////////////////////
+
+
 
 	/**
 	 * Recibe una url y regresa el google count
@@ -566,52 +543,52 @@
 	 * @return integer      google count
 	 */
 	function getGoogleCount($urls){
-		 $url = $urls;
-		 $ch = curl_init();
-		 curl_setopt($ch, CURLOPT_URL, "https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ");
-		 curl_setopt($ch, CURLOPT_POST, 1);
-		 curl_setopt($ch, CURLOPT_POSTFIELDS, '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"' . $url . '","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
-		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+		$url = $urls;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ");
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"' . $url . '","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
 
-		 $curl_results = curl_exec ($ch);
-		 curl_close ($ch);
+		$curl_results = curl_exec ($ch);
+		curl_close ($ch);
 
-		 $parsed_results = json_decode($curl_results, true);
+		$parsed_results = json_decode($curl_results, true);
 
-		 return $parsed_results[0]['result']['metadata']['globalCounts']['count'];
-
+		return $parsed_results[0]['result']['metadata']['globalCounts']['count'];
 	}
 
 
-	add_action('init', function(){
-		setGoogleCountTransients();
-	});
 
 	function setGoogleCountTransients(){
 
 		$posts = get_posts_from_last_week();
 
-		foreach ($posts as $post) {
+		if ( $posts ) : foreach ($posts as $post) :
 
 			$googleCount = get_transient( "google_count_".$post->ID );
 
 			if( $googleCount === false ){
 				$permalink  = get_permalink($post->ID);
 				$googleCount = getGoogleCount( $permalink );
-				set_transient( "google_count_".$post->ID, $googleCount, 7200);
+				set_transient( "google_count_".$post->ID, $googleCount, 3600);
 			}
-		}
+
+		endforeach; endif;
 	}
+
 
 
 	function get_posts_google_count(){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT SUBSTRING( option_name, 25, 3 ) AS post_id, option_value AS google_count
+			"SELECT SUBSTRING( option_name, 25, 5 ) AS post_id, option_value AS google_count
 				FROM wp_options WHERE option_name LIKE '_transient_google_count%';", OBJECT
 		);
 	}
+
+
 
 
 	function countGoogle(){
@@ -626,18 +603,24 @@
 				$google_counts        = new stdClass;
 				$google_counts->url   = get_permalink($post->ID);
 				$google_counts->count = $values->google_count;
-				$countGoogle[$key]    = $google_counts;
+				$countGoogle[get_permalink($post->ID)]    = $google_counts;
 
 		}
-
 		return $countGoogle;
-
-
 	}
 
-//suma arrays
 
-	function imprime_post_masgustados(){
+
+// SUMA ARRAYS //////////////////////////////////////////////////////////////
+
+
+
+	function get_posts_mas_gustados(){
+
+		// $arrayResults = get_transient( 'posts_mas_gustados' );
+
+		// if ( $arrayResults ) return $arrayResults;
+
 
 		$count_facebook = countFacebook();
 		$count_tweet    = count_tweet();
@@ -646,17 +629,12 @@
 		$result = array();
 
 		foreach( $count_facebook as $index => $object  ){
-
 			$count =  $object->count + $countGoogle[$index]->count + $count_tweet[$index]->count;
 
-			$wrapper = new stdClass;
+			$wrapper        = new stdClass;
 			$wrapper->url   = $object->url;
 			$wrapper->count = $count;
-
 			array_push( $result, $wrapper );
-
-
-
 		}
 
 		usort($result, 'sort_objects_by_couts'); // ordenar elementos
@@ -667,15 +645,15 @@
 		foreach ($result as $value) {
 
 			$post = get_post_by_permalink($value->url);
-
-			array_push( $arrayResults, $post );
+			if ( ! empty($post)){
+				array_push( $arrayResults, $post[0] );
+			}
 		}
-
+		set_transient( 'posts_mas_gustados', $arrayResults, 3600 );
 
 		return $arrayResults;
-
-
 	};
+
 
 
 	function get_post_by_permalink($url){
@@ -689,7 +667,6 @@
 		return $wpdb->get_results(
 			"SELECT * FROM wp_posts WHERE post_name = '$post_name'", OBJECT
 		);
-
 	}
 
 
@@ -707,11 +684,11 @@
 
 
 
-// FACEBOOCK COMMENTS //////////////////////////////////////////////////////
+// FACEBOOCK COMMENTS ///////////////////////////////////////////////////////
 
 
 
-	function get_oder_posts_by_coment($posts){
+	function oder_posts_by_coment_count($posts){
 
 		$permalinks = '';
 
@@ -727,11 +704,11 @@
 
 		foreach ($facebook_data as $key => $value) {
 			if( !empty($value->comments ) ){
-				$data = new stdClass;
-				$data->link       = $key;
-				$data->url         = $value->id;
-				$data->comments   = $value->comments;
-				$ordenados[$key]  = $data;
+				$data            = new stdClass;
+				$data->link      = $key;
+				$data->url       = $value->id;
+				$data->comments  = $value->comments;
+				$ordenados[$key] = $data;
 			}
 		}
 
@@ -740,14 +717,13 @@
 		$arrayResults_order = array();
 
 		foreach ($ordenados as $value) {
-
 			$post = get_post_by_permalink($value->url);
-
-			array_push( $arrayResults_order, $post );
+			if ( ! empty($post)){
+				array_push( $arrayResults_order, $post[0] );
+			}
 		}
-
-
 		return $arrayResults_order;
+
 	}
 
 
@@ -770,6 +746,35 @@
 	 * @return Array Array of WP_Posts
 	 */
 	function get_posts_mas_comentados(){
+
+		$arrayResults = get_transient( 'posts_mas_comentados' );
+		if ( $arrayResults ) {
+			return $arrayResults;
+		}
+
 		$posts = get_posts_from_last_week();
-		return get_oder_posts_by_coment($posts);
+		$arrayResults = oder_posts_by_coment_count($posts);
+
+		set_transient( 'posts_mas_comentados', $arrayResults, 3600 );
+
+		return $arrayResults;
+	}
+
+
+
+	/**
+	 * Imprime una lista separada por commas de todos los terms asociados al post id especificado
+	 * los terms pertenecen a la taxonomia especificada. Default: Category
+	 *
+	 * @param  int     $post_id
+	 * @param  string  $taxonomy
+	 * @return string
+	 */
+	function print_the_terms($post_id, $taxonomy = 'category', $delimiter = ', '){
+		$terms = get_the_terms( $post_id, $taxonomy );
+
+		if ( $terms and ! is_wp_error($terms) ){
+			$names = wp_list_pluck($terms ,'slug');
+			echo implode($delimiter, $names);
+		}
 	}

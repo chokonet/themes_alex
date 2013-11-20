@@ -22,7 +22,7 @@
 			$columna = isset($data['nombre_columna'][0]) ? $data['nombre_columna'][0] : '';
 			$content = isset($data['bio'][0])            ? $data['bio'][0]            : '';
 			$imagen  = get_avatar( $colaborador->ID, 80 );
-			$url     = site_url("author/{$colaborador->data->user_nicename}");
+			$url     = site_url("colaborador/{$colaborador->data->user_nicename}");
 
 			echo <<< colaborador
 

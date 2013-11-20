@@ -21,7 +21,7 @@
 					</div><!-- end .resena-score -->
 				</a>
 
-				<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ', $post->ID); ?></span>
+				<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ', $post->ID); ?></span>
 
 				<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 

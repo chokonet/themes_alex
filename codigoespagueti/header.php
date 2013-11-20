@@ -12,38 +12,13 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_url'); ?>">
 
 		<?php /* BANNERS */ ?>
-		<?php /* BANNERS VIEJOS
-		<script type='text/javascript'>
-			var googletag = googletag || {};
-			googletag.cmd = googletag.cmd || [];
-			(function() {
-				var gads = document.createElement('script');
-				gads.async = true;
-				gads.type = 'text/javascript';
-				var useSSL = 'https:' == document.location.protocol;
-				gads.src = (useSSL ? 'https:' : 'http:') +
-				'//www.googletagservices.com/tag/js/gpt.js';
-				var node = document.getElementsByTagName('script')[0];
-				node.parentNode.insertBefore(gads, node);
-			})();
-		</script>
-
-
-		<script type='text/javascript'>
-			googletag.cmd.push(function() {
-				googletag.defineSlot('/9262827/codigo_home', [300, 600], 'div-gpt-ad-1374362520645-0').addService(googletag.pubads());
-				googletag.pubads().enableSingleRequest();
-				googletag.enableServices();
-			});
-		</script>
-		*/?>
 
 			<script type='text/javascript'>
 				(function() {
-				var useSSL = 'https:' == document.location.protocol;
-				var src = (useSSL ? 'https:' : 'http:') +
-				'//www.googletagservices.com/tag/js/gpt.js';
-				document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+					var useSSL = 'https:' == document.location.protocol;
+					var src = (useSSL ? 'https:' : 'http:') +
+					'//www.googletagservices.com/tag/js/gpt.js';
+					document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
 				})();
 			</script>
 
@@ -56,6 +31,7 @@
 			</script>
 
 		<?php /* END  BANNERS */ ?>
+
 		<?php wp_head(); ?>
 	</head>
 
@@ -86,7 +62,7 @@
 								$noticiasHead = get_posts($args);
 								foreach ($noticiasHead as $post): setup_postdata($post); ?>
 							<li class="noticia-noticiero-head">
-								<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ', $post->ID); ?></span>
+								<span class="date"><?php the_date('d.m.y', '', ' |'); ?>  <?php the_category(' - ', $post->ID); ?></span>
 								<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 							</li>
 							<?php endforeach; wp_reset_query(); ?>
@@ -121,7 +97,7 @@
 								<span id="searcho">searcho</span>
 								<div id="bus">
 									<form id="form_busqueda"  method="get" action="<?php echo home_url('/'); ?>">
-										<input type="text" id="search-input" name="s" value=" Buscar" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" placeholder="<?php esc_attr_e( '' ); ?>">
+										<input type="text" id="search-input" name="s" value="Buscar" onblur="if(this.value=='')this.value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)this.value='';" placeholder="<?php esc_attr_e( '' ); ?>">
 										<input type="submit">
 								    </form><!-- form_busqueda -->
 							    </div><!-- end busqueda-->
@@ -155,8 +131,8 @@
 									<?php $tweets = get_transient_tweet(); ?>
 									<?php foreach ($tweets as $index => $tweet) { ?>
 										<li>
-											<span class="timer"><?php echo parseTweetDate($tweet->created_at); ?></span>
-											<p><?php echo parseLinks($tweet->text); ?></p>
+											<p><span class="timer"><?php echo parseTweetDate($tweet->created_at); ?></span>
+											<?php echo parseLinks($tweet->text); ?></p>
 										</li>
 									<?php } ?>
 								</ul>

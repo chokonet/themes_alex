@@ -16,7 +16,7 @@
 				<?php } elseif (get_post_meta($post->ID, 'id_youtube', true)) { ?>
 					<iframe width="630" height="410" src="http://www.youtube.com/embed/<?php echo get_post_meta($post->ID, 'id_youtube', true); ?>" frameborder="0" allowfullscreen></iframe>
 				<?php } ?>
-				<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+				<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ',$post->ID); ?></span>
 				<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 			</div>
 
@@ -34,7 +34,7 @@
 
 					<li>
 						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('fetured'); ?></a>
-						<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+						<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ',$post->ID); ?></span>
 						<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
 					</li>
 

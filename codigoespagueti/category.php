@@ -23,7 +23,7 @@
 			<div class="slide">
 				<a rel="nofollow" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('slide'); ?></a>
 				<div class="slide-info">
-					<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ', $post->ID); ?></span>
+					<span class="date"><?php the_date('d.m.y', '', ' |'); ?>  <?php the_category(' - ', $post->ID); ?></span>
 					<h2><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h2>
 					<ul class="social-post">
 						<li><div class="g-plusone" data-size="medium" data-href="<?php the_permalink(); ?>"></div></li>
@@ -53,7 +53,7 @@
 
 			<div class="post">
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured_post'); ?></a>
-				<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ', $post->ID); ?></span>
+				<span class="date"><?php the_date('d.m.y', '', ' |'); ?>  <?php the_category(' - ', $post->ID); ?></span>
 				<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 				<?php the_excerpt();?>
 			</div><!-- end .post -->
@@ -106,7 +106,7 @@
 
 					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
 					<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
-					<span class="date"><?php echo get_the_date('d.m.y'); ?></span>
+					<span class="date"><?php the_date('d.m.y'); ?></span>
 					<?php the_excerpt(); ?>
 
 				</div><!-- end .post-side -->
@@ -133,7 +133,7 @@
 			<?php } elseif (get_post_meta($post->ID, 'id_youtube', true)) { ?>
 				<iframe width="980" height="551" src="http://www.youtube.com/embed/<?php echo get_post_meta($post->ID, 'id_youtube', true); ?>" frameborder="0" allowfullscreen></iframe>
 			<?php } ?>
-			<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+			<span class="date"><?php the_date('d.m.y', '', ' |'); ?>  <?php the_category(' - ',$post->ID); ?></span>
 			<h4><a rel="nofollow" href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 
 		</div><!-- end .video -->

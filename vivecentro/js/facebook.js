@@ -14,7 +14,7 @@
 
 		 **************************************************/
 
-		//window.AppIdVive = 654519584568126;//local alex
+	    //window.AppIdVive = 654519584568126;//local alex
 		window.AppIdVive = 251814941633434;//hacemos codigo
 
 		window.ViveCentro = {
@@ -46,23 +46,33 @@
 
 		// INTEGRACION API FACEBOOK //////////////////////////////////////////////////////////
 
-
+		window.click_favorite = '';
 
 		$.ajaxSetup({ cache: true }); // Set default values for future Ajax requests.
 
 
 		ViveCentro.loginCallback = function (response) {
+
+			window.status_login = response.status;
+
 			if (response.status === 'connected') {
 
 				FB.api('/me', function(response) {
 					$('.logout').text(response.name);
 					window.id_user = response.id;
+					check_if_post_favorito(window.id_user);
+					if( click_favorite === 'active' ){
+						me_gusta_el_post();
+					}
 				});
 
 				$('.login-facebook').addClass('logout');
 				$('.logout').removeClass('login-facebook');
 
+			}else{
+				window.click_favorite = '';
 			}
+
 		};
 
 
@@ -70,7 +80,10 @@
 			FB.login( ViveCentro.loginCallback, ViveCentro.Scope );
 		};
 
+
 		ViveCentro.getLoginStatusCallback = function (response){
+
+			window.status_login = response.status;
 
 			if (response.status === 'connected') { // mostrar contenido exclusivo para usuarios que autorizaron
 
@@ -97,6 +110,7 @@
 
 		ViveCentro.facebooklogout = function () {
 			FB.logout(function (response) {
+			   FB.logout();
 			   location.reload();
 			}
 		)};
@@ -155,8 +169,7 @@
 		// CLICK LIKE POST ///////////////////////////////////////////////////////////////////
 
 
-		function ajax_favoritos(post_id, user_id) {
-
+		function ajax_favoritos(user_id) {
 			return $.post(ajax_url, {
 				post_id: post_id,
 				user_id: user_id,
@@ -166,7 +179,7 @@
 
 
 
-		function obtener_megusta_delpost(post_id){
+		function obtener_megusta_delpost(){
 
 			$.post(ajax_url, {
 				post_id: post_id,
@@ -179,24 +192,33 @@
 
 		}
 
+		function me_gusta_el_post(){
+
+			ajax_favoritos(window.id_user)
+			.done(function (data){
+
+				if (data == 'listo') {
+					$('body').addClass('favorito');
+					obtener_megusta_delpost();
+				};
+
+			});
+
+		}
+
 
 
 		$('.like_icon').live('click', function (e) {
 			e.preventDefault();
 
-			var post_id = $(this).data('post_id');
+			window.post_id = $(this).data('post_id');
 
-			ajax_favoritos(post_id, window.id_user)
-			.done(function (data){
-
-				if (data == 'listo') {
-					$('body').addClass('favorito');
-					obtener_megusta_delpost( post_id );
-				};
-
-			});
-
-
+			if (status_login === 'connected') {
+				me_gusta_el_post();
+			}else{
+				window.click_favorite = 'active';
+				ViveCentro.loginFacebookUser();
+			};
 
 
 		});

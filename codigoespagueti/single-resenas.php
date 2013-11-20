@@ -1,10 +1,8 @@
 <?php
 	get_header();
+
 	$objeto = get_queried_object();
-	// echo '<pre>';
-	// print_r($objeto->post_type);
-	// echo '</pre>';
-?>
+	?>
 		<?php if(have_posts()): while(have_posts()): the_post(); ?>
 		<div class="resenas-single">
 			<div class="splash">
@@ -14,7 +12,7 @@
 				<div class="info-resena">
 					<div class="info-resena-izq">
 						<h2><?php the_title(); ?></h2>
-						<span class="date"><?php echo get_the_date('d.m.y'); ?>  | <?php the_author_posts_link(); ?> | <?php the_category(' - ',$post->ID); ?></span>
+						<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_author_posts_link(); ?> | <?php the_category(' - ',$post->ID); ?></span>
 					</div><!-- end .info-resena-izq-->
 					<div class="resena-score">
 						<p><?php echo get_post_meta($post->ID, 'score', true); ?></p>
@@ -86,7 +84,7 @@
 								foreach ($relacionadosAutor as $post): setup_postdata($post);
 							?>
 							<div class="post-relacionado">
-								<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+								<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ',$post->ID); ?></span>
 								<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
 							</div><!-- end .post-relacionado -->
 							<?php endforeach; wp_reset_query(); ?>
@@ -122,7 +120,7 @@
 								<span class="date"><?php the_category(' - ',$next->ID); ?></span>
 							</div><!-- end .nav-post -->
 							<?php } ?>
-						<h5>Relacionados</h5>
+						<!-- <h5>Relacionados</h5> -->
 						<?php /*
 						<div class="relacionados">
 							<?php
@@ -134,7 +132,7 @@
 										$post = get_post($id);
 							?>
 							<div class="post-relacionado">
-								<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+								<span class="date"><?php the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
 								<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
 							</div><!-- end .post-relacionado -->
 							<?php }  wp_reset_query(); ?>

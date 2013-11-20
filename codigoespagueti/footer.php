@@ -4,7 +4,7 @@
 						<?php $args = array(
 							'type'       => 'post',
 							'oderby'     => 'slug',
-							'exclude'    => '1,5,13,20',
+							'exclude'    => '1,5,9,13,20',
 							'hide_empty' => 0
 						);
 						$cats_footer= get_categories($args);
@@ -19,7 +19,7 @@
 								$foot_posts = get_posts($argsPosts);
 								foreach ($foot_posts as $post) : setup_postdata($post); ?>
 									<div class="post-footer">
-										<span class="date"><?php echo get_the_date('d.m.y'); ?></span>
+										<span class="date"><?php the_date('d.m.y'); ?></span>
 										<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
 									</div><!-- end .post-footer-->
 								<?php endforeach; wp_reset_query(); //termina loop posts ?>
@@ -31,7 +31,7 @@
 			</div><!-- end #container -->
 
 			<!-- cod_home_3_970x90 -->
-			<div class="banner-foot" id='div-gpt-ad-1378399931388-0' style='width:970px; height:90px;'>
+			<div id='div-gpt-ad-1378399931388-0' style='width:970px; height:90px;'>
 				<script type='text/javascript'>
 					googletag.display('div-gpt-ad-1378399931388-0');
 				</script>
@@ -117,6 +117,7 @@
 			  })();
 
 		</script>
+
 		<?php wp_footer(); ?>
 	</body>
 </html>

@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {color: #000;}
 
 #noticiero-head {width: 100%; position: relative; overflow: hidden; background: #00A6CE;}
 #noticiero-head ul {list-style: none; margin:0px; padding: 0px;}
-#noticiero-head ul li {display: block; float: left; width: 205px; margin: 20px 10px; padding: 0 10px; border-right: 1px solid #fff;}
+#noticiero-head ul li {display: block; float: left; width: 205px; margin: 15px 10px; padding: 0 10px; border-right: 1px solid #fff; min-height: 85px;}
 #noticiero-head ul li:last-child {border: none; margin-right: 0px!important;}
 #noticiero-head ul li span {color: #fff; font-family: 'Mono'; font-size: 12px;}
 #noticiero-head ul li span a {color: #fff; text-decoration: none;}
@@ -116,27 +116,29 @@ header #header #busqueda span#search{ margin-top: 14px; float: right; width: 31p
 header #header #busqueda span#search:hover{ background: url('images/searcho.png') no-repeat; text-indent: -99999px; z-index: 20; background-color: #fff;}
 header #header #busqueda span#searcho{margin-top: 14px;display: none; float: right; width: 31px;height: 33px; padding-top: 3px; background: url('images/searcho.png') no-repeat; text-indent: -99999px; z-index: 40; background-color: #fff; cursor: pointer;}
 header #header #busqueda #bus { float: right; overflow: hidden;  position:relative;  margin-top: 15px; margin-right: 5px;  width: 200px; height: 33px; z-index: 1;}
-header #header #busqueda #bus #form_busqueda  { position: absolute; overflow: visible; right: -500px; margin-left: 4px; top: 0px; z-index: 1; }
-header #header #busqueda #bus #form_busqueda input { border: none;margin-left: 4px; }
-header #header #busqueda #bus #form_busqueda input[type='text'] {width: 200px; margin-left: 4px!important; height: 30px; float: right; font-size: 13px; color: #fff;  background-color: #000; }
+header #header #busqueda #bus #form_busqueda  { position: absolute; overflow: visible; top: 0px; z-index: 1; right: -210px; }
+header #header #busqueda #bus #form_busqueda input { border: none; }
+header #header #busqueda #bus #form_busqueda input[type='text'] {width: 200px; height: 30px; font-size: 13px; color: #fff;  background-color: #000;  text-indent: 5px;  border-left: 1px solid #000;  padding-left: 	0; }
 header #header #busqueda #bus #form_busqueda input[type='submit'] {display: none}
-header #header #busqueda #bus #form_busqueda input[type='text']:focus {outline: none; padding-left: 5px;}
-header #header nav #nav {width: 100%; height: 30px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF;}
+header #header #busqueda #bus #form_busqueda input[type='text']:focus {outline: none;}
+header #header #busqueda #bus #form_busqueda input:-webkit-autofill { max-width: 100px!important; }
+header #header #busqueda #bus #form_busqueda select {width: 120px!important;}
+header #header nav #nav{width: 100%; height: 30px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF;}
 header #header nav #nav ul {list-style: none; margin:0px; padding: 0px;}
 header #header nav #nav ul li {float: left; margin-right: 63px; padding-top: 7px; }
 header #header nav #nav ul li:last-child {margin-right:0px!important;}
-header #header nav #nav ul li a {color: #000; text-decoration: none; font-family: 'Mono'; font-size: 12px;}
-header #header nav #nav ul li a:hover {border-bottom: 3px solid #00a6ce; padding-bottom: 9px;}
-header #header nav #nav ul li a.select {border-bottom: 3px solid #00a6ce; padding-bottom: 9px;}
+header #header nav #nav ul li a {color: #000; text-decoration: none; font-family: 'Mono'; font-size: 12px; line-height: 19px; display: block;}
+header #header nav #nav ul li a:hover {border-bottom: 3px solid #00a6ce; padding-bottom: 3px;}
+header #header nav #nav ul li a.select {border-bottom: 3px solid #00a6ce; padding-bottom: 3px;}
 
 /*** Ticker Tweeter ***/
 
 header #header #tweet-ticker {width: 98%;height:25px;  margin: 20px 0; }
 header #header #tweet-ticker #pajarito {display:block; height: 30px; float: left; margin-right: 1%; width:3%; background: #fff; z-index: 9999; position: relative;}
 header #header #tweet-ticker ul {margin:8px 0 0 0; padding: 0px; list-style: none; float: left; width:96%; position: absolute;}
-header #header #tweet-ticker ul li {display: inline; margin-right: 15px; margin-left: 40px; z-index: -1000;}
-header #header #tweet-ticker ul li span {display: inline; margin-right: 5px; font-family: 'Mono'; color: #00A6CE; font-size: 12px;}
-header #header #tweet-ticker ul li p {display: inline; font-family: 'Georgia'; font-size: 12px;}
+header #header #tweet-ticker ul li {display: none; margin-right: 15px; margin-left: 40px; z-index: -1000;}
+header #header #tweet-ticker ul li p {font-family: 'Georgia'; font-size: 12px;position: absolute; left: 0; top: 0; margin-left: 35px;}
+header #header #tweet-ticker ul li span { margin-right: 5px; font-family: 'Mono'; color: #00A6CE; font-size: 12px;}
 header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px; color:#00A6CE; text-decoration: none;}
 
 /*** CONTAINER ***/
@@ -147,7 +149,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 #slider {width: 100%; height:360px; border-bottom: 1px solid #bfbfbf; padding-bottom: 20px;}
 .slide {width: 100%; background: #000; height: 360px;}
 .slide img {float:left;}
-.slide-info {width:300px; height: 320px; padding:20px; position: absolute; right:0; z-index: 1000; background: url('images/bg-slide.png') repeat; }
+.slide-info {width:300px; height: 320px; padding:20px; position: absolute; right:0; z-index: 1000; background-color: black; }
 .slide-info span {color:#00A6CE; font-family: 'Mono';}
 .slide-info span a {color:#00A6CE; text-decoration: none;}
 .slide-info h2 {font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; color:#fff; font-weight: bold;  font-size: 24px; line-height: 28px;}
@@ -200,6 +202,7 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 #content h5 {display: inline-block; width: 100%; font-family: 'Mono'; font-size: 14px; border-top: 1px solid #BFBFBF; border-bottom: 1px solid #BFBFBF; padding: 5px 0; margin: 20px 0;}
 #content-destacados {position: relative; overflow: hidden;}
 #content-destacados .post:nth-child(2n){margin-right: 0px!important;}
+#content-destacados.cuatrocientos_cuatro .post{margin: 0 12px!important;}
 #content-resenas {position: relative; overflow: hidden;}
 #content-resenas .post:nth-child(2n){margin-right: 0px!important;}
 #content-entrevistas {position: relative; overflow: hidden;}
@@ -235,8 +238,8 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 
 /*** COLABORADORES ***/
 
-#colaboradores-home {background: #fff7cc; padding: 10px 10px 0 10px;}
-#colaboradores-home h5 {display: block; padding-left:25px; margin: 0 0 10px 0; background: url('images/opinion-bg.png') no-repeat left;}
+#colaboradores-home {background: #E0F3F9; padding: 10px 10px 0 10px;}
+#colaboradores-home h5 {display: block; padding-left:25px; margin: 0 0 10px 0; background: url('images/opinion-bg.png') no-repeat left; width: 96%;}
 /*** VIDEOS HOME ***/
 
 #videos-home {width:100%; float: left;}
@@ -320,15 +323,15 @@ header #header #tweet-ticker ul li p a {font-family: 'Georgia'; font-size: 12px;
 .content-single img {max-width: 640px; height: auto;}
 .content-single blockquote p {font-family: 'Georgia'; font-weight: bold; font-size: 18px; color:#00A6CE; font-style: italic; padding:0 20px;}
 .content-single ul {list-style-image: url('images/bullet.png');}
-.content-single ul li {margin-bottom: 10px; font-family: 'Georgia'; color:#000; font-size: 16px;}
+.content-single ul li {margin-bottom: 10px; font-family: 'Georgia'; color:#000; font-size: 16px; line-height: 25px;}
 .content-single p {font-family: 'Georgia'; font-size: 16px; color: #808080; margin: 30px 0 0 10px; line-height: 25px;}
 .content-single p a {font-family: 'Georgia'; padding: 4px; text-decoration: underline; color:#00A6CE;}
-.content-single p.tagwrap a {font-family: 'Mono'; font-size: 14px; color:#FFF; text-decoration: none; background-color: #BFBFBF; text-align: center; }
-.content-single p.tagwrap a.title{font-family: 'Mono'; font-size: 14px; background-color: #000;}
+.content-single p.tagwrap a {font-family: 'Mono'; font-size: 14px; color:#FFF; text-decoration: none; background-color: #BFBFBF; text-align: center; padding: 4px 10px; }
+.content-single p.tagwrap a.title{font-family: 'Mono'; font-size: 14px; background-color: #000; padding: 4px 10px;}
 .content-single p.source a{display: inline-block; font-family: 'Mono'; font-size: 14px; text-decoration: none; color: #FFF; background-color: #BFBFBF; padding: 0 4px 0 4px;}
-.content-single p.source a.title{display: inline-block; width: 81px; font-family: 'Mono'; font-size: 14px; background-color: #00A6CF; text-align: center; padding: 0 4px 0 4px;}
-.content-single p.source a.gap{margin-right: 15px; padding: 0 4px 0 4px; font-size: 14px;}
-p.wp-caption-text{width: 630px!important; margin: -5px 0!important; padding: 5px; height: auto; background-color: #bfbfbf; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight:bold; font-size: 12px; color: #fff; line-height: 16px;}
+.content-single p.source a.title{display: inline-block; font-family: 'Mono'; font-size: 14px; background-color: #00A6CF; text-align: center; padding: 0 10px;}
+.content-single p.source a.gap{margin-right: 4px; padding: 0 10px; font-size: 14px;}
+p.wp-caption-text{width: 630px!important; margin: -5px 0!important; padding: 5px; height: auto; background-color: #bfbfbf; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 75; font-size: 12px; color: #fff; line-height: 16px;}
 .info-autor {width: 100%; margin: 20px 0px; }
 .info-autor img {float:left; margin-right: 20px; }
 .info-autor h4 {margin-bottom: 10px;}
@@ -445,7 +448,7 @@ p.wp-caption-text{width: 630px!important; margin: -5px 0!important; padding: 5px
 /*** 404 ***/
 
 .error404 #wrapper #container #error404{text-align: center; margin: 50px 0;}
-.error404 #wrapper #container #error404 .fantasma {margin-right: 30px;}
+.error404 #wrapper #container #error404 .fantasma {margin-right: 30px;margin-bottom: 40px;}
 
 /*** PAGINACIÓN ***/
 

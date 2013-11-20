@@ -7,7 +7,7 @@
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 	<div class="content-single">
 		<h2><?php the_title(); ?></h2>
-		<span class="date"><?php echo get_the_date('d.m.y'); ?>  | <?php the_author_posts_link(); ?> | <?php the_category(' - ',$post->ID); ?></span>
+		<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_author_posts_link(); ?> | <?php the_category(' - ',$post->ID); ?></span>
 
 		<?php if(get_post_meta($post->ID, 'id_vimeo', true)){ ?>
 		<div class="imagenes-single">
@@ -46,7 +46,7 @@
 				foreach ($relacionadosAutor as $post): setup_postdata($post);
 			?>
 			<div class="post-relacionado">
-				<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+				<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ',$post->ID); ?></span>
 				<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
 			</div><!-- end .post-relacionado -->
 			<?php endforeach; wp_reset_query(); ?>
@@ -95,7 +95,7 @@
 						$post = get_post($id);
 			?>
 			<div class="post-relacionado">
-				<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
+				<span class="date"><?php the_date('d.m.y'); ?> | <?php the_category(' - ',$post->ID); ?></span>
 				<h6><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h6>
 			</div><!-- end .post-relacionado -->
 			<?php }  wp_reset_query(); ?>

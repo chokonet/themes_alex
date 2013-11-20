@@ -116,12 +116,19 @@ header {width:100%; padding-top: 10px; height:113px;}
 .slide {height:500px; width: 100%; position: absolute; overflow: hidden;}
 .info-slide {position: absolute; bottom: 10px;}
 .info-slide h3 {color:#fff; font-size: 40px; text-transform: uppercase; display: block; margin:0px; padding: 5px 10px; background: url('images/info-slide-bg.png') repeat; margin-bottom: 10px;}
+.info-slide h3 a{color: inherit; text-decoration: none;}
+.info-slide h3 a:hover{text-decoration: underline;}
 .info-slide h4 {color: #fff; font-size: 40px;  display: block; margin:0px; padding: 5px 10px;  background: url('images/info-slide-bg.png') repeat;}
+.prev, .next{display: block; width: 40px; height: 40px; background-image: url('images/flecha.png'); background-repeat: no-repeat; position: absolute; top: 220px; z-index: 30;}
+.prev{background-position: center left;left: -14px;}
+.next{background-position: center right;right: -13px!important;}
+
 
 /*** NAVEGADOR ***/
 .navegador {width: 100%; margin-bottom: 20px; min-height:471px;}
 .navegador ul {list-style: none; margin: 0px; width: 100%; height: 40px;}
-.navegador ul li {float: left; display: block; width: 25%; text-align: center;}
+.navegador ul li {float: left; display: none; width: 25%; text-align: center;}
+.navegador ul li.active{display: block;}
 .navegador ul li h2 {font-size: 22px; margin: 0px; font-weight: lighter;}
 .navegador ul li h2 a {color:#fff; display: block; width:100%; height: 30px; padding-top:10px; text-transform: uppercase; text-decoration: none;}
 .navegador ul li.recorridos h2 a {background: #c2cf30;}
@@ -279,6 +286,8 @@ header {width:100%; padding-top: 10px; height:113px;}
 .content_lugar .twoCols .mapContainer img{width: 100%; height: auto;}
 .content_lugar .twoCols .mapContainer .maparender {height: 400px;}
 
+.content_lugar.lugar-in-recorrido{display:none;}
+
 .navPosts a.btnAzul{width: 100px; height: 14px; background-color: #9900EC; color: #FFF; display: inline-block; padding: 7px; text-align: center; text-transform: uppercase; text-decoration: none; font-size: 1.1em; font-weight: 400;}
 .navPosts a.btnAzul:hover{background-color: #B645FF;}
 .navPosts a.btnAzul.marginRight{margin-right: 6em;}
@@ -293,12 +302,13 @@ body.favorito .twoCols .megusta a.like_icon {background-position: -118px -27px;}
 .twoCols .megusta a.like_icon:hover {background-position: -118px -27px;}
 .twoCols .comenta {margin-bottom: 20px;width: 130px;}
 .twoCols .comenta a {text-decoration: none;}
-.twoCols .comparte ul {margin: 0 0 20px 0; padding: 0px; list-style: none;}
+.twoCols .comparte ul {margin: 0 0 20px 0; padding: 0 0 0 15px; list-style: none;}
 .twoCols .comparte ul li {display: block; width: 21px; height: 21px; margin-right: 12px;float: left;}
 .twoCols .comparte ul li a {display: block; width: 21px; height: 21px; background-image: url('images/social-sprite.png'); background-repeat: no-repeat; }
 .twoCols .otras_zonas h5{color: #999999;font-weight: 300;text-align: left;text-indent: 0;}
 .twoCols .otras_zonas ul{width: 104%; list-style: none; margin: 0; padding: 0;}
-.twoCols .otras_zonas ul li{margin:0; width: 80px; height: 80px; background-color: #F2F2F2; display: inline-block;}
+.twoCols .otras_zonas ul li{margin:0 2px 0 0; width: 80px; height: 80px; background-color: #F2F2F2; display: inline-block;}
+.twoCols .otras_zonas ul li img{width: 100%; height: 100%;}
 .twoCols .otras_zonas ul li.selected{background-color: #999999}
 
 #comments {margin-top: 25px; background: #fff;}
@@ -340,6 +350,7 @@ body.favorito .twoCols .megusta a.like_icon {background-position: -118px -27px;}
 .mapa-recorrido {height:415px; margin-bottom: 20px;}
 .lugares-recorrido-single {width:101%; }
 .lugar-recorrido-single {width:164px; float: left; margin-bottom: 14px; margin-right: 4px; cursor: pointer; }
+.lugar-recorrido-single a{text-decoration: none;}
 .lugar-recorrido-single img {display: block;}
 .lugar-recorrido-single span.nombre-lugar {color:#fff; display: block; background: #c2cf30; padding: 10px 0; height:32px;}
 .lugar-recorrido-single span.nombre-lugar h4 {margin: 0 0 0 10px; font-weight: normal; font-size: 13px;}
@@ -417,10 +428,11 @@ body.favorito .twoCols .megusta a.like_icon {background-position: -118px -27px;}
 body.favorito .side-social.single .megusta a.like_icon{background-position: -118px -27px;}
 .side-social.single .megusta a.like_icon:hover {background-position: -118px -27px;}
 .side-social.single ~ .sidebar_post {background-color: #FFF;position: relative;border: 1px solid #E6E6E7;height: 66px;margin: 10px 0;}
-.side-social.single ~ .sidebar_post h3{display:inline-block;vertical-align:top;margin-top:2.5em;text-transform:uppercase;font-size:11px;color:#666666;}
+.side-social.single ~ .sidebar_post h3{display:inline-block;vertical-align:top;margin-top:2.5em;text-transform:uppercase;font-size:11px;color:#666666;text-indent:15px;}
 .side-social.single ~ .sidebar_post img{width:58px;height:58px;margin:4px;display:inline-block;}
 .side-social.single ~ .sidebar_post a{display: block; width: 15px; height: 15px; background-color: #3276FF; color: #FFF; text-decoration: none; position: absolute; top: 5px; right: 5px; line-height: 17px; text-indent: 3px;}
 
+.sidebar>h5 {text-align: center; margin: 10px auto; color: #666666; font-weight: 400; font-size: 16px;}
 
 /*** PAGES ***/
 .page-content {padding: 10px; background: #F9F9F9;}

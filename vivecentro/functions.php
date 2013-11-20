@@ -12,7 +12,6 @@
 
 		add_action('wp_enqueue_scripts', function(){
 
-
 			// wp_dequeue_script( 'jquery' );
 			// wp_enqueue_script( 'jquery', 'google.cdn.awesome', null, '1.10', true );
 
@@ -25,18 +24,50 @@
 			wp_enqueue_script( 'functions', JSPATH.'functions.js', array('isotope', 'plugins'), '1.0', true );
 
 			// localize scripts
+			localize_scripts();
+		});
+
+
+		function localize_scripts(){
+			global $wp_query;
+
 			wp_localize_script('facebook', 'template_url',  get_bloginfo('template_url'));
 			wp_localize_script('facebook', 'ajax_url',  admin_url('admin-ajax.php') );
 			wp_enqueue_style('style', get_stylesheet_uri());
 
-		});
+			if( is_singular('recorridos') ){
+				$post_id = $wp_query->queried_object_id;
+				wp_localize_script('functions', 'lugares_array',  get_lugares_posts( get_lugares_descripciones( $post_id ) ) );
+				wp_localize_script('functions', 'theme_path',  THEMEPATH );
+			}
+		}
+
+		// Obtener arreglo relacional de lugares y descripciones correspondientes a una zona
+		function get_lugares_descripciones( $post_id ){
+
+			$lugares       = get_post_meta($post_id, 'lugar', true);
+			$descripciones = get_post_meta($post_id, 'descripcion', true);
+			$lugaresdescripciones = array_map(null, $lugares, $descripciones);
+
+			return $lugaresdescripciones;
+		}
+
+		function get_lugares_posts( $array_rel ){
+			$array_lugares = array();
+			foreach ($array_rel as $index => $lugar){
+		   			
+		        	$entrada = get_page_by_title($lugar[0], OBJECT, 'lugares');
+		        	array_push($array_lugares, $entrada);
+		  	}
+		  	return $array_lugares;
+		}
+
 
 
 
 
 
 	// ADMIN SCRIPTS AND STYLES //////////////////////////////////////////////////////////
-	//
 
 		add_action( 'admin_enqueue_scripts', function(){
 
@@ -143,6 +174,26 @@
 				return false;
 			}
 		}
+
+
+
+	/**
+	 * Imprime active si el string coincide con la pagina que se esta mostrando
+	 * @param  string $string
+	 * @return string
+	 */
+	function nav_is($string = ''){
+		$query = get_queried_object();
+		//var_dump($query);
+		if( isset($query->slug) AND preg_match("/$string/i", $query->slug)
+			OR isset($query->name) AND preg_match("/$string/i", $query->name)
+			OR isset($query->rewrite) AND preg_match("/$string/i", $query->rewrite['slug'])
+			OR isset($query->post_title) AND preg_match("/$string/i", remove_accents(str_replace(' ', '-', $query->post_title) ) )
+			OR isset($query->post_type) AND preg_match("/$string/i", remove_accents(str_replace(' ', '-', $query->post_type) ) )
+			OR isset($query->post_name) AND preg_match("/$string/i", $query->post_name) )
+			echo 'active';
+	}
+
 
 	/*
 

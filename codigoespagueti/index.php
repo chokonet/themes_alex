@@ -14,9 +14,9 @@
 		foreach($slides as $index => $post): setup_postdata($post); $featured_posts[$index] = $post->ID; ?>
 
 			<div class="slide">
-				<a rel="nofollow" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('slide'); ?></a>
+				<a rel="nofollow" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured'); ?></a>
 				<div class="slide-info">
-					<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ', $post->ID); ?></span>
+					<span class="date"><?php the_date('d.m.y', '', ' |'); ?> <?php the_category(' - ', $post->ID); ?></span>
 					<h2><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h2>
 
 					<p><?php the_excerpt(); ?></p>
@@ -53,7 +53,7 @@
 
 				<div class="post">
 					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('featured_post');?></a>
-					<span class="date"><?php echo get_the_date('d.m.y'); ?> | <?php the_category(' - ','', $post->ID); ?></span>
+					<span class="date"><?php the_date('d.m.y', '', ' |'); ?>  <?php the_category(' - ','', $post->ID); ?></span>
 					<h4><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h4>
 					<?php the_excerpt();?>
 				</div><!-- end .post -->

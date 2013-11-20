@@ -463,21 +463,3 @@ meta_box_ficha;
 			'date'       => 'Fecha'
 		);
 	}
-
-
-
-
-	add_action( 'manage_posts_custom_column', 'custom_noticias_columns', 10, 2 );
-
-	function custom_noticias_columns( $column, $post_id ) {
-		$checked = get_post_meta($post_id, 'mandar_a_sopitas', TRUE);
-		$checked = $checked ? 'checked' : '';
-		if( $column == 'sopitas' ){
-			echo <<< mandar_a_sopitas_metabox
-				<br /><p class='description'>
-					<input type='checkbox' class='mandar_a_sopitas_checkbox' data-post_id='$post_id' $checked>
-					&nbsp; RSS feed de sopitas.
-				</p>
-mandar_a_sopitas_metabox;
-		}
-	}
