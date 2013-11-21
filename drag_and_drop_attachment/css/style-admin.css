@@ -1,0 +1,256 @@
+html {background: #000;}
+body.admin{background: #000;}
+body.admin #header #nav .nav_li{background: url(../images/btn-blue-114.png) no-repeat 0 0;}
+body.admin #header #nav .nav_li:hover{background: url(../images/btn-blue-114-hover.png) no-repeat 0 0; }
+body.admin #header #search-box .content ul.menu li a.signin-menu-item {background: url(../images/ico-logout.png) no-repeat 0 0;}
+body.admin #header #search-box .content ul.menu li a:after {content: " ";}
+body.admin #header #search-box .content ul.menu li a.user-name {font-weight: bold; padding-left: 0px;}
+
+body.admin .container{width:1014px; }
+
+.content_admin {width: 100%; height: auto; position: relative; overflow: hidden; margin: auto;}
+.content_admin .views-field-name { width: 254px; height: 52px; position: relative; overflow: hidden; padding-top: 20px; margin: 22px auto; background: url(../images/bk-name-girl.png) no-repeat center;font: italic bold 18px "times new roman",serif; text-align: center;}
+.content_admin .section_tercio{width: 202px; height: 280px; position: relative;overflow: hidden;float: left; padding: 30px 25px 0; }
+.content_admin .border{background: url(../images/border-dashboard.png) no-repeat 0 center;}
+.content_admin .section_tercio .views-counter{width: 100%; height: 125px; position: relative; overflow: hidden; margin: 0; text-align: center; }
+.content_admin .section_tercio .views-counter span{width: 100%; height: auto; margin: 30px 0 0 0; text-align: center;font-family: verdana, arial, sans-serif; color: #fff; font-size: 42px; font-weight: bold; text-shadow: 0 2px 5px #333; display: block; }
+.content_admin .section_tercio .item-title{display: block; margin:20px 0 10px 0; font-family: verdana, arial, sans-serif;  font-size: 14px; text-transform: uppercase; color: #878787;text-align: center;}
+.content_admin .section_tercio .item-text{display: block; margin:0px 0 10px 0; font-family: verdana, arial, sans-serif;  font-size: 11px; color: #878787;text-align: center;}
+
+body.admin .main_fq {margin-top: 3px;}
+
+body.admin .main_fotos{width: 60.7%;margin: 0px 0 0 51px;display: inline-block; padding-bottom: 57px;}
+body.admin .main_fotos #plecasup span {width: 90%;}
+body.admin .main_fotos .photos_content{position: relative; overflow: hidden; width: 81%;margin: 20px 0 10px 16%;}
+body.admin .main_fotos .photos_content p{margin-bottom: 6px; font-family: verdana, arial, sans-serif;font-size: 10px;}
+body.admin .main_fotos .photos_content p.bold{font-weight: bold;}
+
+#girl_topay{background: url(../images/bk-users-to-pay.png) no-repeat 45px center;}
+#news_girl{background: url(../images/bk-new-registrations-girls.png) no-repeat 45px center;}
+#dash_members{background: url(../images/bk-new-registrations-members.png) no-repeat 45px center;}
+
+.password-suggestions {display: none; padding: 0.2em 0.5em;margin: 13px 121px;width: 194px;border: 1px solid #B4B4B4; font-family: verdana, arial, sans-serif; color: #898989; font-size: 9px; line-height: 14px;}
+.password-suggestions ul {margin: 0; padding: 0; color: #898989;}
+
+ul.menu-users{margin: 0; list-style: none;}
+ul.menu-users li{width: 95px; margin: 0; float: left; color: #fff; line-height: 16px; padding: 0 15px; text-align: center; cursor: pointer; }
+ul.menu-users li a{text-decoration: none; color: #fff; }
+ul.menu-users li a:hover {padding-bottom: 12px; background: url(../images/arrow-black.png) no-repeat center bottom;}
+ul.menu-users li a.active {padding-bottom: 12px; background: url(../images/arrow-black.png) no-repeat center bottom;}
+ul.menu-users li a.active-edit {padding-bottom: 12px; background: url(../images/arrow-black.png) no-repeat center bottom;}
+
+.content_admin .alpha-pager{background: #3EA9F5;color: #fff;float: left;font-size: 12px;letter-spacing: -1px;margin: 10px 0;padding: 6px 25px;text-align: center;width: 527px; font-family: verdana, arial, sans-serif;}
+.content_admin .alpha-pager-pending {margin: 10px 5px;letter-spacing: 0;width: 198px;background: #3EA9F5;color: #fff;float: left;font-size: 12px;padding: 6px 25px;text-align: center;}
+.content_admin .alpha-pager-pending a {color: #fff; text-decoration: none; font-family: verdana, arial, sans-serif;}
+.content_admin .alpha-pager a{color: #fff; text-decoration: none;}
+
+/*tabla lista users*/
+.content_admin table {clear: both;width: 1012px;}
+.content_admin table th {background: #0080DB;border: none;color: #fff;float: none; height: auto;font-weight: normal;padding: 5px;text-transform: capitalize; font: 11px/1.5 verdana,arial,sans-serif;}
+.content_admin table th a{color: #fff;text-decoration: none;}
+.content_admin table th.views-edit{width: 23px;}
+.content_admin table th.views-photo {width: 35px;}
+.content_admin table th.views-title{width: 120px; text-align: left;}
+.content_admin table th.views-mail{width: 198px; }
+.content_admin table th.views-cellphone{width: 84px;}
+.content_admin table th.views-created{width: 119px;}
+.content_admin table th a{text-decoration: none; color: #fff;}
+.content_admin table th a{background: url(../images/arrow-white-des.png) no-repeat right center;padding-right: 10px;}
+
+tbody{background: #E4E1E1;}
+.content_admin table td {border: none;height: 21px;padding: 2px;font-family: verdana, arial, sans-serif;font-size: 11px;color: #616161;line-height: 2px; }
+.content_admin table td a{color: #616161; text-decoration: none;}
+.content_admin table td.views-created{text-align: center;}
+.content_admin table .views-edit a{background: url(../images/ico-edit-blue.png) no-repeat 0 0;color: transparent;float: left;height: 13px;margin-left: 5px;overflow: hidden;padding-left: 18px;width: 0;}
+.content_admin .views-photo img {height: 13px;width: 13px;margin-left: 10px;}
+.content_admin .views-profile-active, .content_admin .views-available, .content_admin .views-cancellation-date, .content_admin .views-changed, .content_admin .views-cancel-node{text-align: center;}
+.content_admin .views-cancel-node a{background: url(../images/ico-no.png) no-repeat 0 0;float: left;height: 12px;margin-left: 18px;overflow: hidden;padding-left: 12px;width: 0; text-indent: -9999px;}
+.content_admin .views-cancel-node a:hover{background: url(../images/ico-no-hover.png) no-repeat 0 0;}
+.gris_claro{background: #FFF;}
+
+.barra-edit-users{position: relative; width: 100%; height: 23px; background-color: #000; margin-bottom: 20px; margin-top: 30px; padding:  0 0 0 5px;}
+.barra-edit-users ul.menu-users li a {text-decoration: none;color: #fff;line-height: 23px;}
+
+.perfi-girl-admin {background: url(../images/perfil-girl-fondo.png) no-repeat 0 0;font-size: 12px;height: 302px;padding: 9px 0 0 22px;position: absolute;right: 52px;top: 10px;z-index: 100;width: 140px;}
+.perfi-girl-admin .girl {width: 87.9%;height: auto;padding: 0;margin: 0 0% 5px; 0;float: left;border: 1px solid #cdcdcd;border-bottom: 2px solid #cdcdcd;box-sizing: border-box;position: relative;overflow: hidden;padding-bottom: 18%;}
+.perfi-girl-admin .girl img {overflow: visible;width: 91.7%;height: auto;margin-top: 3%;margin-left: 3%;z-index: 0;display: block;border: 1px solid #cdcdcd;}
+.perfi-girl-admin .field-content {font: italic bold 18px "times new roman",serif;text-transform: capitalize;display: block; margin-bottom: 10px; clear: both;}
+.perfi-girl-admin span.date-due{font-family: verdana, arial, sans-serif;font-size: 12px; line-height: 18px; display: block; clear: both;}
+.perfi-girl-admin .date-status{position: relative; overflow: hidden;}
+.perfi-girl-admin .date-status span{width:61px;  font-family: verdana, arial, sans-serif; line-height: 18px; display: block; float: left; }
+.perfi-girl-admin .date-status img{float: right;margin-right: 17px;margin-top: 3px;}
+#edit-administration, #edit-contact, #edit-profile, #edit-services, #edit-hours, #edit-photos, #edit-message, #edit-history{display: none;}
+.main_fq .register input.form-text-date{border:1px solid #D8D8D8; outline: none; box-shadow:none; color:#000; font:italic normal 11px verdana,sans-serif; height:16px; margin-bottom:4px; padding:3px; width:122px; clear: both;display: block;}
+.main_fq .register .description-date {color: #000;width: 200px;font-family: verdana, arial, sans-serif;font-size: 9px;font-style: normal;line-height: 14px;margin-bottom: 23px;}
+body.admin .col2 {position: relative;clear: both;margin-bottom: 4px; overflow: hidden; }
+body.admin .col1, body.admin .col2 {position: relative;clear: both; margin: 0 0 10px; overflow: hidden; }
+
+body.admin label.estado{font-family: verdana, arial, sans-serif;font-size: 11px; font-weight: normal; float: left;}
+body.admin input[type='radio'] {display: none;}
+body.admin input[type='radio'] + label {display: inline-block;margin: 0px;padding: 7px 27px;cursor: pointer;background: url(../images/radio.png) no-repeat;}
+body.admin input[type='radio']:checked + label {background: url(../images/radio.png) no-repeat;background-position: 0px -50px;}
+body.admin .form-submit-profile{margin-top: 103px!important;  }
+body.admin .perfil-status{height: 204px;}
+#form-girlcontact-edit, #form-girlProfile-edit {width: 619px;}
+body.admin .forms-admin label{width: 163px;}
+body.admin .forms-admin label.available-contact{width: 85px;padding-right: 8px;padding-top: 3px;}
+body.admin .forms-admin input[type='radio'] + label {width: auto; background: url(../images/radio.png) no-repeat; background-position: 0px -2px;font-family: verdana, arial, sans-serif; font-size: 11px; font-weight: normal;}
+body.admin .forms-admin input[type='radio']:checked + label {background-position: 0px -52px;}
+body.admin .forms-admin input.form-text {height: 16px;padding: 3px;width: 122px;}
+body.admin .selected-contact span {position: relative;float: left;width: 130px !important; z-index: 0;}
+body.admin .selected-contact span.ui-selectmenu-status {width: 125px !important;height: 18px !important;padding-right: 0;position: relative;float: left;border: 1px solid #cdcdcd;z-index: 10;line-height: 16px;outline: none;font-family: Verdana, Arial, sans-serif;font-size: 11px;color: #555;background-image: url(../images/arrow-select.gif);background-repeat: no-repeat;background-position: 107px 7px;display: block;cursor: pointer;}
+body.admin .selected-contact .ui-selectmenu {width: 130px!important;}
+body.admin .ui-selectmenu-menu ul {width: 128px!important;z-index: 1000!important;}
+body.admin .selected-contact label span.form-required {width: auto!important;float: none;}
+body.admin .forms-admin label.withheld{width: 85px;padding-right: 8px;padding-top: 3px;}
+body.admin .forms-admin input[type='checkbox'] {display: none;}
+body.admin .forms-admin input[type='checkbox'] + label.withheld {width: auto; padding-left: 24px; background: url(../images/checkbox.png) no-repeat; background-position: 0px -2px;font-family: verdana, arial, sans-serif; font-size: 11px; font-weight: normal; cursor: pointer;}
+body.admin .forms-admin input[type='checkbox']:checked + label.withheld {background: url(../images/checkbox.png) no-repeat;background-position: 0px -52px;}
+body.admin .col1 .file-website{width: 133px; position: relative; overflow: hidden; margin-right: 50px; float: left;}
+body.admin .col1 .file-website label{float: none; width: auto!important; margin-bottom: 2px;}
+body.admin .col1 .file-website input{clear: both;}
+body.admin .col1 .file-website .description-date{width: 131px; margin-bottom: 0px;}
+body.admin .forms-admin label.bold{font-weight: bold!important; margin-bottom: 13px;}
+body.admin .forms-admin .form-submit-contact-girl{margin-right: -323px;}
+
+body.admin .selected-contact-small span {position: relative;float: left;width: 61px !important; z-index: 0;}
+body.admin .selected-contact-small span.ui-selectmenu-status {width: 56px !important;height: 18px !important;padding-right: 0;position: relative;float: left;border: 1px solid #cdcdcd;z-index: 10;line-height: 16px;outline: none;font-family: Verdana, Arial, sans-serif;font-size: 11px;color: #555;background-image: url(../images/arrow-select.gif);background-repeat: no-repeat;background-position: 47px 7px;display: block;cursor: pointer;}
+body.admin .selected-contact-small .ui-selectmenu {width: 61px!important;}
+body.admin .selected-contact-small label span.form-required {width: auto!important;float: none;}
+body.admin .ui-selectmenu-menu ul#select-weight-menu,
+body.admin .ui-selectmenu-menu ul#select-age-menu,
+body.admin .ui-selectmenu-menu ul#select-height-menu,
+body.admin .ui-selectmenu-menu ul#minimum-rate-menu{width: 59px!important;z-index: 1000!important; }
+
+body.admin #bt-select-languages,
+body.admin #bt-select-countries,
+body.admin #bt-select-nationality,
+body.admin #bt-select-contact-type,
+body.admin #bt-select-contact-region,
+body.admin #bt-select-contact-area,
+body.admin #bt-select-ethnicity {background: url(../images/ico-add.png) no-repeat 0 0;clear: none;height: 21px;margin-left: 313px;text-indent: 100px;width: 21px; cursor: pointer;}
+body.admin #bt-select-languages:hover,
+body.admin #bt-select-countries:hover,
+body.admin #bt-select-nationality:hover,
+body.admin #bt-select-contact-type:hover,
+body.admin #bt-select-contact-region:hover,
+body.admin #bt-select-contact-area:hover,
+body.admin #bt-select-ethnicity:hover{background: url(../images/ico-add-hover.png) no-repeat 0 0;}
+
+body.admin .col1 .language,
+body.admin .col1 .countries,
+body.admin .col1 .nationality,
+body.admin .col1 .ethnicity{line-height: 22px; margin-left: 172px; margin-top: 10px;}
+
+body.admin .col1 .language span,
+body.admin .col1 .countries span,
+body.admin .col1 .nationality span,
+body.admin .col1 .ethnicity span { background: url(../images/ico-delete.png) no-repeat 0 0; float: left; height: 21px; margin-right: 5px; overflow: hidden; position: relative; text-indent: 108px; width: 21px; cursor: pointer; }
+
+body.admin .col1 .language span:hover,
+body.admin .col1 .countries span:hover,
+body.admin .col1 .nationality span:hover,
+body.admin .col1 .ethnicity span:hover {background: url(../images/ico-delete-hover.png) no-repeat 0 0;}
+
+body.admin .col1 .date-history, body.admin .col2 .date-history{font-family: verdana, arial, sans-serif;font-size: 11px;font-weight: normal;float: left; width: 74px; margin-right: 39px;}
+body.admin .col1 .text_history, body.admin .col2 .text_history{font-family: verdana, arial, sans-serif;font-size: 11px;font-weight: normal;float: left;}
+
+body.admin .main_fq .content-services{width: 100%; height: auto; position: relative; overflow: hidden; padding: 18px;}
+body.admin .content-services .caja-service{border: 1px solid #E4E3E4; float: left; height: auto; margin-bottom: 10px; margin-top: 3px;	 padding: 12px 20px; width: 415px; float: left; margin-right: 40px;}
+body.admin .content-services .caja-service .pleca { position: relative; width: 94%; height: 32px; background-image: url(../images/bk-advanced_left.png); background-repeat: no-repeat; margin-left: -30px; margin-bottom: 20px; }
+body.admin .content-services .caja-service .pleca .content { position: relative; width: 98.7%; height: 24px; top: 8px; background-color: #000; overflow: hidden; float: left; color: #fff; font: italic bold 18px/43px "timew new roman",serif;line-height: 24px;padding-left: 22px; }
+body.admin .forms-admin input[type='checkbox'] + label.services {width: 42%; display: block; float: left; margin: 7px 0;}
+body.admin .main_fq .content-services input[type="submit"] { background: url(../images/btn-grey-66x24.png) no-repeat 0 0; color: #4E4E4E; height: 24px; width: 66px; border: 0; float: right; margin-top: 20px; }
+body.admin .forms-admin .form-submit-services-girl {margin-right: 60px;}
+body.admin .main_fq input[type="submit"].form-submit-message,
+body.admin .main_fq input[type="submit"].form-submit-photo-girl { background: url(../images/btn-grey-66x24.png) no-repeat 0 0; color: #4E4E4E; height: 24px; width: 66px; border: 0; float: right;position: absolute;bottom: 20px;right: 20px; }
+body.admin .content-services .caja-service .service-container{width: 100%; height: auto; position: relative; overflow: hidden;}
+img.elimina_check{position: relative;float: left;margin-left: -24px;margin-top: 10px; cursor: pointer;}
+body.admin .content-services .caja-service .plecasup { position: relative; overflow: hidden; margin-left: -29px; width: 97.3%; margin-top: 0px; background-image: url(../images/bk-headings-large.png); background-repeat: no-repeat; }
+body.admin .content-services .caja-service .plecasup span { display: block; width: 92%; height: 25px; margin-top: 6px; border-top: 1px solid #cdcdcd; border-right: 1px solid #cdcdcd; border-bottom: 1px solid #cdcdcd; font-family: 'times new roman', serif; font-size: 18px; font-style: italic; font-variant: normal; font-weight: bold; padding-left: 28px; }
+body.admin .content-services .caja-service .cont-dia-hora{width: 100%; height: auto; position: relative; overflow: hidden;}
+body.admin .forms-admin input[type='checkbox'] + label.hours {width: 100px; display: block; float: left; margin: 7px 0; font-weight: bold; text-transform: capitalize;}
+body.admin .content-services .caja-service .col2{ float: left; clear: none;}
+body.admin .content-services .caja-service .col2 label{float: left; margin-right: 10px; width: auto; display: block; font-family: verdana, arial, sans-serif; font-size: 11px; margin: 7px 0; line-height: 19px; margin-right: 5px;}
+body.admin .content-services .caja-service .selected-contact-small span {margin-top: 4px; margin-right: 26px;}
+body.admin .content-services .caja-service .col1 {margin-top: 20px; height: auto;}
+body.admin .content-services .caja-service .col1 label { float: left; margin-right: 10px; width: auto; display: block; font-weight: bold; font-family: verdana, arial, sans-serif; font-size: 11px; margin-top: 4px; }
+body.admin .content-services .caja-service .col1 input{ border: 1px solid #D8D8D8; outline: none; box-shadow: none; color: #A9A9A9; font: normal 11px verdana,sans-serif; height: 18px; padding: 2px; width: 50px; }
+.field-suffix{font-family: verdana, arial, sans-serif;font-size: 11px; margin-left: -10px; margin-top: 10px!important;}
+.form-submit-hours-girl{margin-top: 252px!important; margin-right: 73px;}
+
+/* photos */
+body.admin .galeria {width: 81%; overflow: visible; padding-left:16%; padding-top:20px; }
+body.admin .galeria .girl {width: 32.8%; height: 195px; margin-right: 0.5% !important; margin-bottom: 0.5% !important; padding-bottom: 30px;}
+body.admin .galeria .girl #bt-add-photo{width: 150px; height: 150px; margin: 3% auto; border: 1px solid #cdcdcd;line-height: 146px;text-align: center; font-size: 12px; cursor: pointer;}
+#subir-foto-girl{display: none;}
+.normal{font-weight: normal!important;}
+.size_big{height: 389px!important;}
+body.admin .droppable .girl{padding-bottom: 0px !important;}
+body.admin .size_big .girl{padding-bottom: 61px !important;}
+body.admin .main .girl_sidebar .girl_mosaic{margin-bottom: 5px;}
+.members-user .views-username{width: 245px; text-align: left;}
+.members-user .views-mail{width: 434px!important; text-align: left;}
+.members-user .views-created{width: 170px!important; text-align: left!important;}
+.elimina_imagen{display: none; position: absolute; width: 12px!important; bottom: -23px; right: 5px; border: 0 !important;}
+.crop_image{display: none; position: absolute; width: 20px;	height: 20px; left: 10px;bottom: 7px; cursor: pointer; background-image: url('../images/crop_icon.png'); text-indent: -9999px;}
+.girl_sidebar .crop_image{display: inline;}
+.girl_sidebar .elimina_imagen{display: inline;}
+.girl_sidebar .size_big .elimina_imagen{bottom: 19px;}
+
+.add-user{overflow: visible;}
+
+.menu-add-user{width: 1024px; height: 23px; position: relative;overflow: hidden;background: #3EA9F5; margin-top: -15px; margin-bottom: 20px;}
+.menu-add-user ul{list-style: none; margin: 0;}
+.menu-add-user ul li{width: 110px; height: 23px; float: left;}
+.menu-add-user ul li a{width: 110px; height: 23px; background: url(../images/bk-menu-new-user-1.png) no-repeat right 0; display: block; text-align: center;color: #fff; text-decoration: none; line-height: 24px;}
+.menu-add-user ul li a.active{ background: url(../images/bk-menu-new-user-2-1.png) no-repeat right 0; }
+.menu-add-user ul li a:hover{ background: url(../images/bk-menu-new-user-2-1.png) no-repeat right 0; }
+
+
+.register-types-block{width: 73px; position: absolute; right: 10px; overflow: visible;right: 39px;top: 83px;}
+.register-types-block .type-girl {background: url(../images/ico-escort.png) no-repeat center 0;font: bold 18px verdana,sans-serif;margin: 0 10px 0 0;padding: 100px 0 0;}
+.media{padding-bottom: 10px !important; min-height: 20px; margin-bottom: 20px !important;}
+.media .col1{margin:20px !important;}
+.media label {float: left;margin-right: 10px; margin-top: 7px;width: 110px;display: block;font-weight: bold;font-family: verdana, arial, sans-serif;font-size: 11px;}
+.media input {border: 1px solid #D8D8D8;outline: none;box-shadow: none;color: #A9A9A9;font: normal 11px verdana,sans-serif;height: 22px;padding: 2px;width: 202px;}
+
+.editor-margin{margin-top: 30px;}
+.add-user .perfi-girl-admin{ display: none;}
+
+.caja-textedit{width: 742px;  position: relative; overflow: hidden; margin: 10px; padding: 12px 20px; border: 1px solid #E4E3E4;}
+.caja-textedit iframe#editpost_ifr{ height: 271px!important; background: #fff;}
+.caja-textedit iframe#editpost-francais_ifr{ height: 271px!important; background: #fff;}
+
+.caja-textedit label { background:#000; color: #FFF; font: italic bold 15px "timew new roman",serif; height: 26px; margin: 0 0 20px -31px; padding-left: 20px; width: 397px; line-height: 25px; display: block; }
+.caja-textedit label span{color: #f00;}
+
+.bt-add-service{position: relative;overflow: hidden;background: url(../images/ico-add.png) no-repeat 0 0;clear: none;height: 21px;margin-left: 208px;margin-top: 14px;text-indent: 30px;line-height: 22px;font-weight: bold;width: 123px;cursor: pointer;}
+.bt-add-service:hover{background: url(../images/ico-add-hover.png) no-repeat 0 0;}
+
+.payment{width: 96%!important;}
+.elimina_check{display: none;}
+.cont_services:hover .elimina_check {display: block;}
+
+body.admin #edit-account .register input[type="submit"]{ margin: 0px auto;}
+
+#form-myCount-edit .col1, #form-myCount-edit .col2{width: 343px;}
+body.admin .next_payment{width: 100px; position: absolute; top: 0px; right: 287px;}
+
+.clear{position: relative;overflow: hidden;width: 1062px;height: 32px;background: #fff;margin: 0 auto;}
+@-moz-document url-prefix() {/*firefox*/
+
+	body.admin .galeria .girl {width: 32.4% !important; }
+}
+
+.droppable{height: 192px;}
+.toggle-active-status{cursor: pointer;}
+
+.alert {padding: 8px 35px 8px 14px;margin-bottom: 20px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+
+/* crop de imagen */
+#content_crop_image{display: none; position: absolute; overflow: hidden; width:800px; min-height: 200px; background-color: #fff; border-radius: 10px; border: 5px solid #000; z-index: 10000; margin-left: -400px; left: 50%; top: 60px; }
+#content_crop_image .crop{position: relative; overflow: hidden; width: 95%;height: auto;margin: 2.5%;text-align: center;}
+#fondo_media{display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 9999;background-color: #000; opacity: 0.2;}
+#content_crop_image .crop img{max-width: 760px;}
+#content_crop_image h4{display: block;text-align: center;margin: 10px;font-size: 22px;}
