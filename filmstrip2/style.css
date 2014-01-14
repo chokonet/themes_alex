@@ -1,0 +1,138 @@
+/*
+Theme Name: film Strip Club
+Author: Alejandro Cervantes Sandoval
+Description: Tema de WordPress Personalizado
+Version: 2  .0
+*/
+
+@charset 'utf-8';
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif}table{font-size:inherit;font:100%}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}
+
+
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+h1{font-size:138.5%}h2{font-size:123.1%}h3{font-size:108%}h1,h2,h3{margin:1em 0}h1,h2,h3,h4,h5,h6,strong{font-weight:bold}abbr,acronym{border-bottom:1px dotted #000;cursor:help}em{font-style:italic}blockquote,ul,ol,dl{margin:1em}ol,ul,dl{margin-left:2em}ol{list-style:decimal outside}ul{list-style:disc outside}dl dd{margin-left:1em}th,td{border:1px solid #000;padding:.5em}th{font-weight:bold;text-align:center}caption{margin-bottom:.5em;text-align:center}p,fieldset,table,pre{margin-bottom:1em}input[type=text],input[type=password],textarea{width:12.25em;*width:11.9em}
+/*HTML5 element display*/
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section{display:block;}
+/*Figures*/
+figure {margin: 0;}
+
+/* Utilities */
+.lst_reset, .lst_reset li { margin: 0; padding: 0; list-style: none; }
+.clear { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
+
+/* clearfix for modern browsers */
+.cf:before,
+.cf:after { content:""; display:table; }
+.cf:after { clear:both; }
+/* For IE 6/7 (trigger hasLayout) */
+.cf { zoom:1; }
+
+
+
+/*** GENERAL ***/
+
+html{margin:0; padding:0; height: 100%;}
+body{margin:0; padding:0;}
+
+#container{position:relative; overflow:hidden; height:auto; width:1024px; margin:0 auto; }
+#container #palomitas_left{position:absolute;  width:65px; height:100%; float:left; background-image: url(images/palomas1.png); margin:0; padding:0; top:0; z-index:100;}
+#container #palomitas_rigth{position: absolute; width:65px; height:100%; float:left; background-image: url(images/palomas2.png); margin:0; padding:0; right:0; top:0; z-index:100;}
+
+#container .content{position:relative; overflow:hidden; width:87.5%; height:auto; margin: 0 auto;}
+#container .content #header{position:relative; width:100%; height:180px; margin: 0; background-image:url(images/fondo-header.jpg) ; }
+#container .content #header .top-header{position:relative; overflow:hidden; width:100%; height:19px; margin: 0; background-image: url(images/top-header.jpg); background-repeat:repeat-x;}
+#container .content #header ul.redes{position:absolute; overflow:visible; width:100px; height:35px; top:0; right:3%; list-style:none; padding:0; margin:0;}
+#container .content #header ul.redes li{position: relative; overflow:hidden; width:20px; height:30px; float:left; color:#FFF; margin:0 1% ; -moz-box-shadow: 0 0 3px #3F3E3E;  -webkit-box-shadow: 0 0 3px #3F3E3E; -ms-box-shadow: -0 0 3px #3F3E3E; -o-box-shadow: 0 0 3px #3F3E3E; box-shadow: 0 0 3px #3F3E3E;}
+#container .content #header ul.redes li.facebook{ background-color: #465F9B;  }
+#container .content #header ul.redes li.tweet{background-color: #65A8DE;}
+#container .content #header ul.redes li.printerest{background-color: #AD242A;}
+#container .content #header ul.redes li.youtube{background-color: #CD3739;}
+#container .content #header h1#logo{position:relative; overflow:hidden; clear:both; width:205px; height:118px; background-image:url(images/filmstrip.png); background-repeat:no-repeat; margin:13px auto; text-indent:-9999px;}
+#container .content #header ul.nav{position:relative; width:720px; height:40px; margin:-3px auto 0 auto; padding-left: 0px; list-style:none; border-radius: 10px;  -moz-box-shadow: 0 0 9px #3F3E3E;  -webkit-box-shadow: 0 0 9px #3F3E3E; -ms-box-shadow: 0 0 9px #3F3E3E; -o-box-shadow: 0 0 9px #3F3E3E; box-shadow: 0 0 9px #3F3E3E;}
+#container .content #header ul.nav li{position:relative; width:120px; height:40px; float:left; background-image:url(images/bt-2.png); font-family:Verdana, Geneva, sans-serif; line-height:39px; color:#FFF; font-size:14px; text-align:center;  }
+#container .content #header ul.nav li.bt-left{ background-image:url(images/bt-1.png);}
+#container .content #header ul.nav li a{ width:120px; height:40px; display:block; text-decoration:none; color:#fff;}
+#container .content #header ul.nav li ul.submenu{display: none; position: absolute;overflow: visible;background: #000;z-index: 1000;list-style: none;padding-left: 0px;margin: 0;}
+#container .content #header ul.nav li:hover ul.submenu{display:block;}
+
+#container .main{position: relative;overflow: hidden;clear: both;width: 94%;height: auto;padding-top: 29px;margin-top: 21px;padding-left: 3%;padding-right: 3%;}
+#container .main .una-seccion{position:relative; overflow:hidden; clear:both; width: 100%;}
+
+#container .main .una-seccion #trailer-uno{position:relative; overflow:hidden; float:left; width:50%; height:auto; margin-right:2%;}
+#container .main .una-seccion #trailer-uno iframe#un-video{position:relative; width: 100%; height:231px; background-color:#000;}
+#container .main .una-seccion #trailer-uno #info-video{position:relative; overflow:hidden; width: 94%; height:62px; background-color:#424143; margin-top:2px; padding:0 3%;}
+#container .main .una-seccion #trailer-uno #info-video h3{ width:100%; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#fff; margin:3px 0; display:block;}
+#container .main .una-seccion #trailer-uno #info-video a{text-decoration: none;}
+#container .main .una-seccion #trailer-uno #info-video p{ width:100%; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff; margin:0; display:block;}
+#container .main .una-seccion .mas-videos{position:relative; overflow:hidden; float:left; width:47.9%; height:auto; margin-bottom: 9.4px;}
+#container .main .una-seccion .mas-videos img{position:relative; overflow:hidden; float:left; width:30%; height:auto; display:block; margin-right:2%;}
+#container .main .una-seccion .mas-videos h3{ width:68%; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#424143; margin:0 0 3px 0; display:block; float:left; line-height: 12px;}
+#container .main .una-seccion .mas-videos p{ width:100%; font-family:Verdana, Geneva, sans-serif; font-size:9px; color:#000; margin:0; display:block;}
+#container .main .una-seccion .mas-videos a{text-decoration: none;}
+
+/**************** Slade  home ****************/
+
+/* Basic jQuery Slider essential styles */
+
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{display:none;position:absolute;}
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999;}
+ol.bjqs-markers{list-style:none;margin:0;padding:0;z-index:9999;}
+ol.bjqs-markers li{float:left;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+
+#container-banner{width:100%; padding:0 0 36px 0;margin:0 auto;overflow:hidden;}
+#banner {height:300px;width:714px;margin:0 auto;position:relative;}
+ul.bjqs-controls li a{width: 33px; height: 350px; display:block; top:0px !important; position:absolute; font-family:Verdana, Geneva, sans-serif; line-height: 346px; font-size: 42px; color:#fff; text-decoration:none; text-transform:uppercase;}
+a.bjqs-prev{left:0; background-image: url(images/prev_slide.png);}
+a.bjqs-next{ right:0; background-image: url(images/next_slide.png);}
+div.bjqs-caption{position: relative; background:rgba(0,0,0,0.7); color:#fff; height: 50px; overflow: hidden; margin-top: -4px; text-align:center; font-family:Verdana, Geneva, sans-serif;}
+div.bjqs-caption p{ position: relative; overflow: hidden; width: 90%; height: auto display: block; margin: 4px 38px; font-size: 18px; text-align: left;}
+div.bjqs-caption p.subtit{ margin: 0px 38px; font-size: 12px;}
+ol.bjqs-markers{ position:absolute; top:5px; left: 600px!important;}
+ol.bjqs-markers li{ float:left; margin:0 1.5px;}
+ol.bjqs-markers li a{ display:block; height:10px; width:9px; overflow:hidden; text-indent:-9999px; background-image: url(images/reposo-slide.png);}
+ol.bjqs-markers li.active-marker a{ background-image: url(images/line-slide.png);}
+
+/**************** End Slade  home ****************/
+
+#container .main .un-tercio{position: relative; overflow: hidden; width: 31%; height: auto; float: left; margin-right: 8px;}
+#container .main .un-tercio h4{ position: relative; overflow: hidden; width: 100%;  font-family:Arial, Helvetica, sans-serif; font-size:19px; color:#A2222F; display: block; text-align: center; font-weight: normal; margin: 28px 0 12px 0;}
+#container .main .un-tercio .col-estrenos{ position: relative; overflow: hidden; width: 100%; margin-bottom: 11px; }
+#container .main .un-tercio .col-estrenos img{ width: 23%; height: auto; margin-right: 5%; float: left;}
+#container .main .un-tercio .col-estrenos h3{ width:72%; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#424143; margin:4px 0 6px 0; display:block; float:left; line-height: 12px;}
+#container .main .un-tercio .col-estrenos p{ width:100%; font-family:Verdana, Geneva, sans-serif; font-size:9px; color:#000; margin:0; display:block;}
+#container .main .separador{position: relative; overflow: hidden; float: left; width: 5px; height: 303px; background-image: url(images/barra.jpg); margin:42px 8px 0 0;}
+#container .main .noticias-home .col-estrenos h3{ width:100%; margin-bottom: 2px;}
+#container .main .noticias-home .col-estrenos p{ width:100%; display: block; margin-bottom: 10px;}
+
+#container .content #footer{position:relative; overflow:hidden; clear:both; width: 100%; height:33px; margin-top: 21px; background-image: url(images/fondo-footer.jpg);}
+#container .content #footer p{position: relative; overflow: hidden; width: 50%; display: block; text-align: center;  font-family:Arial, Helvetica, sans-serif; font-size:9px; color:#fff; margin: 5px auto 0px auto;}
+
+#container .main .archive{width: 66%;}
+#container .main .archive h4{position: relative; overflow: hidden; width: 100%;font-family: Verdana, Geneva, sans-serif;font-size: 28px;color: #FFFFFF;display: block;text-align: center;font-weight: normal;background-color: #880F1C;border-radius: 13px;margin: 0px 0 12px 0;}
+#container .main .archive #trailer-uno{width: 100%;}
+#container .main .archive #trailer-uno iframe#un-video{height: 317px;}
+#container .main .archive #trailer-uno #info-video{padding-bottom: 7px; height: auto; margin-bottom: 15px;}
+#container .main .archive .mas-videos{width: 100%;}
