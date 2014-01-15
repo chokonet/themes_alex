@@ -16,10 +16,10 @@
 		<![endif]-->
 
 	<div id="container">
-	
+
 		<div id="palomitas_left"></div>
 		<div class="content">
-		
+
 			<div id="header">
 				<div class="top-header"></div>
 				<ul class="redes">
@@ -31,13 +31,13 @@
 				<h1 id="logo">Film</h1>
 			   <ul class="nav">
 					<li class="bt-left"><a href="#">Servicios</a></li>
-					<li class=""><a href="#">Primicias</a></li>
-					<li class=""><a href="#">Trailers</a></li>
-					<li class=""><a href="#">Nanometrajes</a></li>
+					<li class=""><a href="<?php echo site_url('/category/primicias/'); ?>">Primicias</a></li>
+					<li class=""><a href="<?php echo site_url('/category/trailers/'); ?>">Trailers</a></li>
+					<li class=""><a href="<?php echo site_url('/category/nanometrajes/'); ?>">Nanometrajes</a></li>
 					<li><a href="#">Estrenos</a>
 						<ul class="submenu">
-							<li>Cine</li>
-							<li>DVD/BR</li>
+							<li><a href="<?php echo site_url('/category/estrenos-cine/'); ?>">Cine</a></li>
+							<li><a href="<?php echo site_url('/category/estrenos-dvdbr/'); ?>">DVD/BR</a></li>
 						</ul>
 					</li>
 					<li class=""><a href="#">Contacto</a></li>

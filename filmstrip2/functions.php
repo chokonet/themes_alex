@@ -79,7 +79,7 @@
 	if ( function_exists('add_image_size') ){
 
 		add_image_size( 'video_home', 167, 94, true );
-		add_image_size( 'estrenos_home', 60, 90, true );
+		add_image_size( 'estrenos_home', 135, 203, true );
 		add_image_size( 'slide_home', 842, 350, true );
 
 		// cambiar el tamaño del thumbnail
@@ -118,7 +118,11 @@
 
 	add_action( 'pre_get_posts', function($query){
 
-		if ( $query->is_main_query() and ! is_admin() ) {
+		if ( ! is_admin() AND $query->is_main_query()  ) {
+
+			if ( is_category() ) {
+				$query->set('posts_per_page', 6);
+			}
 
 		}
 		return $query;

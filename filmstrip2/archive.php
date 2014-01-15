@@ -3,6 +3,11 @@
 		<div class="main">
 
 			<div class="una-seccion archive">
+
+				<div class="mas-videos titulos">
+					<h2><?php echo single_cat_title("", false);?></h2>
+				</div>
+
 				<?php if(have_posts()): $count = 1; while(have_posts()): the_post();
 					$director = get_post_meta($post->ID, 'director', true);
 					$reparto  = get_post_meta($post->ID, 'reparto', true);
@@ -22,7 +27,7 @@
 						</div>
 					<?php else: ?>
 						<div class="mas-videos">
-							<a href="<?php the_permalink(); ?>"><img src="<?php bloginfo('template_url'); ?>/images/vid1.jpg"  /></a>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'video_home'); ?></a>
 							<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
 							<a href="<?php the_permalink(); ?>"><p>Dirección: <?php echo $director; ?></p></a>
 							<a href="<?php the_permalink(); ?>"><p>Reparto: <?php echo $reparto; ?></p></a>

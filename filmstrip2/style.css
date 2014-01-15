@@ -87,9 +87,10 @@ body{margin:0; padding:0;}
 #container .main .una-seccion #trailer-uno #info-video p{ width:100%; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff; margin:0; display:block;}
 #container .main .una-seccion .mas-videos{position:relative; overflow:hidden; float:left; width:47.9%; height:auto; margin-bottom: 9.4px;}
 #container .main .una-seccion .mas-videos img{position:relative; overflow:hidden; float:left; width:30%; height:auto; display:block; margin-right:2%;}
-#container .main .una-seccion .mas-videos h3{ width:68%; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#424143; margin:0 0 3px 0; display:block; float:left; line-height: 12px;}
+#container .main .una-seccion .mas-videos h3{ width:68%; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#424143; margin:0 0 3px 0; display:block; float:left; line-height: 12px;}
 #container .main .una-seccion .mas-videos p{ width:100%; font-family:Verdana, Geneva, sans-serif; font-size:9px; color:#000; margin:0; display:block;}
-#container .main .una-seccion .mas-videos a{text-decoration: none;}
+#container .main .una-seccion .mas-videos a,
+#container .main .un-tercio .col-estrenos a{text-decoration: none;}
 
 /**************** Slade  home ****************/
 
@@ -135,4 +136,17 @@ ol.bjqs-markers li.active-marker a{ background-image: url(images/line-slide.png)
 #container .main .archive #trailer-uno{width: 100%;}
 #container .main .archive #trailer-uno iframe#un-video{height: 317px;}
 #container .main .archive #trailer-uno #info-video{padding-bottom: 7px; height: auto; margin-bottom: 15px;}
-#container .main .archive .mas-videos{width: 100%;}
+#container .main .archive .mas-videos{width: 96%;padding: 10px;background: #f6f6f5;}
+#container .main .archive .mas-videos h3{font-size: 18px; line-height: 16px;}
+#container .main .archive #trailer-uno #info-video h3{font-size: 16px;}
+#container .main .archive #trailer-uno #info-video p{font-size: 11px;}
+#container .main .archive .mas-videos p{font-size: 11px;}
+#container .main .archive .mas-videos a.contenido p{margin-top: 24px;margin-bottom: 10px;font-size: 13px;position: relative;overflow: hidden;display: block;width: 72%;}
+#container .main .estrenos .mas-videos{padding: 10px 10px 20px 10px;background-color: #f6f6f5; width: 96%;}
+#container .main .estrenos .mas-videos img{width: 24.3%; -moz-box-shadow: 0 0 9px #3F3E3E;  -webkit-box-shadow: 0 0 9px #3F3E3E; -ms-box-shadow: 0 0 9px #3F3E3E; -o-box-shadow: 0 0 9px #3F3E3E; box-shadow: 0 0 9px #3F3E3E;}
+#container .main .estrenos .mas-videos p{color: #333;}
+#container .main .estrenos .titulos,
+#container .main .archive .titulos{padding-bottom: 10px;}
+#container .main .estrenos .titulos h2,
+#container .main .archive .titulos h2{margin: 0;text-align: center;font-family: Arial, Helvetica, sans-serif;font-size: 23px;color: #424143;}
+#container .main .primicias .mas-videos a.contenido p{width: 68%;}
