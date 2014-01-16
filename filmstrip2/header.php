@@ -30,16 +30,16 @@
 				</ul>
 				<h1 id="logo">Film</h1>
 			   <ul class="nav">
-					<li class="bt-left"><a href="#">Servicios</a></li>
-					<li class=""><a href="<?php echo site_url('/category/primicias/'); ?>">Primicias</a></li>
-					<li class=""><a href="<?php echo site_url('/category/trailers/'); ?>">Trailers</a></li>
-					<li class=""><a href="<?php echo site_url('/category/nanometrajes/'); ?>">Nanometrajes</a></li>
+					<li class="bt-left"><a href="<?php echo site_url('/servicios/'); ?>">Servicios</a></li>
+					<li><a href="<?php echo site_url('/category/primicias/'); ?>">Primicias</a></li>
+					<li><a href="<?php echo site_url('/category/trailers/'); ?>">Trailers</a></li>
+					<li><a href="<?php echo site_url('/category/nanometrajes/'); ?>">Nanometrajes</a></li>
 					<li><a href="#">Estrenos</a>
 						<ul class="submenu">
 							<li><a href="<?php echo site_url('/category/estrenos-cine/'); ?>">Cine</a></li>
 							<li><a href="<?php echo site_url('/category/estrenos-dvdbr/'); ?>">DVD/BR</a></li>
 						</ul>
 					</li>
-					<li class=""><a href="#">Contacto</a></li>
+					<li class="bt-rigth"><a href="#">Contacto</a></li>
 			   </ul>
 			</div> <!-- header -->

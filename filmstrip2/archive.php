@@ -35,7 +35,7 @@
 
 				<?php endif; $count++; endwhile; ?>
 
-					<div class="navegacion clearfix">
+					<div class="mas-videos pagination">
 						<p class="anterior left"><?php previous_posts_link( '« Anterior' ); ?></p>
 						<p class="siguiente right"><?php next_posts_link( 'Siguiente »' ); ?></p>
 					</div><!-- navegacion -->
