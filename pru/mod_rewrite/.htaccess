@@ -1,0 +1,5 @@
+
+RewriteEngine On
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9]+)/?$ catalogo.php?tipo=$1&sexo=$2&talla=$3 [L,NC]
+
+# END ale

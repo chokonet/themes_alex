@@ -1,0 +1,65 @@
+Url amigables con mod_rewrite
+     
+Categorías: Tutoriales - Tags: mod_rewrite
+Algunos lo llaman pretty urls, otros url amigables, en wordpress simplemente les dicen permalinks. Pero que significa exactamente esto?
+Pongamos el ejemplo de una web de comercio online con la siguiente dirección:
+http://blablabla.com/index.php?categoria=2&productId=43&productName=Ipod%Nano&categoriaName=Reproductores
+A simple vista dicha dirección no resulta agradable, ni para la vista, ni para los buscadores como Google, etc. Una versión mejorada de la misma sería por ejemplo:
+http://blablabla.com/productos/reproductores/43_Ipod-Nano
+En el siguiente tutorial que me vienen pidiendo hace tiempo les voy a explicar lo básico para que lo puedan realizar.
+Activando mod_rewrite en el .htaccess
+Por lo general hoy en día todos los hosting dignos traen el modulo de mod_rewrite activos por defecto y sino con simplemente pedirlo deberían activarlo. Un forma fácil de comprobarlo es usando la funcion de php_info(). Para ello crear un archivo como el que se muestra a continuación y subirlo a vuestro servidor. Si el modulo mod_rewrite aparece como “loaded” no habrá problemas.
+info.php
+1
+<?php phpinfo(); ?>
+Una vez comprobado esto podemos pasar a realizar una prueba sencilla como redireccionar pagina1.html a pagina2.html .
+Para ello puedes crear dos páginas simples de la siguiente manera
+pagina1.html
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+<html>
+   <head>
+      <title>Página 1</title>
+   </head>
+   <body>
+      <p>
+       Esto es la página 1 - Esto es la página 1 - Esto es la página 1 
+      </p>
+   </body>
+</html>
+Para pagina2.html crea lo mismo tan solo cambiando el 1 por el 2 :D y sube ambos archivos a tu servidor.
+Ahora tenemos que editar el archivo .htaccess del directorio donde haz subido estos dos archivos
+.htaccess
+RewriteEngine on
+RewriteRule ^pagina1.html$ pagina2.html
+Con esta simple regla de RewriteRule estamos diciendo que si alguien en su navegador escribe www.tuweb.com/pagina1.html le mostraremos realmente pagina2.html .
+Hay que tener en cuenta que ellos seguirán viendo la dirección pagina1.html aunque el contenido mostrado sea otro.
+Estructura de mod_rewrite
+RewriteRule Pattern Substitution [OptionalFlags] ( Lo dejo en Ingles porque así lo van a encontrar en todos lados)
+RewriteRule: Es el nombre del comando a ejecutar que precede a lo demás
+Pattern: O patrón en Español , corresponde a un patrón de expresiones regulares. En el ejemplo anterior ^ significa comienzo de cadena y $ indica el final , por lo que si lo que se encuentra en medio es igual a página1.html entra en juego el siguiente punto, substitution.
+Substitution: Es el valor retornado si se cumple el pattern anterior.
+Optional Flags: Son opcionales e indican diversas cosas a nuestra regla. Se utilizan entre corchetes y separadas por comas. EJ: [L,R=300] En este caso L significa que es la última regla que se aplica si se cumple, y R que es una redirección con código 300
+Aunque a simple vista resulta complicado no se asusten, en el siguiente ejemplo lo van a ver con más claridad.
+Lo más importante es conocer un poco de expresiones regulares y de como es su funcionamiento , igualmente en el ejemplo voy a explicar cada parte.
+Usando mod_rewrite en la url del principio
+Para convertir http://blablabla.com/index.php?categoria=2&productId=43&amp;productName=Ipod%Nano&categoriaName=Reproductos en http://blablabla.com/productos/reproductores/43_Ipod-Nano usamos el siguiente código:
+RewriteRule ^productos/([^/.]+)/([0-9]+)_([a-zA-Z-]+)/?$  index.php?categoriaName=$1&productId=$2&productName=$3 [L]
+Ahora veamos la siguiente regla paso por paso:
+^productos/: Si la página solicitada no empieza con la palabra productos/ la regla entera es ignorada.
+([^/.]+) : Lo que se encuentra entre paréntesis se llaman grupos capturados que la regla recordara para pasar como valor más tarde. Este grupo al ser el primero corresponde a $1 y significa = cualquier valor excepto (^) la barra (/) o el punto (.) el signo + significa que este valor se repite una o más veces.
+([0-9]+) : Este segundo grupo que corresponde a $2 se encarga de capturar cualquier dígito del 0 al 9 ([0-9]) una o más veces (+)
+([a-zA-Z-]+) : El tercer grupo que corresponde a $3 captura las letras de “a” a la “z” y de “A” a la “Z” y también el guion medio (-) , todo ello una o más veces.
+/?$ : Por último indicamos que la url puede o no terminar con una barra / . Por lo que productos/43_ipod-nano es tan válido como productos/43_ipod-nano/
+La segunda parte (substitution) es la url a la que redirigimos nuestra url amigable pasando los valores capturados como variables $_GET
+Y como optionals flags les pasamos [L] que significa “si esta regla se cumple no ejecutar más reglas”
+Como pueden ver gracias a las expresiones regulares y la magia de mod_rewrite podemos crear urls amigables fácilmente
+Más adelante voy a explicar como protegerse del hotlinking gracias al mod_rewrite. Creo que de momento tienen bastante material para experimentar y jugar en sus servidores locales.
